@@ -32,15 +32,36 @@
 
 package org.sagebionetworks.research.modules.psorcast.step.body_selection;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.view.View;
 
 import org.sagebionetworks.research.mobile_ui.show_step.view.FormUIStepFragment;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase;
 import org.sagebionetworks.research.modules.psorcast.R;
+import org.sagebionetworks.research.modules.psorcast.result.BodySelectionResult;
+import org.sagebionetworks.research.presentation.model.form.ChoiceInputFieldViewBase;
+import org.sagebionetworks.research.presentation.model.form.InputFieldView;
 import org.sagebionetworks.research.presentation.model.interfaces.StepView;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.threeten.bp.Instant;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class ShowBodySelectionStepFragment extends FormUIStepFragment {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShowBodySelectionStepFragment.class);
+    public static final String BODY_SELECTION_KEY = "bodySelection";
 
     @NonNull
     public static ShowBodySelectionStepFragment newInstance(@NonNull StepView stepView) {
@@ -53,5 +74,54 @@ public class ShowBodySelectionStepFragment extends FormUIStepFragment {
     @Override
     protected int getLayoutId() {
         return R.layout.srpm_show_body_selection_step_fragment;
+    }
+
+    public void writeBodySelectionResult(Set<String> bodySelection) {
+        BodySelectionResult result = new BodySelectionResult(
+                BODY_SELECTION_KEY, Instant.now(), Instant.now(), bodySelection);
+        this.performTaskViewModel.addStepResult(result);
+    }
+
+    @Override
+    protected void initializeRecyclerView() {
+        // no-op, we do completely custom view
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View result = super.onCreateView(inflater, container, savedInstanceState);
+
+        RecyclerView recyclerView = this.stepViewBinding.getRecyclerView();
+        if (recyclerView != null) {
+            recyclerView.setHasFixedSize(true);
+            LinearLayoutManager manager = new LinearLayoutManager(recyclerView.getContext());
+            recyclerView.setLayoutManager(manager);
+            DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(),
+                    manager.getOrientation());
+            Drawable drawable = this.getContext().getResources().getDrawable(R.drawable.form_step_divider);
+            decoration.setDrawable(drawable);
+            recyclerView.addItemDecoration(decoration);
+
+            List<InputFieldView> inputFields = stepView.getInputFields();
+            if (inputFields.isEmpty()) {
+                LOGGER.warn("Form step with no input fields created.");
+                return result;
+            } else if (inputFields.size() > 1) {
+                LOGGER.warn("Form step with more than 1 input field created, using the first input field.");
+            }
+
+            InputFieldView inputField = inputFields.get(0);
+            if (!(inputField instanceof ChoiceInputFieldViewBase<?>)) {
+                LOGGER.warn("Form step with a non ChoiceInput field created.");
+                return result;
+            }
+
+            ChoiceInputFieldViewBase<?> choiceInputField = (ChoiceInputFieldViewBase<?>) inputField;
+            BodySelectionAdapter<?> adapter = new BodySelectionAdapter<>(this, recyclerView,
+                    choiceInputField.getChoices(), new HashSet<>());
+            recyclerView.setAdapter(adapter);
+        }
+
+        return result;
     }
 }

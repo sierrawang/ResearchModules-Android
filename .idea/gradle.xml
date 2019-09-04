@@ -3,6 +3,22 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/../SageResearch-Android" name="SageResearch-Android">
+                <projects>
+                  <project path="$PROJECT_DIR$/../SageResearch-Android" />
+                  <project path="$PROJECT_DIR$/../SageResearch-Android/app" />
+                  <project path="$PROJECT_DIR$/../SageResearch-Android/data" />
+                  <project path="$PROJECT_DIR$/../SageResearch-Android/domain" />
+                  <project path="$PROJECT_DIR$/../SageResearch-Android/mobile-ui" />
+                  <project path="$PROJECT_DIR$/../SageResearch-Android/presentation" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -13,6 +29,12 @@
             <option value="$PROJECT_DIR$/motor-control-test-app" />
             <option value="$PROJECT_DIR$/psorcast" />
             <option value="$PROJECT_DIR$/psorcast-test-app" />
+            <option value="$PROJECT_DIR$/../SageResearch-Android" />
+            <option value="$PROJECT_DIR$/../SageResearch-Android/app" />
+            <option value="$PROJECT_DIR$/../SageResearch-Android/data" />
+            <option value="$PROJECT_DIR$/../SageResearch-Android/domain" />
+            <option value="$PROJECT_DIR$/../SageResearch-Android/mobile-ui" />
+            <option value="$PROJECT_DIR$/../SageResearch-Android/presentation" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
