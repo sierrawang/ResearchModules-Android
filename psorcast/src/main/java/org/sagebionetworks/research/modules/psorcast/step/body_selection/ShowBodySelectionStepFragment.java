@@ -54,7 +54,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.threeten.bp.Instant;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -76,7 +75,7 @@ public class ShowBodySelectionStepFragment extends FormUIStepFragment {
         return R.layout.srpm_show_body_selection_step_fragment;
     }
 
-    public void writeBodySelectionResult(Set<String> bodySelection) {
+    public void writeBodySelectionResult(HashSet<String> bodySelection) {
         BodySelectionResult result = new BodySelectionResult(
                 BODY_SELECTION_KEY, Instant.now(), Instant.now(), bodySelection);
         this.performTaskViewModel.addStepResult(result);

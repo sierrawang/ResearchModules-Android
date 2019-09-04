@@ -53,7 +53,7 @@
       }
     },
     {
-      "identifier": "upperFrontPlaqueBodyMap",
+      "identifier": "frontUpperPlaqueBodyMap",
       "type": "plaqueBodyMap",
       "title": "Front of the upper body",
       "text": "Draw areas that have plaques",
@@ -70,24 +70,7 @@
       }
     },
     {
-      "identifier": "upperBackPlaqueBodyMap",
-      "type": "plaqueBodyMap",
-      "title": "Back of the upper body",
-      "text": "Draw areas that have plaques",
-      "actions": {
-        "goForward": {
-          "type": "base",
-          "buttonTitle": "Next"
-        }
-      },
-      "image": {
-        "type": "fetchable",
-        "imageName": "srpm_upper_back_body",
-        "placementType": "fullsizeBackground"
-      }
-    },
-    {
-      "identifier": "lowerFrontPlaqueBodyMap",
+      "identifier": "frontLowerPlaqueBodyMap",
       "type": "plaqueBodyMap",
       "title": "Front of the lower body",
       "text": "Draw areas that have plaques",
@@ -104,7 +87,24 @@
       }
     },
     {
-      "identifier": "lowerBackPlaqueBodyMap",
+      "identifier": "backUpperPlaqueBodyMap",
+      "type": "plaqueBodyMap",
+      "title": "Back of the upper body",
+      "text": "Draw areas that have plaques",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_upper_back_body",
+        "placementType": "fullsizeBackground"
+      }
+    },
+    {
+      "identifier": "backLowerPlaqueBodyMap",
       "type": "plaqueBodyMap",
       "title": "Back of the lower body",
       "text": "Draw areas that have plaques",

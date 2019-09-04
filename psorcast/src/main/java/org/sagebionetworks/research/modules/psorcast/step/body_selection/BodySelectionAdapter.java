@@ -108,7 +108,7 @@ public class BodySelectionAdapter<T> extends RecyclerView.Adapter<BodySelectionV
         return this.choices.size();
     }
 
-    public Set<String> getSelectedChoices() {
+    public HashSet<String> getSelectedChoices() {
         return new HashSet<>(this.selectedChoices);
     }
 }

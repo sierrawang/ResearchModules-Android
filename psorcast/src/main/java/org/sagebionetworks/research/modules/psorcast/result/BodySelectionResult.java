@@ -38,11 +38,21 @@ import org.sagebionetworks.research.domain.result.AnswerResultType;
 import org.sagebionetworks.research.domain.result.implementations.AnswerResultBase;
 import org.threeten.bp.Instant;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class BodySelectionResult extends AnswerResultBase<Set> {
+
+    @NonNull
+    private final HashSet<String> bodySelections;
+
+    public HashSet<String> getBodySelections() {
+        return new HashSet<>(bodySelections);
+    }
+
     public BodySelectionResult(@NonNull final String identifier, @NonNull final Instant startTime,
-            @NonNull final Instant endTime, final Set<String> bodySelection) {
+            @NonNull final Instant endTime, final HashSet<String> bodySelection) {
         super(identifier, startTime, endTime, bodySelection, AnswerResultType.STRING); // Not sure about this resultType
+        bodySelections = bodySelection;
     }
 }
