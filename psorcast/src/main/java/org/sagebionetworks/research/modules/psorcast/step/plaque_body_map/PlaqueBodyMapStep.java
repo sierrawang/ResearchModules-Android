@@ -124,7 +124,6 @@ public abstract class PlaqueBodyMapStep implements ThemedUIStep, StepNavigationS
     @Override
     public boolean shouldSkip(@NonNull TaskResult taskResult) {
         String currentStep = this.getIdentifier();
-        currentStep = currentStep.replace("PlaqueBodyMap", "");
         Result stepResult = taskResult.getResult(ShowBodySelectionStepFragment.BODY_SELECTION_KEY);
         if (stepResult instanceof BodySelectionResult) {
             Set<String> bodySelections = ((BodySelectionResult) stepResult).getBodySelections();

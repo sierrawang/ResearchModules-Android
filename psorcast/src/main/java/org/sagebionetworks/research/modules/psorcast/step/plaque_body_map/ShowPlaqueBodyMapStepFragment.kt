@@ -95,15 +95,4 @@ class ShowPlaqueBodyMapStepFragment :
         return b
     }
 
-//    override fun update(stepView: PlaqueBodyMapStepView?) {
-//        super.update(stepView)
-//        var taskResult = this.performTaskViewModel.taskResult
-//
-//        var nextBodySelection = nextBodySelection(taskResult)
-//    }
-//
-//    fun nextBodySelection(taskResult: TaskResult): String {
-//
-//    }
-
 }

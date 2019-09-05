@@ -14,7 +14,7 @@
       }
     },
     {
-      "identifier": "plaqueBodyMapSelection",
+      "identifier": "bodySelection",
       "type": "bodySelection",
       "title": "Select areas on your body that currently have plaques.",
       "inputFields": [
@@ -53,7 +53,7 @@
       }
     },
     {
-      "identifier": "frontUpperPlaqueBodyMap",
+      "identifier": "frontUpper",
       "type": "plaqueBodyMap",
       "title": "Front of the upper body",
       "text": "Draw areas that have plaques",
@@ -70,7 +70,7 @@
       }
     },
     {
-      "identifier": "frontLowerPlaqueBodyMap",
+      "identifier": "frontLower",
       "type": "plaqueBodyMap",
       "title": "Front of the lower body",
       "text": "Draw areas that have plaques",
@@ -87,7 +87,7 @@
       }
     },
     {
-      "identifier": "backUpperPlaqueBodyMap",
+      "identifier": "backUpper",
       "type": "plaqueBodyMap",
       "title": "Back of the upper body",
       "text": "Draw areas that have plaques",
@@ -104,7 +104,7 @@
       }
     },
     {
-      "identifier": "backLowerPlaqueBodyMap",
+      "identifier": "backLower",
       "type": "plaqueBodyMap",
       "title": "Back of the lower body",
       "text": "Draw areas that have plaques",
