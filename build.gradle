@@ -21,11 +21,10 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.18"
 
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
         // SageResearch
-        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.17"
         classpath "com.jakewharton:butterknife-gradle-plugin:$butterknife_version"
 
         //quality
@@ -38,12 +37,41 @@ buildscript {
 }
 
 allprojects {
-    version = '0.1.0-SNAPSHOT'
+    version = '0.1.0'
     group = 'org.sagebionetworks.research.modules'
 
     repositories {
         google()
         jcenter()
+    }
+}
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.plugins.hasPlugin('com.android.library')) {
+            apply plugin: 'org.jetbrains.dokka-android'
+
+            task sourcesJar(type: Jar) {
+                from android.sourceSets.main.java.srcDirs
+                classifier = 'sources'
+            }
+
+            dokka {
+                outputFormat = 'html'
+                outputDirectory = "$buildDir/javadoc"
+            }
+
+            task javadocJar(type: Jar, dependsOn: dokka) {
+                classifier = 'javadoc'
+                from dokka.outputDirectory
+            }
+
+            artifacts {
+                // TODO: package javadoc for maven artifact publishing
+                archives javadocJar
+                archives sourcesJar
+            }
+        }
     }
 }
 
