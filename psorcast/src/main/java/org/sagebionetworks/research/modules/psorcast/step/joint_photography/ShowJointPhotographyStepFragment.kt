@@ -44,8 +44,10 @@ import org.sagebionetworks.research.presentation.model.interfaces.StepView
 // STUFF ADDED FOR CAMERAX
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Bundle
 import androidx.core.content.ContextCompat
 import android.widget.Toast
+import kotlinx.android.synthetic.main.srpm_show_joint_photography_step_fragment.view_finder
 
 // This is an arbitrary number we are using to keep tab of the permission
 // request. Where an app has multiple context for requesting permission,
@@ -77,6 +79,19 @@ class ShowJointPhotographyStepFragment :
     }
 
     // STUFF ADDED FOR CAMERAX
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewFinder = view_finder
+
+        if (allPermissionsGranted()) {
+            viewFinder.post { startCamera() }
+        } else {
+            requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+        }
+    }
+
     private lateinit var viewFinder: TextureView
 
     private fun startCamera() {
