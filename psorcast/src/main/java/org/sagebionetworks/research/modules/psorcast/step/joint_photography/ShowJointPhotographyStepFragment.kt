@@ -32,7 +32,6 @@
 
 package org.sagebionetworks.research.modules.psorcast.step.joint_photography
 
-import android.view.TextureView
 import androidx.annotation.NonNull
 import android.view.View
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase
@@ -40,20 +39,6 @@ import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentB
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding
 import org.sagebionetworks.research.modules.psorcast.R
 import org.sagebionetworks.research.presentation.model.interfaces.StepView
-
-// STUFF ADDED FOR CAMERAX
-import android.Manifest
-import android.content.pm.PackageManager
-import androidx.core.content.ContextCompat
-import android.widget.Toast
-
-// This is an arbitrary number we are using to keep tab of the permission
-// request. Where an app has multiple context for requesting permission,
-// this can help differentiate the different contexts
-private const val REQUEST_CODE_PERMISSIONS = 10
-
-// This is an array of all the permission specified in the manifest
-private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
 
 class ShowJointPhotographyStepFragment :
         ShowUIStepFragmentBase<JointPhotographyStepView, ShowJointPhotographyStepViewModel, UIStepViewBinding<JointPhotographyStepView>>() {
@@ -74,33 +59,5 @@ class ShowJointPhotographyStepFragment :
 
     override fun instantiateAndBindBinding(view: View?): UIStepViewBinding<JointPhotographyStepView> {
         return UIStepViewBinding(view)
-    }
-
-    // STUFF ADDED FOR CAMERAX
-    private lateinit var viewFinder: TextureView
-
-    private fun startCamera() {
-        // TODO
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
-            grantResults: IntArray) {
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-                viewFinder.post { startCamera() }
-            } else {
-                Toast.makeText(context,
-                        "Permissions not granted by the user.",
-                        Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    /**
-     * Check if all permission specified in the manifest have been granted
-     */
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(
-                requireContext(), it) == PackageManager.PERMISSION_GRANTED
     }
 }
