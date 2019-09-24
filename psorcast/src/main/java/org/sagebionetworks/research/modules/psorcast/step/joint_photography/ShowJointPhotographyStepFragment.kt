@@ -43,11 +43,36 @@ import org.sagebionetworks.research.presentation.model.interfaces.StepView
 
 // STUFF ADDED FOR CAMERAX
 import android.Manifest
+import android.annotation.TargetApi
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.util.Log
+import android.util.Rational
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import android.widget.Toast
+import androidx.camera.core.CameraX
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCapture.CaptureMode.MIN_LATENCY
+import androidx.camera.core.ImageCapture.ImageCaptureError
+import androidx.camera.core.ImageCaptureConfig
+import androidx.camera.core.Preview
+import androidx.camera.core.PreviewConfig
+import androidx.constraintlayout.widget.ConstraintLayout
+import kotlinx.android.synthetic.main.srpm_show_joint_photography_step_fragment.camera_ui_container
+import kotlinx.android.synthetic.main.srpm_show_joint_photography_step_fragment.view.capture_button
 import kotlinx.android.synthetic.main.srpm_show_joint_photography_step_fragment.view_finder
+import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.ANIMATION_FAST_MILLIS
+import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.ANIMATION_SLOW_MILLIS
+import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.AutoFitPreviewBuilder
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 // This is an arbitrary number we are using to keep tab of the permission
 // request. Where an app has multiple context for requesting permission,
@@ -56,6 +81,16 @@ private const val REQUEST_CODE_PERMISSIONS = 10
 
 // This is an array of all the permission specified in the manifest
 private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+
+private const val TAG = "JointPhotography"
+private const val FILENAME = "yyyy-MM-dd-HH-mm-ss-SSS"
+private const val PHOTO_EXTENSION = ".jpg"
+
+fun createFile(baseFolder: File, format: String, extension: String): File {
+    return File(baseFolder,
+            SimpleDateFormat(format, Locale.US).format(System.currentTimeMillis()) + extension)
+}
+
 
 class ShowJointPhotographyStepFragment :
         ShowUIStepFragmentBase<JointPhotographyStepView, ShowJointPhotographyStepViewModel, UIStepViewBinding<JointPhotographyStepView>>() {
@@ -83,7 +118,10 @@ class ShowJointPhotographyStepFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        container = view as ConstraintLayout
         viewFinder = view_finder
+
+        outputDirectory = context!!.filesDir
 
         if (allPermissionsGranted()) {
             viewFinder.post { startCamera() }
@@ -93,9 +131,68 @@ class ShowJointPhotographyStepFragment :
     }
 
     private lateinit var viewFinder: TextureView
+    private lateinit var container: ConstraintLayout
+    private lateinit var outputDirectory: File
+
+    private var preview: Preview? = null
+    private var imageCapture: ImageCapture? = null
 
     private fun startCamera() {
-        // TODO
+        updateCameraUi()
+        bindCameraUseCases()
+    }
+
+    private val imageSavedListener = object : ImageCapture.OnImageSavedListener {
+        override fun onError(imageCaptureError: ImageCaptureError, message: String, cause: Throwable?) {
+            Log.e(TAG, "Photo capture failed: $message")
+            cause?.printStackTrace()
+        }
+
+        override fun onImageSaved(photoFile: File) {
+            Log.d(TAG, "Photo capture succeeded: ${photoFile.absolutePath}")
+        }
+    }
+
+    private fun updateCameraUi() {
+        camera_ui_container.capture_button.setOnClickListener {
+            imageCapture?.let {imageCapture ->
+                val photoFile = createFile(outputDirectory, FILENAME, PHOTO_EXTENSION)
+
+                imageCapture.takePicture(photoFile, imageSavedListener)
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    container.postDelayed({
+                        container.foreground = ColorDrawable(Color.WHITE)
+                        container.postDelayed(
+                                { container.foreground = null }, ANIMATION_FAST_MILLIS)
+                    }, ANIMATION_SLOW_MILLIS)
+                }
+            }
+        }
+    }
+
+    @TargetApi(21)
+    private fun bindCameraUseCases() {
+        // Make sure that there are no other use cases bound to CameraX
+        CameraX.unbindAll()
+
+        val metrics = DisplayMetrics().also { viewFinder.display.getRealMetrics(it) }
+        val screenAspectRatio = Rational(metrics.widthPixels, metrics.heightPixels)
+        val viewFinderConfig = PreviewConfig.Builder().apply {
+            setTargetAspectRatio(screenAspectRatio)
+            setTargetRotation(viewFinder.display.rotation)
+        }.build()
+
+        preview = AutoFitPreviewBuilder.build(viewFinderConfig, viewFinder)
+
+        val imageCaptureConfig = ImageCaptureConfig.Builder().apply {
+            setCaptureMode(MIN_LATENCY)
+            setTargetAspectRatio(screenAspectRatio)
+            setTargetRotation(viewFinder.display.rotation)
+        }.build()
+        imageCapture = ImageCapture(imageCaptureConfig)
+
+        CameraX.bindToLifecycle(this, preview, imageCapture)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
