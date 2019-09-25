@@ -78,6 +78,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/rs2_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar
         android:id="@id/rs2_step_navigation_action_bar"
         android:layout_width="0dp"

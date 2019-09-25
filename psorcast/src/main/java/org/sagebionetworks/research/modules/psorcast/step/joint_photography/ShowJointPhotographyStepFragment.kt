@@ -164,13 +164,14 @@ class ShowJointPhotographyStepFragment :
 
                 imageCapture.takePicture(photoFile, imageSavedListener)
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    container.postDelayed({
-                        container.foreground = ColorDrawable(Color.WHITE)
-                        container.postDelayed(
-                                { container.foreground = null }, ANIMATION_FAST_MILLIS)
-                    }, ANIMATION_SLOW_MILLIS)
-                }
+                // Flash the screen to demonstrate picture taking
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                    container.postDelayed({
+//                        container.foreground = ColorDrawable(Color.WHITE)
+//                        container.postDelayed(
+//                                { container.foreground = null }, ANIMATION_FAST_MILLIS)
+//                    }, ANIMATION_SLOW_MILLIS)
+//                }
             }
         }
     }
