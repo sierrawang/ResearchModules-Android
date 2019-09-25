@@ -70,6 +70,7 @@ import kotlinx.android.synthetic.main.srpm_show_joint_photography_step_fragment.
 import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.ANIMATION_FAST_MILLIS
 import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.ANIMATION_SLOW_MILLIS
 import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.AutoFitPreviewBuilder
+import org.sagebionetworks.research.presentation.model.action.ActionType
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -138,8 +139,8 @@ class ShowJointPhotographyStepFragment :
     private var imageCapture: ImageCapture? = null
 
     private fun startCamera() {
-        updateCameraUi()
         bindCameraUseCases()
+        updateCameraUi()
     }
 
     private val imageSavedListener = object : ImageCapture.OnImageSavedListener {
@@ -150,6 +151,9 @@ class ShowJointPhotographyStepFragment :
 
         override fun onImageSaved(photoFile: File) {
             Log.d(TAG, "Photo capture succeeded: ${photoFile.absolutePath}")
+
+            // Move to next step - display photo
+            showStepViewModel.handleAction(ActionType.FORWARD)
         }
     }
 
