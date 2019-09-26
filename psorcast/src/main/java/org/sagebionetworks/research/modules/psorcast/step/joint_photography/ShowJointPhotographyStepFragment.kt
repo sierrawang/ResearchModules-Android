@@ -181,8 +181,9 @@ class ShowJointPhotographyStepFragment :
         // Make sure that there are no other use cases bound to CameraX
         CameraX.unbindAll()
 
-        val metrics = DisplayMetrics().also { viewFinder.display.getRealMetrics(it) }
-        val screenAspectRatio = Rational(metrics.widthPixels, metrics.heightPixels)
+//        val metrics = DisplayMetrics().also { viewFinder.display.getRealMetrics(it) }
+//        val screenAspectRatio = Rational(metrics.widthPixels, metrics.heightPixels)
+        val screenAspectRatio = Rational(1,1)
         val viewFinderConfig = PreviewConfig.Builder().apply {
             setTargetAspectRatio(screenAspectRatio)
             setTargetRotation(viewFinder.display.rotation)
