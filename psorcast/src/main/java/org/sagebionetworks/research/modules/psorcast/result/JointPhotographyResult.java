@@ -48,6 +48,8 @@ public abstract class JointPhotographyResult implements Result {
         public abstract Builder setIdentifier(@NonNull String identifier);
         public abstract Builder setStartTime(@NonNull Instant startTime);
         public abstract Builder setEndTime(@NonNull Instant endTime);
+
+        public abstract Builder setPhotoAbsolutePath(@NonNull String photoAbsolutePath);
     }
 
     public static Builder builder() {
@@ -59,4 +61,7 @@ public abstract class JointPhotographyResult implements Result {
     public String getType() {
         return "jointPhotography";
     }
+
+    @NonNull
+    public abstract String getPhotoAbsolutePath();
 }

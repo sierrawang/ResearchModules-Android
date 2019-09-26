@@ -153,6 +153,8 @@ class ShowJointPhotographyStepFragment :
             Log.d(TAG, "Photo capture succeeded: ${photoFile.absolutePath}")
 
             // Move to next step - display photo
+            // Save the photo to the result
+            showStepViewModel.jpResultBuilder.setPhotoAbsolutePath(photoFile.absolutePath)
             showStepViewModel.handleAction(ActionType.FORWARD)
         }
     }
