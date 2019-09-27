@@ -41,7 +41,6 @@ import org.sagebionetworks.research.presentation.show_step.show_step_view_models
 class ShowPhotoDisplayStepViewModel(performTaskViewModel: PerformTaskViewModel,
         photoDisplayStepView: PhotoDisplayStepView) :
         ShowUIStepViewModel<PhotoDisplayStepView>(performTaskViewModel, photoDisplayStepView) {
-
 }
 
 class ShowPhotoDisplayStepViewModelFactory :
@@ -49,6 +48,7 @@ class ShowPhotoDisplayStepViewModelFactory :
 
     override fun create(performTaskViewModel: PerformTaskViewModel,
             stepView: PhotoDisplayStepView): ShowPhotoDisplayStepViewModel {
+
         return ShowPhotoDisplayStepViewModel(performTaskViewModel, stepView)
     }
 

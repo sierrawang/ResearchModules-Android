@@ -70,6 +70,7 @@ import kotlinx.android.synthetic.main.srpm_show_joint_photography_step_fragment.
 import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.ANIMATION_FAST_MILLIS
 import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.ANIMATION_SLOW_MILLIS
 import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.joint_photography.AutoFitPreviewBuilder
+import org.sagebionetworks.research.modules.psorcast.result.JointPhotographyResult
 import org.sagebionetworks.research.presentation.model.action.ActionType
 import java.io.File
 import java.text.SimpleDateFormat

@@ -19,7 +19,7 @@
       "title": "Left Toes"
     },
     {
-      "identifier": "verifyLeftToes",
+      "identifier": "leftToesVerify",
       "type": "photoDisplay",
       "title": "Are your nails in focus?",
       "actions": {
@@ -39,7 +39,7 @@
       "title": "Right Toes"
     },
     {
-      "identifier": "verifyRightToes",
+      "identifier": "rightToesVerify",
       "type": "photoDisplay",
       "title": "Are your nails in focus?",
       "actions": {

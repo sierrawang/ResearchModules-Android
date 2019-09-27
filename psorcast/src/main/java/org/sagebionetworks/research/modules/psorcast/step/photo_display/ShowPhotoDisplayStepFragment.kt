@@ -32,12 +32,16 @@
 
 package org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.photo_display
 
+import android.graphics.BitmapFactory
+import android.os.Bundle
 import android.view.View
 import androidx.annotation.NonNull
+import kotlinx.android.synthetic.main.srpm_show_photo_display_step_fragment.rs2_image_view
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding
 import org.sagebionetworks.research.modules.psorcast.R
+import org.sagebionetworks.research.modules.psorcast.result.JointPhotographyResult
 import org.sagebionetworks.research.modules.psorcast.step.photo_display.PhotoDisplayStepView
 import org.sagebionetworks.research.presentation.model.interfaces.StepView
 
@@ -60,5 +64,15 @@ class ShowPhotoDisplayStepFragment :
 
     override fun instantiateAndBindBinding(view: View?): UIStepViewBinding<PhotoDisplayStepView> {
         return UIStepViewBinding(view)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var identifier = stepView.identifier.replace("Verify", "")
+        var photoResult = this.performTaskViewModel.taskResult.getResult(identifier)
+        if (photoResult is JointPhotographyResult) {
+            val filePath = photoResult.photoAbsolutePath
+            val bitmap = BitmapFactory.decodeFile(filePath)
+            rs2_image_view.setImageBitmap(bitmap)
+        }
     }
 }
