@@ -1,0 +1,10 @@
+{
+  "identifier": "WalkTest",
+  "steps": [
+    {
+      "identifier": "introduction",
+      "type": "overview",
+      "title": "Walk test"
+    }
+  ]
+}

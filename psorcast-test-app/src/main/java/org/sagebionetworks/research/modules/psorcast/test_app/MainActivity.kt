@@ -36,6 +36,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.body_plaque_coverage
+import kotlinx.android.synthetic.main.activity_main.walk_test
 import org.sagebionetworks.research.domain.repository.TaskRepository
 import org.sagebionetworks.research.mobile_ui.perform_task.PerformTaskActivity
 import org.sagebionetworks.research.presentation.model.TaskView
@@ -52,6 +53,10 @@ class MainActivity : DaggerAppCompatActivity() {
 
         body_plaque_coverage.setOnClickListener {
             launchTask("PlaquesBodyMap", UUID.randomUUID())
+        }
+
+        walk_test.setOnClickListener {
+            launchTask("WalkTest", UUID.randomUUID())
         }
     }
 
