@@ -37,50 +37,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Upper Bar-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/camera_title_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <org.sagebionetworks.research.mobile_ui.widget.ActionButton
-            android:id="@id/rs2_step_navigation_action_cancel"
-            style="@style/Widget.ResearchStack.StepHeader.CancelButton"
-            android:layout_width="30dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:background="@drawable/rs2_cancel_icon"
-            android:backgroundTint="@color/srpm_dark_font"
-            app:layout_constraintDimensionRatio="H,1:1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@id/rs2_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lato"
-            android:gravity="center"
-            android:textColor="@color/srpm_dark_font"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="37dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rs2_step_navigation_action_cancel"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ImageView
         android:id="@+id/rs2_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar"
+        app:layout_constraintTop_toBottomOf="@id/camera_title_bar"/>
 
     <ImageView
         android:id="@+id/image_placeholder_upper_left"
@@ -121,6 +84,55 @@
         app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar"
         android:layout_marginBottom="29dp"
         android:src="@drawable/srpm_image_placeholder_lower_right"/>
+
+    <!-- Upper Bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/camera_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appWhite"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <org.sagebionetworks.research.mobile_ui.widget.ActionButton
+            android:id="@id/rs2_step_navigation_action_cancel"
+            style="@style/Widget.ResearchStack.StepHeader.CancelButton"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@drawable/rs2_cancel_icon"
+            android:backgroundTint="@color/srpm_dark_font"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@id/rs2_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:textColor="@color/srpm_dark_font"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="37dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rs2_step_navigation_action_cancel"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:id="@+id/rs2_step_navigation_shadow_upper"
+            android:background="@drawable/srpm_scroll_view_shadow_reverse"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/rs2_step_navigation_shadow_height"
+            app:layout_constrainedHeight="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar
         android:id="@id/rs2_step_navigation_action_bar"
