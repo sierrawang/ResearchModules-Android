@@ -35,6 +35,7 @@ package org.sagebionetworks.research.modules.psorcast.inject;
 import com.google.gson.TypeAdapterFactory;
 
 import org.sagebionetworks.research.modules.common.step.completion.CompletionStepModule;
+import org.sagebionetworks.research.modules.common.step.instruction.InstructionStepModule;
 import org.sagebionetworks.research.modules.common.step.overview.OverviewStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.plaque_body_map.PlaqueBodyMapStepModule;
 
@@ -42,7 +43,8 @@ import dagger.Module;
 import dagger.Provides;
 import dagger.multibindings.IntoSet;
 
-@Module(includes = {PlaqueBodyMapStepModule.class, OverviewStepModule.class, CompletionStepModule.class})
+@Module(includes = {PlaqueBodyMapStepModule.class, OverviewStepModule.class, CompletionStepModule.class,
+        InstructionStepModule.class})
 public class PsorcastStepModule {
     @Provides
     @IntoSet

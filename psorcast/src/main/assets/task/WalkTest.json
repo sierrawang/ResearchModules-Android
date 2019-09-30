@@ -1,10 +1,47 @@
 {
   "identifier": "WalkTest",
+  "shouldHideActions": [
+    "goBackward",
+    "skip"
+  ],
   "steps": [
     {
-      "identifier": "introduction",
-      "type": "overview",
-      "title": "Walk test"
+      "identifier": "walkInstructions",
+      "type": "instruction",
+      "title": "First, walk for 30 seconds",
+      "text": "You will be walking continuously at your normal pace for 30 seconds. Try to walk in a straight path. If you need to turn around then turn around as if you are walking around a cone.",
+      "image": {
+        "type": "animated",
+        "imageNames": [
+          "srpm_walking1",
+          "srpm_walking2",
+          "srpm_walking3",
+          "srpm_walking4",
+          "srpm_walking5",
+          "srpm_walking6",
+          "srpm_walking1",
+          "srpm_walking7",
+          "srpm_walking8",
+          "srpm_walking9",
+          "srpm_walking10",
+          "srpm_walking11"
+        ],
+        "placementType": "topMarginBackground",
+        "animationDuration": 3
+      },
+      "colorTheme": {
+        "colorStyle": {
+          "header": "darkBackground",
+          "body": "lightBackground",
+          "footer": "lightBackground"
+        }
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Primary"
+        }
+      }
     }
   ]
 }
