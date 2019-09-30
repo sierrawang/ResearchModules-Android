@@ -1,5 +1,5 @@
 {
-  "identifier": "JointPhotography",
+  "identifier": "JointPhotographyHands",
   "steps": [
     {
       "identifier": "introduction",
@@ -14,12 +14,12 @@
       }
     },
     {
-      "identifier": "leftToes",
+      "identifier": "leftHand",
       "type": "jointPhotography",
-      "title": "Left Toes"
+      "title": "Left Hand"
     },
     {
-      "identifier": "leftToesVerify",
+      "identifier": "leftHandVerify",
       "type": "photoDisplay",
       "title": "Are your nails in focus?",
       "actions": {
@@ -34,12 +34,12 @@
       }
     },
     {
-      "identifier": "rightToes",
+      "identifier": "rightHand",
       "type": "jointPhotography",
-      "title": "Right Toes"
+      "title": "Right Hand"
     },
     {
-      "identifier": "rightToesVerify",
+      "identifier": "rightHandVerify",
       "type": "photoDisplay",
       "title": "Are your nails in focus?",
       "actions": {

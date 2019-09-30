@@ -47,16 +47,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/joint_photography"/>
+        app:layout_constraintBottom_toTopOf="@id/joint_photography_hands"/>
 
     <Button
-        android:id="@+id/joint_photography"
+        android:id="@+id/joint_photography_hands"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Joint photography"
+        android:text="Hands joint photography"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/body_plaque_coverage"
+        app:layout_constraintBottom_toTopOf="@id/joint_photography_feet"/>
+
+    <Button
+        android:id="@+id/joint_photography_feet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feet joint photography"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/joint_photography_hands"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
