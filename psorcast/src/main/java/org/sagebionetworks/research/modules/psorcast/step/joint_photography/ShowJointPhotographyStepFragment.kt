@@ -53,6 +53,7 @@ import android.util.DisplayMetrics
 import android.util.Log
 import android.util.Rational
 import android.view.LayoutInflater
+import android.view.Surface
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import android.widget.Toast
@@ -117,13 +118,14 @@ class ShowJointPhotographyStepFragment :
 
     // STUFF ADDED FOR CAMERAX
 
+    @TargetApi(21)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         container = view as ConstraintLayout
         viewFinder = view_finder
 
-        outputDirectory = context!!.filesDir
+        outputDirectory = context!!.applicationContext.externalMediaDirs.first() // context!!.filesDir
 
         if (allPermissionsGranted()) {
             viewFinder.post { startCamera() }

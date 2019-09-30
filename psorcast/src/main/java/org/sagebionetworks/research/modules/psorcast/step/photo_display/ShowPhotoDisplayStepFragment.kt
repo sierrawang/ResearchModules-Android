@@ -32,7 +32,9 @@
 
 package org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.photo_display
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.NonNull
@@ -72,7 +74,11 @@ class ShowPhotoDisplayStepFragment :
         if (photoResult is JointPhotographyResult) {
             val filePath = photoResult.photoAbsolutePath
             val bitmap = BitmapFactory.decodeFile(filePath)
-            rs2_image_view.setImageBitmap(bitmap)
+            // This seems unnecessary but haven't determined why picture is rotated
+            var matrix = Matrix()
+            matrix.postRotate(90f)
+            val rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+            rs2_image_view.setImageBitmap(rotatedBitmap)
         }
     }
 }

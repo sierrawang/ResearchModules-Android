@@ -43,15 +43,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="5dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <org.sagebionetworks.research.mobile_ui.widget.ActionButton
             android:id="@id/rs2_step_navigation_action_cancel"
             style="@style/Widget.ResearchStack.StepHeader.CancelButton"
             android:layout_width="30dp"
             android:layout_height="0dp"
-            android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
             android:background="@drawable/rs2_cancel_icon"
@@ -81,7 +79,48 @@
     <ImageView
         android:id="@+id/rs2_image_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/image_placeholder_upper_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/rs2_image_view"
+        android:layout_marginStart="29dp"
+        app:layout_constraintTop_toBottomOf="@id/camera_title_bar"
+        android:layout_marginTop="29dp"
+        android:src="@drawable/srpm_image_placeholder_upper_left"/>
+
+    <ImageView
+        android:id="@+id/image_placeholder_upper_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/rs2_image_view"
+        android:layout_marginEnd="29dp"
+        app:layout_constraintTop_toBottomOf="@id/camera_title_bar"
+        android:layout_marginTop="29dp"
+        android:src="@drawable/srpm_image_placeholder_upper_right"/>
+
+    <ImageView
+        android:id="@+id/image_placeholder_lower_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/rs2_image_view"
+        android:layout_marginStart="29dp"
+        app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar"
+        android:layout_marginBottom="29dp"
+        android:src="@drawable/srpm_image_placeholder_lower_left"/>
+
+    <ImageView
+        android:id="@+id/image_placeholder_lower_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/rs2_image_view"
+        android:layout_marginEnd="29dp"
+        app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar"
+        android:layout_marginBottom="29dp"
+        android:src="@drawable/srpm_image_placeholder_lower_right"/>
 
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar
         android:id="@id/rs2_step_navigation_action_bar"
@@ -90,6 +129,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:isSkipHidden="true" />
+        app:isSkipHidden="true"
+        android:background="@color/appWhite"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
