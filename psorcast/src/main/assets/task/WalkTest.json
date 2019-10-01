@@ -41,7 +41,7 @@
       "identifier": "volumeInstructions",
       "type": "instruction",
       "title": "Turn the volume up",
-      "text": "Bring your phone with you and turn up your phone volume so you can hear the instructions while you are talking.",
+      "text": "Bring your phone with you and turn up your phone volume so you can hear the instructions while you are walking.",
       "image": {
         "type": "fetchable",
         "imageName": "srpm_volume",
@@ -77,7 +77,7 @@
       "identifier": "pocketInstructions",
       "type": "instruction",
       "title": "Put the phone in your pocket",
-      "text": "This test measures your leg movement and you will need to put your phone in you pocket. If you do not have pockets you can place the phone in the waistband of your pants.",
+      "text": "This test measures your leg movement and you will need to put your phone in your front pocket. If you do not have pockets you can place the phone in the waistband of your pants.",
       "image": {
         "type": "animated",
         "imageNames": [
@@ -94,6 +94,18 @@
           "buttonTitle": "Primary"
         }
       }
+    },
+    {
+      "identifier": "countdown.1",
+      "type": "mtcCountdown",
+      "text": "Begin in...",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_walking_transparent1",
+        "placementType": "fullsizeBackground",
+        "backgroundColor": "#6DB585"
+      },
+      "duration": 5
     }
   ]
 }
