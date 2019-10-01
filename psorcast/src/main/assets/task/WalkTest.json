@@ -19,7 +19,7 @@
           "srpm_walking4",
           "srpm_walking5",
           "srpm_walking6",
-          "srpm_walking1",
+          "srpm_walking12",
           "srpm_walking7",
           "srpm_walking8",
           "srpm_walking9",
@@ -27,14 +27,66 @@
           "srpm_walking11"
         ],
         "placementType": "topMarginBackground",
-        "animationDuration": 3
+        "animationDuration": 3,
+        "backgroundColor": "#6DB585"
       },
-      "colorTheme": {
-        "colorStyle": {
-          "header": "darkBackground",
-          "body": "lightBackground",
-          "footer": "lightBackground"
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Primary"
         }
+      }
+    },
+    {
+      "identifier": "volumeInstructions",
+      "type": "instruction",
+      "title": "Turn the volume up",
+      "text": "Bring your phone with you and turn up your phone volume so you can hear the instructions while you are talking.",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_volume",
+        "placementType": "topMarginBackground",
+        "backgroundColor": "#6DB585"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Primary"
+        }
+      }
+    },
+    {
+      "identifier": "pantsInstructions",
+      "type": "instruction",
+      "title": "Pants with front pockets",
+      "text": "Before continuing on with the short walk, please make sure you have front pockets so you have a place to put the phone. If you do not have pockets you can place the phone in the waistband of your pants.",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_pants",
+        "placementType": "topMarginBackground",
+        "backgroundColor": "#6DB585"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Primary"
+        }
+      }
+    },
+    {
+      "identifier": "pocketInstructions",
+      "type": "instruction",
+      "title": "Put the phone in your pocket",
+      "text": "This test measures your leg movement and you will need to put your phone in you pocket. If you do not have pockets you can place the phone in the waistband of your pants.",
+      "image": {
+        "type": "animated",
+        "imageNames": [
+          "srpm_pocket1",
+          "srpm_pocket2",
+          "srpm_pocket3"
+        ],
+        "placementType": "topMarginBackground",
+        "animationDuration": 1
       },
       "actions": {
         "goForward": {
