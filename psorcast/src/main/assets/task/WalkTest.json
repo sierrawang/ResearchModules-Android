@@ -97,7 +97,7 @@
     },
     {
       "identifier": "countdown.1",
-      "type": "mtcCountdown",
+      "type": "srpmCountdown",
       "text": "Begin in...",
       "image": {
         "type": "fetchable",

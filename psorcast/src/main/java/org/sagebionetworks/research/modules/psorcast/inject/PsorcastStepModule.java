@@ -38,17 +38,18 @@ import org.sagebionetworks.research.modules.common.step.completion.CompletionSte
 import org.sagebionetworks.research.modules.common.step.instruction.InstructionStepModule;
 import org.sagebionetworks.research.modules.common.step.overview.OverviewStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.plaque_body_map.PlaqueBodyMapStepModule;
+import org.sagebionetworks.research.modules.psorcast.step.srpm_countdown.SrpmCountdownStepModule;
 
 import dagger.Module;
 import dagger.Provides;
 import dagger.multibindings.IntoSet;
 
 @Module(includes = {PlaqueBodyMapStepModule.class, OverviewStepModule.class, CompletionStepModule.class,
-        InstructionStepModule.class})
+        InstructionStepModule.class, SrpmCountdownStepModule.class})
 public class PsorcastStepModule {
     @Provides
     @IntoSet
-    static TypeAdapterFactory provideMotorControlAutoValueTypeAdapterFactory() {
+    static TypeAdapterFactory providePsorcastAutoValueTypeAdapterFactory() {
         return PsorcastAutoValueTypeAdapterFactory.create();
     }
 }
