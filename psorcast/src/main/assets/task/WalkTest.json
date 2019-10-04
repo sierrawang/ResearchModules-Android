@@ -105,7 +105,27 @@
         "placementType": "fullsizeBackground",
         "backgroundColor": "#6DB585"
       },
-      "duration": 5
+      "duration": 5,
+      "commands": [
+        "transitionAutomatically"
+      ]
+    },
+    {
+      "identifier": "completion",
+      "type": "completion",
+      "title": "Thank you!",
+      "text": "By completing this activity, you're providing us with key 'puzzle pieces' of data that we need to research how psoriasis works.",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_completion",
+        "placementType": "topBackground"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Done"
+        }
+      }
     }
   ]
 }
