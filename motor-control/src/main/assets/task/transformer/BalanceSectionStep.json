@@ -15,8 +15,8 @@
     {
       "identifier": "turnAroundInstructions",
       "type": "instruction",
-      "title": "Next, turn around and then stand still for 30 seconds",
-      "text": "You’ll turn 360 degrees and stand still, with your feet shoulder-width apart. Rest your arms by your side and try to avoid moving for 30 seconds.",
+      "title": "Turn around and then stand still",
+      "text": "You’ll turn around in a circle and stand still, with your feet shoulder-width apart.\\n\\nRest your arms by your side and try to avoid moving for 30 seconds.",
       "isFirstRunOnly": true,
       "image": {
         "type": "animated",
@@ -148,12 +148,12 @@
         },
         "learnMore": {
           "type": "navigation",
-          "skipToIdentifier": "walkInstructions",
+          "skipToIdentifier": "turnAroundInstructions",
           "buttonTitle": "Review instructions"
         }
       },
       "spokenInstructions": {
-        "start": "Turn around 360 degrees, then stand still, with your feet about shoulder-width apart. Rest your arms at your side and try to not move.",
+        "start": "Turn around in a full circle, then stand still, with your feet about shoulder-width apart. Rest your arms at your side and try to not move.",
         "halfway": "Halfway done.",
         "23": "Almost done."
       }
