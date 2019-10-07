@@ -37,6 +37,7 @@ import org.sagebionetworks.research.modules.common.step.completion.ShowCompletio
 import org.sagebionetworks.research.modules.common.step.instruction.ShowInstructionStepFragment;
 import org.sagebionetworks.research.modules.common.step.overview.ShowOverviewStepFragment;
 import org.sagebionetworks.research.modules.psorcast.step.plaque_body_map.ShowPlaqueBodyStepFragment;
+import org.sagebionetworks.research.modules.psorcast.step.psorcast_active.ShowPsorcastActiveUIStepFragment;
 import org.sagebionetworks.research.modules.psorcast.step.srpm_countdown.SrpmCountdownStepFragment;
 
 import dagger.Module;
@@ -64,4 +65,8 @@ public abstract class PsorcastShowStepFragmentsModule {
     @ContributesAndroidInjector
     @ShowStepFragmentScope
     abstract SrpmCountdownStepFragment contributeShowSrpmCountdownStepFragmentInjector();
+
+    @ContributesAndroidInjector
+    @ShowStepFragmentScope
+    abstract ShowPsorcastActiveUIStepFragment contributeShowPsorcastActiveUIStepFragmentInjector();
 }

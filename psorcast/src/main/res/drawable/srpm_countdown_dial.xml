@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ BSD 3-Clause License
   ~
   ~ Copyright 2019  Sage Bionetworks. All rights reserved.
@@ -31,6 +30,19 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
-<item name="rs2_show_completion_step_fragment_layout" type="layout" tools:ignore="ResourceName">@layout/srpm_fragment_show_completion_step</item>
-</resources>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="-90"
+    android:toDegrees="-90">
+    <shape
+        android:innerRadiusRatio="@dimen/countdownDialInnerRadiusRatio"
+        android:shape="ring"
+        android:thicknessRatio="@dimen/countdownDialThicknessRatio"
+        android:useLevel="true">
+        <gradient
+            android:centerY=".5"
+            android:endColor="#A71C5D"
+            android:startColor="#A71C5D"
+            android:type="sweep"
+            android:useLevel="false" />
+    </shape>
+</rotate>

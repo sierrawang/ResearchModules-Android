@@ -108,6 +108,65 @@
       "duration": 5,
       "commands": [
         "transitionAutomatically"
+      ],
+      "actions": {
+        "skip": {
+          "type": "navigation",
+          "skipToIdentifier": "walkInstructions",
+          "buttonTitle": "Review instructions"
+        }
+      }
+    },
+    {
+      "identifier": "walk",
+      "type": "section",
+      "asyncActions": [
+        {
+          "identifier": "motion",
+          "type": "motion",
+          "requiresBackgroundAudio": true,
+          "recorderTypes": [
+            "accelerometer",
+            "gyro"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "identifier": "motion",
+          "type": "psorcastActive",
+          "title": "Walk back and forth",
+          "duration": 30,
+          "image": {
+            "type": "fetchable",
+            "imageName": "srpm_walking_transparent1",
+            "placementType": "fullsizeBackground",
+            "backgroundColor": "#6DB585"
+          },
+          "actions": {
+            "skip": {
+              "type": "navigation",
+              "skipToIdentifier": "countdown.1",
+              "buttonTitle": "Restart test"
+            },
+            "learnMore": {
+              "type": "navigation",
+              "skipToIdentifier": "walkInstructions",
+              "buttonTitle": "Review instructions"
+            }
+          },
+          "commands": [
+            "transitionAutomatically",
+            "shouldDisableIdleTimer",
+            "vibrate",
+            "playSound"
+          ],
+          "spokenInstructions": {
+            "start": "Walk for 30 seconds. If you need to turn back, turn gently around as if you are turning around a cone.",
+            "halfway": "Halfway done.",
+            "23": "Almost done."
+          }
+        }
       ]
     },
     {
