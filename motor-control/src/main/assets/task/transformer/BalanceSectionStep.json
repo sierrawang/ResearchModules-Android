@@ -1,0 +1,162 @@
+{
+  "identifier": "balance",
+  "type": "section",
+  "asyncActions": [
+    {
+      "identifier": "motion",
+      "type": "motion",
+      "requiresBackgroundAudio": true,
+      "recorderTypes": ["accelerometer", "gyro", "gravity", "userAcceleration", "attitude", "rotationRate"],
+      "startStepIdentifier": "motion",
+      "stopStepIdentifier": "motion"
+    }
+  ],
+  "steps": [
+    {
+      "identifier": "turnAroundInstructions",
+      "type": "instruction",
+      "title": "Next, turn around and then stand still for 30 seconds",
+      "text": "You’ll turn 360 degrees and stand still, with your feet shoulder-width apart. Rest your arms by your side and try to avoid moving for 30 seconds.",
+      "isFirstRunOnly": true,
+      "image": {
+        "type": "animated",
+        "imageNames": [
+          "f_turning1",
+          "f_turning2",
+          "f_turning3",
+          "f_turning4",
+          "f_turning5",
+          "f_turning6",
+          "f_turning7",
+          "f_turning8",
+          "f_wait1",
+          "f_wait2",
+          "f_wait3"
+        ],
+        "placementType": "topMarginBackground",
+        "animationDuration": 5
+      },
+      "colorTheme": {
+        "colorStyle": {
+          "header": "darkBackground",
+          "body": "lightBackground",
+          "footer": "lightBackground"
+        }
+      },
+      "viewTheme": {
+        "viewIdentifier": "Instruction",
+        "storyboardIdentifier": "ActiveTaskSteps"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Got it"
+        }
+      },
+      "spokenInstructions": {
+        "start": "Take your phone out to review the instructions for the balance test."
+      }
+    },
+    {
+      "identifier": "phoneInPocket.2",
+      "type": "instruction",
+      "title": "Put the phone in your pocket",
+      "text": "This test measures how well you balance and you will need to put your phone in your front pocket. If you do not have pockets you can place the phone in the waistband of your pants.",
+      "isFirstRunOnly": true,
+      "image": {
+        "type": "animated",
+        "imageNames": [
+          "f_phone_pocket1",
+          "f_phone_pocket2",
+          "f_phone_pocket3"
+        ],
+        "placementType": "topBackground",
+        "animationDuration": 1.5
+      },
+      "colorTheme": {
+        "colorStyle": {
+          "header": "darkBackground",
+          "body": "lightBackground",
+          "footer": "lightBackground"
+        }
+      },
+      "viewTheme": {
+        "viewIdentifier": "Instruction",
+        "storyboardIdentifier": "ActiveTaskSteps"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Putting it in my pocket"
+        }
+      }
+    },
+    {
+      "identifier": "countdown.2",
+      "type": "mtcCountdown",
+      "text": "Begin in...",
+      "isFirstRunOnly": true,
+      "image": {
+        "type": "fetchable",
+        "imageName": "f_turning1",
+        "placementType": "fullsizeBackground"
+      },
+      "viewTheme": {
+        "viewIdentifier": "Countdown",
+        "storyboardIdentifier": "ActiveTaskSteps"
+      },
+      "colorTheme": {
+        "usesLightStyle": true
+      },
+      "duration": 5,
+      "commands": [
+        "playSoundOnStart",
+        "transitionAutomatically"
+      ],
+      "spokenInstructions": {
+        "start": "Place the phone in your pocket."
+      }
+    },
+    {
+      "identifier": "motion",
+      "type": "mpowerActive",
+      "title": "Turn around and then stand still",
+      "duration": 30,
+      "image": {
+        "type": "fetchable",
+        "imageName": "f_turning1",
+        "placementType": "fullsizeBackground"
+      },
+      "colorTheme": {
+        "usesLightStyle": true
+      },
+      "commands": [
+        "transitionAutomatically",
+        "shouldDisableIdleTimer",
+        "vibrate",
+        "playSound"
+      ],
+      "viewTheme": {
+        "viewIdentifier": "Action",
+        "storyboardIdentifier": "ActiveTaskSteps"
+      },
+      "actions": {
+        "skip": {
+          "type": "navigation",
+          "skipToIdentifier": "countdown.1",
+          "buttonTitle": "Restart test"
+        },
+        "learnMore": {
+          "type": "navigation",
+          "skipToIdentifier": "walkInstructions",
+          "buttonTitle": "Review instructions"
+        }
+      },
+      "spokenInstructions": {
+        "start": "Turn around 360 degrees, then stand still, with your feet about shoulder-width apart. Rest your arms at your side and try to not move.",
+        "halfway": "Halfway done.",
+        "23": "Almost done."
+      }
+    }
+  ]
+}

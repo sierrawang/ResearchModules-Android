@@ -79,6 +79,13 @@
       }
     },
     {
+      "identifier": "balance",
+      "type": "transform",
+      "resourceTransformer": {
+        "resourceName": "BalanceSectionStep.json"
+      }
+    },
+    {
       "identifier": "completion",
       "type": "completion",
       "title": "Great job!",
