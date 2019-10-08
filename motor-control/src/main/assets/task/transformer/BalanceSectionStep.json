@@ -146,7 +146,7 @@
           "skipToIdentifier": "countdown.1",
           "buttonTitle": "Restart test"
         },
-        "learnMore": {
+        "reviewInstructions": {
           "type": "navigation",
           "skipToIdentifier": "turnAroundInstructions",
           "buttonTitle": "Review instructions"

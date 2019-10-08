@@ -118,18 +118,13 @@
           "skipToIdentifier": "countdown",
           "buttonTitle": "Restart test"
         },
-        "learnMore": {
+        "reviewInstructions": {
           "type": "navigation",
           "skipToIdentifier": "walkInstructions",
           "buttonTitle": "Review instructions"
         }
       },
-      "commands": [
-        "transitionAutomatically",
-        "shouldDisableIdleTimer",
-        "vibrate",
-        "playSound"
-      ],
+      "commands": ["transitionAutomatically", "shouldDisableIdleTimer", "vibrate", "playSound"],
       "spokenInstructions": {
         "start": "Walk for 30 seconds. If you need to turn back, turn gently around as if you are turning around a cone.",
         "halfway": "Halfway done.",
