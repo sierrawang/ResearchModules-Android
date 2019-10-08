@@ -4,13 +4,7 @@
     "goBackward",
     "skip"
   ],
-  "progressMarkers": [
-    "volumeUp",
-    "pantsWithPocket",
-    "phoneInPocket.1",
-    "walk",
-    "balance"
-  ],
+  "progressMarkers": [],
   "steps": [
     {
       "identifier": "introduction",
@@ -25,27 +19,22 @@
       ],
       "image": {
         "type": "animated",
-        "imageNames": [
-          "f_walking1",
-          "f_walking2",
-          "f_walking3",
-          "f_walking4",
-          "f_walking5"
-        ],
+        "imageNames": ["walking_1", "walking_2", "walking_3", "walking_4", "walking_5", "walking_6", "walking_7", "walking_8", "walking_9", "walking_10", "balance_1", "balance_2", "balance_3", "balance_4", "balance_5", "balance_6", "balance_7", "balance_8", "balance_9", "balance_10", "balance_11"],
         "placementType": "topMarginBackground",
-        "animationDuration": 3
+        "animationRepeatCount": 1,
+        "animationDuration": 10.5
       },
       "icons": [
         {
-          "icon": "icon_smooth_surface",
+          "icon": "smooth_surface",
           "title": "A SMOOTH SURFACE"
         },
         {
-          "icon": "icon_pants_with_pockets",
+          "icon": "pants_with_pockets",
           "title": "PANTS WITH POCKETS"
         },
         {
-          "icon": "icon_walking_shoes",
+          "icon": "walking_shoes",
           "title": "WALKING SHOES"
         }
       ],
@@ -58,17 +47,6 @@
           "type": "reminder",
           "reminderIdentifier": "WalkAndBalance"
         }
-      },
-      "colorTheme": {
-        "colorStyle": {
-          "header": "darkBackground",
-          "body": "lightBackground",
-          "footer": "lightBackground"
-        }
-      },
-      "viewTheme": {
-        "viewIdentifier": "Overview",
-        "storyboardIdentifier": "ActiveTaskSteps"
       }
     },
     {
