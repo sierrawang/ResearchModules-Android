@@ -53,7 +53,7 @@
       "identifier": "walk",
       "type": "transform",
       "resourceTransformer": {
-        "resourceName": "WalkingSectionStep.json"
+        "resourceName": "WalkSectionStep.json"
       }
     },
     {
