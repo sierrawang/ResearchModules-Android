@@ -89,7 +89,7 @@
     },
     {
       "identifier": "countdown",
-      "type": "mtcCountdown",
+      "type": "countdown",
       "text": "Begin in...",
       "image": {
         "type": "fetchable",
