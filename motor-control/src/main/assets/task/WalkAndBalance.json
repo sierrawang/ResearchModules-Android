@@ -1,9 +1,7 @@
 {
   "identifier": "WalkAndBalance",
-  "shouldHideActions": [
-    "goBackward",
-    "skip"
-  ],
+  "usesTrackedData": true,
+  "shouldHideActions": ["goBackward", "skip"],
   "progressMarkers": [],
   "steps": [
     {
@@ -67,7 +65,7 @@
       "identifier": "completion",
       "type": "completion",
       "title": "Great job!",
-      "text": "WALK_BALANCE_COMPLETION",
+      "text": "You have completed the Walk and Balance activity.",
       "image": {
         "type": "fetchable",
         "imageName": "completion_walk_and_balance",
