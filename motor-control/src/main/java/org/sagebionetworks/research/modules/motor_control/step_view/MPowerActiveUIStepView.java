@@ -2,8 +2,8 @@ package org.sagebionetworks.research.modules.motor_control.step_view;
 
 import static org.sagebionetworks.research.modules.motor_control.step.HandStepHelper.JSON_PLACEHOLDER;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;

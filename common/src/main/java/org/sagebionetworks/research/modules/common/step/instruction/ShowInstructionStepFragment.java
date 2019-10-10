@@ -33,7 +33,7 @@
 package org.sagebionetworks.research.modules.common.step.instruction;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase;

@@ -37,13 +37,13 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.graphics.Canvas
 import android.widget.ImageView.ScaleType.CENTER_INSIDE
-import android.support.v7.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatImageView
 import java.util.ArrayList
 
 class PlaqueCoverageView : AppCompatImageView {

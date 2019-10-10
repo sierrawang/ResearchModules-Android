@@ -33,7 +33,7 @@
 package org.sagebionetworks.research.modules.motor_control.show_step_fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 
 import org.sagebionetworks.research.domain.result.interfaces.TaskResult;

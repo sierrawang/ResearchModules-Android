@@ -32,8 +32,8 @@
 
 package org.sagebionetworks.research.modules.common.util;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.sagebionetworks.research.domain.result.interfaces.AnswerResult;
 import org.sagebionetworks.research.domain.result.interfaces.Result;

@@ -1,6 +1,6 @@
 package org.sagebionetworks.research.modules.motor_control.result;
 
-import android.support.annotation.StringDef;
+import androidx.annotation.StringDef;
 
 import org.sagebionetworks.research.domain.result.ResultType;
 

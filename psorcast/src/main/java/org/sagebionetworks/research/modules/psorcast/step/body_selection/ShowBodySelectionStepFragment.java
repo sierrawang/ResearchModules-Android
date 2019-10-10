@@ -34,10 +34,10 @@ package org.sagebionetworks.research.modules.psorcast.step.body_selection;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -56,7 +56,6 @@ import org.threeten.bp.Instant;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ShowBodySelectionStepFragment extends FormUIStepFragment {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShowBodySelectionStepFragment.class);

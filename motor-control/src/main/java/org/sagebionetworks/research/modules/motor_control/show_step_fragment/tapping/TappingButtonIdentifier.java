@@ -5,7 +5,7 @@
 
 package org.sagebionetworks.research.modules.motor_control.show_step_fragment.tapping;
 
-import android.support.annotation.StringDef;
+import androidx.annotation.StringDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

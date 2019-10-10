@@ -5,7 +5,7 @@
 
 package org.sagebionetworks.research.modules.motor_control.show_step_fragment.tapping;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;

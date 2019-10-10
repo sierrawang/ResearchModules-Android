@@ -32,7 +32,7 @@
 
 package org.sagebionetworks.research.modules.psorcast.result;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.sagebionetworks.research.domain.result.AnswerResultType;
 import org.sagebionetworks.research.domain.result.implementations.AnswerResultBase;
