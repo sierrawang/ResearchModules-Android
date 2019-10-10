@@ -34,6 +34,8 @@ package org.sagebionetworks.research.modules.psorcast.test_app
 import android.os.Bundle
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.body_plaque_coverage
+import kotlinx.android.synthetic.main.activity_main.joint_photography_feet
+import kotlinx.android.synthetic.main.activity_main.joint_photography_hands
 import org.sagebionetworks.research.domain.repository.TaskRepository
 import org.sagebionetworks.research.mobile_ui.perform_task.PerformTaskActivity
 import org.sagebionetworks.research.presentation.model.TaskView
@@ -50,6 +52,14 @@ class MainActivity : DaggerAppCompatActivity() {
 
         body_plaque_coverage.setOnClickListener {
             launchTask("PlaquesBodyMap", UUID.randomUUID())
+        }
+
+        joint_photography_feet.setOnClickListener {
+            launchTask("JointPhotographyFeet", UUID.randomUUID())
+        }
+
+        joint_photography_hands.setOnClickListener {
+            launchTask("JointPhotographyHands", UUID.randomUUID())
         }
     }
 

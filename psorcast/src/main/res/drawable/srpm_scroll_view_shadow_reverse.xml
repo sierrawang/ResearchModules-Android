@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ BSD 3-Clause License
   ~
   ~ Copyright 2019  Sage Bionetworks. All rights reserved.
@@ -31,7 +30,10 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<resources>
-    <color name="srpm_fern300">#6DB585</color>
-    <color name="srpm_dark_font">#2A2A2A</color>
-</resources>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="270"
+        android:endColor="#00000000"
+        android:startColor="#40000001"
+        android:type="linear" />
+</shape>

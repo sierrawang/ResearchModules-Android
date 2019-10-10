@@ -31,4 +31,5 @@
   -->
 
 <resources>
+    <string name="srpm_capture_image">Capture image</string>
 </resources>

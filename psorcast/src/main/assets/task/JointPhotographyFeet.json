@@ -1,0 +1,57 @@
+{
+  "identifier": "JointPhotographyFeet",
+  "steps": [
+    {
+      "identifier": "introduction",
+      "type": "overview",
+      "title": "Joint photography",
+      "text": "Take picture.",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Begin"
+        }
+      }
+    },
+    {
+      "identifier": "leftToes",
+      "type": "jointPhotography",
+      "title": "Left Toes"
+    },
+    {
+      "identifier": "leftToesVerify",
+      "type": "photoDisplay",
+      "title": "Are your nails in focus?",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Yes"
+        },
+        "goBackward": {
+          "type": "base",
+          "buttonTitle": "Retake"
+        }
+      }
+    },
+    {
+      "identifier": "rightToes",
+      "type": "jointPhotography",
+      "title": "Right Toes"
+    },
+    {
+      "identifier": "rightToesVerify",
+      "type": "photoDisplay",
+      "title": "Are your nails in focus?",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Yes"
+        },
+        "goBackward": {
+          "type": "base",
+          "buttonTitle": "Retake"
+        }
+      }
+    }
+  ]
+}

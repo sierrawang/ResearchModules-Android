@@ -32,8 +32,7 @@
 
 package org.sagebionetworks.research.modules.psorcast.result;
 
-import android.graphics.Bitmap;
-import android.graphics.Path;
+
 import androidx.annotation.NonNull;
 
 import com.google.auto.value.AutoValue;
@@ -41,36 +40,20 @@ import com.google.auto.value.AutoValue;
 import org.sagebionetworks.research.domain.result.interfaces.Result;
 import org.threeten.bp.Instant;
 
-import java.util.ArrayList;
-
-
 @AutoValue
-public abstract class PlaqueDrawingResult implements Result {
+public abstract class PhotoDisplayResult implements Result {
     @AutoValue.Builder
     public abstract static class Builder {
-        public abstract PlaqueDrawingResult build();
+        public abstract PhotoDisplayResult build();
 
         public abstract Builder setIdentifier(@NonNull String identifier);
         public abstract Builder setStartTime(@NonNull Instant startTime);
         public abstract Builder setEndTime(@NonNull Instant endTime);
-
-        public abstract Builder setPaths(@NonNull ArrayList<Path> drawings);
-        public abstract Builder setBitmap(@NonNull Bitmap frontBitmap);
-    }
-
-    public static Builder builder() {
-        return new AutoValue_PlaqueDrawingResult.Builder();
     }
 
     @Override
     @NonNull
     public String getType() {
-        return "plaqueDrawing";
+        return "photoDisplay";
     }
-
-    @NonNull
-    public abstract ArrayList<Path> getPaths();
-
-    @NonNull
-    public abstract Bitmap getBitmap();
 }
