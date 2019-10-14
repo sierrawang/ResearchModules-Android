@@ -37,7 +37,7 @@
     android:layout_height="match_parent">
 
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar
-        android:id="@id/rs2_step_navigation_action_bar"
+        android:id="@+id/rs2_step_navigation_action_bar"
         style="@style/Widget.ResearchStack.NavigationActionBar.Instruction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -64,14 +64,15 @@
             android:paddingBottom="@dimen/margin_medium">
 
             <ImageView
-                android:id="@id/rs2_image_view"
+                android:id="@+id/rs2_image_view"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scaleType="fitXY"
                 app:layout_constraintDimensionRatio="H,3280:3620"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/colorPrimary"/>
 
             <include
                 android:id="@+id/stepBody"

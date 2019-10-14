@@ -3,7 +3,6 @@ package org.sagebionetworks.research.modules.motor_control.inject;
 import org.sagebionetworks.research.mobile_ui.inject.ShowStepFragmentScope;
 import org.sagebionetworks.research.modules.motor_control.show_step_fragment.MtcCountdownStepFragment;
 import org.sagebionetworks.research.modules.common.step.completion.ShowCompletionStepFragment;
-import org.sagebionetworks.research.modules.common.step.instruction.ShowInstructionStepFragment;
 import org.sagebionetworks.research.modules.motor_control.show_step_fragment.ShowHandNavigationInstructionStepFragment;
 import org.sagebionetworks.research.modules.motor_control.show_step_fragment.ShowMPowerActiveUIStepFragment;
 import org.sagebionetworks.research.modules.common.step.overview.ShowOverviewStepFragment;

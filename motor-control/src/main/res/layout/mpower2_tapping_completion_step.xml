@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread_inside"
         app:layout_constraintVertical_weight="3"
-        app:srcCompat="@drawable/completion_finger_tapping" />
+        android:background="@color/colorPrimary" />
 
     <TextView
             android:id="@+id/rs2_title"

@@ -32,7 +32,13 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#6DB585</color>
+    <color name="colorSecondary">#4168CA</color>
+    <color name="colorAccent">#A71C5D</color>
+
+    <color name="colorTextPrimary">#1A1C29</color>
+    <color name="colorTextSecondary">#FFFFFF</color>
+
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
 </resources>
