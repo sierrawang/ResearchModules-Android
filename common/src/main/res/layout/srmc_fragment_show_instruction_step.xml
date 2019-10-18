@@ -71,7 +71,8 @@
                 app:layout_constraintDimensionRatio="H,3280:3620"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:background="@color/colorPrimary"/>
 
             <include
                 android:id="@+id/stepBody"

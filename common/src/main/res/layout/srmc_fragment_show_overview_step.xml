@@ -65,7 +65,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:fadeScrollbars="true"
-                    android:requiresFadingEdge="none"/>
+                    android:requiresFadingEdge="none"
+                    app:background="@color/colorPrimary"/>
 
             <include
                     android:id="@id/rs2_step_body"
