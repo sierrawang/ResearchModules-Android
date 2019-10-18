@@ -34,7 +34,7 @@ package org.sagebionetworks.research.modules.psorcast.step.plaque_body_map
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.support.annotation.NonNull
+import androidx.annotation.NonNull
 import android.view.View
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.rs2_image_view
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.view.rs2_image_view

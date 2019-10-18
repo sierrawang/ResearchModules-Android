@@ -33,7 +33,7 @@
 package org.sagebionetworks.research.modules.motor_control.step_view_components;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.util.AttributeSet;
 
 import org.sagebionetworks.research.modules.motor_control.R;

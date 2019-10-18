@@ -35,7 +35,7 @@ package org.sagebionetworks.research.modules.motor_control.result;
 import static org.sagebionetworks.research.modules.motor_control.show_step_fragment.hand_selection.HandSelection.LEFT;
 import static org.sagebionetworks.research.modules.motor_control.show_step_fragment.hand_selection.HandSelection.RIGHT;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.common.collect.ImmutableList;
 

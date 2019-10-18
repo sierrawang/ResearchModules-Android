@@ -33,7 +33,7 @@
 package org.sagebionetworks.research.modules.motor_control.widget;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.util.AttributeSet;
 import android.widget.TextView;
 

@@ -33,7 +33,7 @@
 package org.sagebionetworks.research.modules.motor_control.show_step_fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.sagebionetworks.research.domain.result.interfaces.TaskResult;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowCountdownStepFragment;
