@@ -3,8 +3,8 @@
     <color name="colorPrimary">#5A478F</color>
     <color name="colorSecondary">#F5B33C</color>
     <color name="colorAccent">#24AB9F</color>
-    <color name="colorTextPrimary">#2A2A2A</color>
-    <color name="colorTextSecondary">#FFFFFF</color>
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#2A2A2A</color>
 
     <!-- Not sure if this is necessary -->
     <color name="colorPrimaryDark">#00574B</color>

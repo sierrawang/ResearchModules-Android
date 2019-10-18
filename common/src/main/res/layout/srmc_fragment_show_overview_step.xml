@@ -112,7 +112,8 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="@dimen/margin_medium" android:layout_marginStart="@dimen/margin_medium" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/margin_medium" app:layout_constraintDimensionRatio="H,1:1"
-            android:background="@drawable/rs2_cancel_icon"/>
+            android:background="@drawable/rs2_cancel_icon"
+            android:backgroundTint="@color/colorTextPrimary"/>
 
     <org.sagebionetworks.research.mobile_ui.widget.ActionButton
             android:id="@id/rs2_step_navigation_action_info"
