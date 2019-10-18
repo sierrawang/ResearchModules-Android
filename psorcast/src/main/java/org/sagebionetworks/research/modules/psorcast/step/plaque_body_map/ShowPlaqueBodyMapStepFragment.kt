@@ -32,7 +32,7 @@
 
 package org.sagebionetworks.research.modules.psorcast.step.plaque_body_map
 
-import android.support.annotation.NonNull
+import androidx.annotation.NonNull
 import android.view.View
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.StepViewBinding

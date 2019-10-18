@@ -32,8 +32,8 @@
 
 package org.sagebionetworks.research.modules.common.step.instruction;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableMap;
@@ -48,7 +48,6 @@ import org.sagebionetworks.research.domain.step.interfaces.Step;
 import org.sagebionetworks.research.domain.step.ui.action.Action;
 import org.sagebionetworks.research.domain.step.ui.theme.ColorTheme;
 import org.sagebionetworks.research.domain.step.ui.theme.ImageTheme;
-import org.sagebionetworks.research.domain.task.navigation.strategy.StepNavigationStrategy;
 
 import java.util.Map;
 import java.util.Set;

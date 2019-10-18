@@ -1,7 +1,7 @@
 package org.sagebionetworks.research.modules.motor_control.result;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Size;
+import androidx.annotation.NonNull;
+import androidx.annotation.Size;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;

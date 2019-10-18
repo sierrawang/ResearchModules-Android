@@ -33,7 +33,7 @@
 package org.sagebionetworks.research.modules.motor_control.widget;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatButton;
 import android.util.AttributeSet;
 
 import org.sagebionetworks.research.modules.motor_control.R;
