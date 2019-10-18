@@ -36,11 +36,13 @@ import android.os.Bundle
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.tapping
 import kotlinx.android.synthetic.main.activity_main.tremor
+import kotlinx.android.synthetic.main.activity_main.walk_30_seconds
 import kotlinx.android.synthetic.main.activity_main.walk_and_balance
 import org.sagebionetworks.research.domain.repository.TaskRepository
 import org.sagebionetworks.research.mobile_ui.perform_task.PerformTaskActivity
 import org.sagebionetworks.research.modules.motor_control.MotorControlTask.TAPPING
 import org.sagebionetworks.research.modules.motor_control.MotorControlTask.TREMOR
+import org.sagebionetworks.research.modules.motor_control.MotorControlTask.WALK_30_SECONDS
 import org.sagebionetworks.research.modules.motor_control.MotorControlTask.WALK_AND_BALANCE
 import org.sagebionetworks.research.modules.psorcast.test_app.R.layout
 import org.sagebionetworks.research.presentation.model.TaskView
@@ -63,6 +65,9 @@ class MainActivity : DaggerAppCompatActivity() {
         }
         walk_and_balance.setOnClickListener {
             launchTask(WALK_AND_BALANCE, UUID.randomUUID())
+        }
+        walk_30_seconds.setOnClickListener {
+            launchTask(WALK_30_SECONDS, UUID.randomUUID())
         }
     }
 

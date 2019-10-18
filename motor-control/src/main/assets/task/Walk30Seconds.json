@@ -1,0 +1,79 @@
+{
+  "identifier":"Walk30Seconds",
+  "usesTrackedData":true,
+  "shouldHideActions":["goBackward", "skip"],
+  "progressMarkers":[],
+  "steps":[
+    {
+      "identifier":"introduction",
+      "type":"overview",
+      "title":"30 Second Walk",
+      "text":"In this activity, you will be walking continuously at your normal pace for 30 seconds.",
+      "permissions":[
+        {
+          "permissionType":"motion",
+          "reason":"Access to Motion and Fitness sensors is required to measure your gait."
+        }
+      ],
+      "image":{
+        "type":"animated",
+        "imageNames":["walking_1", "walking_2", "walking_3", "walking_4", "walking_5", "walking_6", "walking_7", "walking_8", "walking_9", "walking_10", "walking_11", "walking_12"],
+        "placementType":"topMarginBackground",
+        "animationDuration":5.0
+      },
+      "icons": [
+        {
+          "icon":"smooth_surface",
+          "title": "A SMOOTH SURFACE"
+        },
+        {
+          "icon":"pants_with_pockets",
+          "title": "PANTS WITH POCKETS"
+        },
+        {
+          "icon":"walking_shoes",
+          "title": "WALKING SHOES"
+        }
+      ],
+      "actions":{
+        "goForward":{
+          "type":"default",
+          "buttonTitle":"Get started"
+        },
+        "skip":{
+          "type":"reminder",
+          "reminderIdentifier":"WalkAndBalance"
+        }
+      }
+    },
+    {
+      "identifier":"walk",
+      "type":"transform",
+      "resourceTransformer": { "resourceName": "WalkSectionStep.json"}
+    },
+    {
+      "identifier":"completion",
+      "type":"completion",
+      "title":"Great job!",
+      "text":"You have completed the 30 Second Walk activity.",
+      "image":{
+        "type":"fetchable",
+        "imageName":"completion_walk_and_balance",
+        "placementType":"topBackground"
+      },
+      "viewTheme":{
+        "viewIdentifier":"Completion",
+        "storyboardIdentifier":"ActiveTaskSteps"
+      },
+      "actions": {
+        "goForward":{
+          "type":"default",
+          "buttonTitle":"Done"
+        }
+      },
+      "spokenInstructions":{
+        "start":"Great job, you are done with the 30 Second Walk test."
+      }
+    }
+  ]
+}

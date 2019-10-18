@@ -32,9 +32,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Walk and Balance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tremor"
+        app:layout_constraintBottom_toTopOf="@id/walk_30_seconds" />
+
+    <Button
+        android:id="@+id/walk_30_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Walk 30 Seconds"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tremor" />
-
+        app:layout_constraintTop_toBottomOf="@+id/walk_and_balance" />
 </androidx.constraintlayout.widget.ConstraintLayout>

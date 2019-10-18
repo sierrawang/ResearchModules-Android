@@ -59,7 +59,7 @@
             "skipToIdentifier":"tremor",
             "buttonTitle": "Restart test"
         },
-        "learnMore":{
+        "reviewInstructions":{
             "type":"navigation",
             "skipToIdentifier": "holdPhoneInstructions",
             "buttonTitle": "Review instructions"
