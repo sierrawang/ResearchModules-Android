@@ -1,0 +1,417 @@
+{
+  "identifier": "JointPain",
+  "steps": [
+    {
+      "identifier": "introduction",
+      "type": "overview",
+      "title": "Select joint pain",
+      "text": "Select your joints that are causing you pain and discomfort. You can touch the joints you have selected to undo the selection.",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Begin"
+        }
+      }
+    },
+    {
+      "identifier": "upperBody",
+      "type": "jointPain",
+      "title": "ABOVE the waist joint pain",
+      "text": "Select all that apply",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_upper_body_front_no_blur",
+        "placementType": "fullsizeBackground"
+      },
+      "joints": {
+        "buttonSize": 41.0,
+        "widthScale": 375.0,
+        "heightScale": 411.0,
+        "coordinates": {
+          "rightShoulder": {
+            "horizontalBias": 130.5,
+            "verticalBias": 130.5
+          },
+          "rightElbow": {
+            "horizontalBias": 106.5,
+            "verticalBias": 241.5
+          },
+          "rightWrist": {
+            "horizontalBias": 72.51,
+            "verticalBias": 319.5
+          },
+          "leftShoulder": {
+            "horizontalBias": 244.5,
+            "verticalBias": 130.5
+          },
+          "leftElbow": {
+            "horizontalBias": 268.5,
+            "verticalBias": 241.5
+          },
+          "leftWrist": {
+            "horizontalBias": 302.5,
+            "verticalBias": 319.5
+          }
+        }
+      }
+    },
+    {
+      "identifier": "lowerBody",
+      "type": "jointPain",
+      "title": "BELOW the waist joint pain",
+      "text": "Select all that apply",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_lower_body_front_no_blur",
+        "placementType": "fullsizeBackground"
+      },
+      "joints": {
+        "buttonSize": 41.0,
+        "widthScale": 375.0,
+        "heightScale": 411.0,
+        "coordinates": {
+          "rightHip": {
+            "horizontalBias": 133.5,
+            "verticalBias": 48.5
+          },
+          "rightKnee": {
+            "horizontalBias": 147.5,
+            "verticalBias": 201.5
+          },
+          "rightAnkle": {
+            "horizontalBias": 157.5,
+            "verticalBias": 334.5
+          },
+          "leftHip": {
+            "horizontalBias": 241.5,
+            "verticalBias": 48.5
+          },
+          "leftKnee": {
+            "horizontalBias": 227.5,
+            "verticalBias": 201.5
+          },
+          "leftAnkle": {
+            "horizontalBias": 217.5,
+            "verticalBias": 334.5
+          }
+        }
+      }
+    },
+    {
+      "identifier": "leftHand",
+      "type": "jointPain",
+      "title": "LEFT hand joint pain",
+      "text": "Select all that apply",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_left_hand",
+        "placementType": "fullsizeBackground"
+      },
+      "joints": {
+        "buttonSize": 41.0,
+        "widthScale": 375.0,
+        "heightScale": 411.0,
+        "coordinates": {
+          "thumb1": {
+            "horizontalBias": 308,
+            "verticalBias": 248.5
+          },
+          "thumb2": {
+            "horizontalBias": 280.5,
+            "verticalBias": 299.5
+          },
+          "thumb3": {
+            "horizontalBias": 237.5,
+            "verticalBias": 346.5
+          },
+          "finger11": {
+            "horizontalBias": 246.5,
+            "verticalBias": 96.5
+          },
+          "finger12": {
+            "horizontalBias": 232.5,
+            "verticalBias": 142.5
+          },
+          "finger13": {
+            "horizontalBias": 217.5,
+            "verticalBias": 197.5
+          },
+          "finger21": {
+            "horizontalBias": 185.01,
+            "verticalBias": 61.5
+          },
+          "finger22": {
+            "horizontalBias": 178.53,
+            "verticalBias": 126.5
+          },
+          "finger23": {
+            "horizontalBias": 170.97,
+            "verticalBias": 187.5
+          },
+          "finger31": {
+            "horizontalBias": 121.96,
+            "verticalBias": 85.5
+          },
+          "finger32": {
+            "horizontalBias": 121.5,
+            "verticalBias": 139.5
+          },
+          "finger33": {
+            "horizontalBias": 123.5,
+            "verticalBias": 193.5
+          },
+          "finger41": {
+            "horizontalBias": 52.5,
+            "verticalBias": 132.5
+          },
+          "finger42": {
+            "horizontalBias": 64.5,
+            "verticalBias": 176.5
+          },
+          "finger43": {
+            "horizontalBias": 78.5,
+            "verticalBias": 223.5
+          }
+        }
+      }
+    },
+    {
+      "identifier": "rightHand",
+      "type": "jointPain",
+      "title": "RIGHT hand joint pain",
+      "text": "Select all that apply",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_right_hand",
+        "placementType": "fullsizeBackground"
+      },
+      "joints": {
+        "buttonSize": 41.0,
+        "widthScale": 375.0,
+        "heightScale": 411.0,
+        "coordinates": {
+          "thumb1": {
+            "horizontalBias": 67.0,
+            "verticalBias": 248.5
+          },
+          "thumb2": {
+            "horizontalBias": 94.5,
+            "verticalBias": 299.5
+          },
+          "thumb3": {
+            "horizontalBias": 137.5,
+            "verticalBias": 346.5
+          },
+          "finger11": {
+            "horizontalBias": 128.5,
+            "verticalBias": 96.5
+          },
+          "finger12": {
+            "horizontalBias": 142.5,
+            "verticalBias": 142.5
+          },
+          "finger13": {
+            "horizontalBias": 157.5,
+            "verticalBias": 197.5
+          },
+          "finger21": {
+            "horizontalBias": 189.99,
+            "verticalBias": 61.5
+          },
+          "finger22": {
+            "horizontalBias": 196.47,
+            "verticalBias": 126.5
+          },
+          "finger23": {
+            "horizontalBias": 204.03,
+            "verticalBias": 187.5
+          },
+          "finger31": {
+            "horizontalBias": 253.04,
+            "verticalBias": 85.5
+          },
+          "finger32": {
+            "horizontalBias": 253.5,
+            "verticalBias": 139.5
+          },
+          "finger33": {
+            "horizontalBias": 251.5,
+            "verticalBias": 193.5
+          },
+          "finger41": {
+            "horizontalBias": 322.5,
+            "verticalBias": 132.5
+          },
+          "finger42": {
+            "horizontalBias": 310.5,
+            "verticalBias": 176.5
+          },
+          "finger43": {
+            "horizontalBias": 296.5,
+            "verticalBias": 223.5
+          }
+        }
+      }
+    },
+    {
+      "identifier": "leftFoot",
+      "type": "jointPain",
+      "title": "LEFT foot joint pain",
+      "text": "Select all that apply",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_left_foot",
+        "placementType": "fullsizeBackground"
+      },
+      "joints": {
+        "buttonSize": 41.0,
+        "widthScale": 375.0,
+        "heightScale": 411.0,
+        "coordinates": {
+          "big1": {
+            "horizontalBias": 294.5,
+            "verticalBias": 64.5
+          },
+          "big2": {
+            "horizontalBias": 293.5,
+            "verticalBias": 131.5
+          },
+          "toe11": {
+            "horizontalBias": 217.5,
+            "verticalBias": 70.5
+          },
+          "toe12": {
+            "horizontalBias": 217.5,
+            "verticalBias": 132.5
+          },
+          "toe21": {
+            "horizontalBias": 162.5,
+            "verticalBias": 90.5
+          },
+          "toe22": {
+            "horizontalBias": 162.5,
+            "verticalBias": 144.5
+          },
+          "toe31": {
+            "horizontalBias": 107.5,
+            "verticalBias": 108.5
+          },
+          "toe32": {
+            "horizontalBias": 107.5,
+            "verticalBias": 162.5
+          },
+          "toe41": {
+            "horizontalBias": 54.5,
+            "verticalBias": 138.5
+          },
+          "toe42": {
+            "horizontalBias": 54.5,
+            "verticalBias": 189.5
+          },
+          "arch": {
+            "horizontalBias": 202.5,
+            "verticalBias": 320.5
+          }
+        }
+      }
+    },
+    {
+      "identifier": "rightFoot",
+      "type": "jointPain",
+      "title": "RIGHT foot joint pain",
+      "text": "Select all that apply",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_right_foot",
+        "placementType": "fullsizeBackground"
+      },
+      "joints": {
+        "buttonSize": 41.0,
+        "widthScale": 375.0,
+        "heightScale": 411.0,
+        "coordinates": {
+          "big1": {
+            "horizontalBias": 80.5,
+            "verticalBias": 64.5
+          },
+          "big2": {
+            "horizontalBias": 81.5,
+            "verticalBias": 131.5
+          },
+          "toe11": {
+            "horizontalBias": 157.5,
+            "verticalBias": 70.5
+          },
+          "toe12": {
+            "horizontalBias": 157.5,
+            "verticalBias": 132.5
+          },
+          "toe21": {
+            "horizontalBias": 212.5,
+            "verticalBias": 90.5
+          },
+          "toe22": {
+            "horizontalBias": 212.5,
+            "verticalBias": 144.5
+          },
+          "toe31": {
+            "horizontalBias": 267.5,
+            "verticalBias": 108.5
+          },
+          "toe32": {
+            "horizontalBias": 267.5,
+            "verticalBias": 162.5
+          },
+          "toe41": {
+            "horizontalBias": 320.5,
+            "verticalBias": 138.5
+          },
+          "toe42": {
+            "horizontalBias": 320.5,
+            "verticalBias": 189.5
+          },
+          "arch": {
+            "horizontalBias": 172.5,
+            "verticalBias": 320.5
+          }
+        }
+      }
+    }
+  ]
+}
