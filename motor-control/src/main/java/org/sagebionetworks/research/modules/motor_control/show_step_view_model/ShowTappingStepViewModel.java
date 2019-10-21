@@ -102,7 +102,6 @@ public class ShowTappingStepViewModel extends ShowActiveUIStepViewModel<TappingS
         this.buttonToLastSample.put(buttonIdentifier, tappingSample);
     }
 
-
     public LiveData<Integer> getHitButtonCount() {
         return hitButtonCount;
     }

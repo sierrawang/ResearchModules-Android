@@ -33,9 +33,25 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rs2_step_fragment_root_view"
+    android:id="@id/rs2_step_fragment_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@id/rs2_text"
+        style="@style/Widget.ResearchStack.StepBody.TextLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <org.sagebionetworks.research.modules.psorcast.PlaqueCoverageView
+        android:id="@id/rs2_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/rs2_text"
+        app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar"/>
 
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar
         android:id="@id/rs2_step_navigation_action_bar"
@@ -45,12 +61,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:isSkipHidden="true"/>
-
-    <org.sagebionetworks.research.modules.psorcast.PlaqueCoverageView
-        android:id="@+id/body_map"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar" />
 
     <org.sagebionetworks.research.mobile_ui.widget.ActionButton
         android:id="@id/rs2_step_navigation_action_cancel"

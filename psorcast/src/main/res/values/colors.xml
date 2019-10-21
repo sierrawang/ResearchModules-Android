@@ -32,5 +32,7 @@
   -->
 
 <resources>
+    <color name="srpm_yellow">#F5B33C</color>
+    <color name="srpm_green">#24AB9F</color>
     <color name="srpm_fern300">#6DB585</color>
 </resources>

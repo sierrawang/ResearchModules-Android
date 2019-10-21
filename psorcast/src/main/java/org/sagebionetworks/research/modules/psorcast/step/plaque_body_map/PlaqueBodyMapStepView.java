@@ -46,6 +46,7 @@ import org.sagebionetworks.research.presentation.model.action.ActionView;
 import org.sagebionetworks.research.presentation.model.implementations.UIStepViewBase;
 
 public class PlaqueBodyMapStepView extends UIStepViewBase {
+
     public static final String TYPE = "plaqueBodyMap";
 
     public static PlaqueBodyMapStepView fromPlaqueBodyMapStep(Step step, DrawableMapper mapper) {
@@ -57,7 +58,7 @@ public class PlaqueBodyMapStepView extends UIStepViewBase {
         return new PlaqueBodyMapStepView(activeStep.getIdentifier(),
                 activeStep.getActions(), activeStep.getTitle(), activeStep.getText(),
                 activeStep.getDetail(), activeStep.getFootnote(), activeStep.getColorTheme(),
-                activeStep.getImageTheme());
+                activeStep.getImageTheme() /** or read from plaqueBodyMapStep **/);
     }
 
     public PlaqueBodyMapStepView(@NonNull final String identifier,

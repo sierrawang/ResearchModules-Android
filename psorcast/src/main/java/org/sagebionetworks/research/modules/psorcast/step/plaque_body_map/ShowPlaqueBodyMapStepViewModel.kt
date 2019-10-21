@@ -32,17 +32,41 @@
 
 package org.sagebionetworks.research.modules.psorcast.step.plaque_body_map
 
+import org.sagebionetworks.research.modules.psorcast.result.PlaqueDrawingResult
+import org.sagebionetworks.research.presentation.model.action.ActionType
 import org.sagebionetworks.research.presentation.perform_task.PerformTaskViewModel
 import org.sagebionetworks.research.presentation.show_step.show_step_view_model_factories.ShowStepViewModelFactory
 import org.sagebionetworks.research.presentation.show_step.show_step_view_models.ShowStepViewModel
 import org.sagebionetworks.research.presentation.show_step.show_step_view_models.ShowUIStepViewModel
+import org.threeten.bp.ZonedDateTime
 
-class ShowPlaqueBodyMapStepViewModel(val performTaskViewModel: PerformTaskViewModel,
-        val plaqueBodyMapStepView: PlaqueBodyMapStepView) :
-        ShowUIStepViewModel<PlaqueBodyMapStepView>(performTaskViewModel, plaqueBodyMapStepView)
+
+
+class ShowPlaqueBodyMapStepViewModel(performTaskViewModel: PerformTaskViewModel,
+        plaqueBodyMapStepView: PlaqueBodyMapStepView) :
+        ShowUIStepViewModel<PlaqueBodyMapStepView>(performTaskViewModel, plaqueBodyMapStepView) {
+
+    val pdResultBuilder : PlaqueDrawingResult.Builder
+
+    init {
+        val zonedStart = ZonedDateTime.now()
+        pdResultBuilder = PlaqueDrawingResult.builder()
+                .setStartTime(zonedStart.toInstant())
+                .setIdentifier(stepView.identifier)
+    }
+
+    override fun handleAction(actionType: String) {
+        // if next clicked, addStepResult()
+        if (actionType == ActionType.FORWARD) {
+            this.performTaskViewModel.addStepResult(pdResultBuilder.build())
+        }
+        super.handleAction(actionType)
+    }
+}
 
 class ShowPlaqueBodyStepViewModelFactory :
         ShowStepViewModelFactory<ShowPlaqueBodyMapStepViewModel, PlaqueBodyMapStepView> {
+
 
     override fun create(performTaskViewModel: PerformTaskViewModel,
             stepView: PlaqueBodyMapStepView): ShowPlaqueBodyMapStepViewModel {

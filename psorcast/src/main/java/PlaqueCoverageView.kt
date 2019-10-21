@@ -41,8 +41,8 @@ import androidx.core.content.ContextCompat
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import android.widget.ImageView
 import android.graphics.Canvas
+import android.widget.ImageView.ScaleType.CENTER_INSIDE
 import androidx.appcompat.widget.AppCompatImageView
 import java.util.ArrayList
 
@@ -53,7 +53,6 @@ class PlaqueCoverageView : AppCompatImageView {
     private var mX = 0f
     private var mY = 0f
     private var drawings = ArrayList<Path>()
-    private var above_waist_front = ContextCompat.getDrawable(context, R.drawable.srpm_above_waist_front_blurred)
 
     constructor(context: Context, attrs: AttributeSet): super(context, attrs) {
         setLayerType(View.LAYER_TYPE_SOFTWARE, null)
@@ -67,7 +66,7 @@ class PlaqueCoverageView : AppCompatImageView {
         highlightPaint.strokeCap = Paint.Cap.ROUND
         highlightPaint.strokeWidth = 30f
 
-        setImageDrawable(above_waist_front)
+        scaleType = CENTER_INSIDE
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -113,5 +112,9 @@ class PlaqueCoverageView : AppCompatImageView {
         var path = drawings.removeAt(drawings.size - 1)
         path.lineTo(mX, mY)
         drawings.add(path)
+    }
+
+    fun getPaths() : ArrayList<Path> {
+        return ArrayList(drawings)
     }
 }
