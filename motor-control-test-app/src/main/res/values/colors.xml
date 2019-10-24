@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#5A478F</color>
     <color name="colorSecondary">#F5B33C</color>
-    <color name="colorAccent">#24AB9F</color>
+    <color name="colorAccent">#B2A5D1</color> <!-- This is the colorAccent in the figma, but is not used anywhere <color name="colorAccent">#24AB9F</color>-->
     <color name="colorTextPrimary">#FFFFFF</color>
     <color name="colorTextSecondary">#2A2A2A</color>
 

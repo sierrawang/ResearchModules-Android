@@ -104,7 +104,7 @@
     },
     {
       "identifier": "motion",
-      "type": "mpowerActive",
+      "type": "active",
       "title": "Walk back and forth",
       "duration": 30,
       "image": {

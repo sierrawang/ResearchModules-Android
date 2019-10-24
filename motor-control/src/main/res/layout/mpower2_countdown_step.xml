@@ -35,19 +35,18 @@
     android:id="@id/rs2_step_fragment_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/royal600">
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/rs2_image_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:alpha=".3"
         android:scaleType="centerCrop"
+        android:alpha="0.3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorPrimary" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar
         android:id="@id/rs2_step_navigation_action_bar"
@@ -58,7 +57,8 @@
         app:isShadowHidden="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <org.sagebionetworks.research.mobile_ui.widget.ActionButton
         android:id="@+id/rs2_step_navigation_action_cancel"
@@ -70,7 +70,8 @@
         android:scaleType="fitXY"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/colorTextPrimary" />
 
     <TextView
         android:id="@+id/beginLabel"
@@ -78,7 +79,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato"
         android:text="Begin in..."
-        android:textColor="@color/appWhite"
+        android:textColor="@color/colorTextPrimary"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/countLabel"
@@ -93,7 +94,7 @@
         android:fontFamily="@font/lato_light"
         android:gravity="center"
         android:text="5"
-        android:textColor="@color/appWhite"
+        android:textColor="@color/colorTextPrimary"
         android:textSize="100sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rs2_image_view"
