@@ -87,6 +87,7 @@
 
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar
         android:id="@id/rs2_step_navigation_action_bar"
+        style="@style/Widget.ResearchStack.NavigationActionBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

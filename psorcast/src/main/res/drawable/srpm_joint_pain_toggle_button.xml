@@ -31,9 +31,9 @@
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/srpm_green_ellipse"
+    <item android:drawable="@drawable/srpm_ellipse_checked"
         android:state_checked="true" />
-    <item android:drawable="@drawable/srpm_yellow_ellipse"
+    <item android:drawable="@drawable/srpm_ellipse_unchecked"
         android:state_checked="false" />
-    <item android:drawable="@drawable/srpm_yellow_ellipse" />
+    <item android:drawable="@drawable/srpm_ellipse_unchecked" />
 </selector>

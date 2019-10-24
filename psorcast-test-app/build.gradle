@@ -66,6 +66,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(':motor-control')
     implementation project(':psorcast')
     implementation "org.sagebionetworks.research:mobile-ui:$sage_research_version"
     implementation "org.sagebionetworks.research:domain:$sage_research_version"
