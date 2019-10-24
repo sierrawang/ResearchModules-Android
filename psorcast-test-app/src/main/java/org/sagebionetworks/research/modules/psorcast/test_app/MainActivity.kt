@@ -36,6 +36,8 @@ import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.body_plaque_coverage
 import kotlinx.android.synthetic.main.activity_main.joint_pain
 import kotlinx.android.synthetic.main.activity_main.walk_30_seconds
+import kotlinx.android.synthetic.main.activity_main.joint_photography_feet
+import kotlinx.android.synthetic.main.activity_main.joint_photography_hands
 import org.sagebionetworks.research.domain.repository.TaskRepository
 import org.sagebionetworks.research.mobile_ui.perform_task.PerformTaskActivity
 import org.sagebionetworks.research.presentation.model.TaskView
@@ -60,6 +62,14 @@ class MainActivity : DaggerAppCompatActivity() {
 
         walk_30_seconds.setOnClickListener {
             launchTask("Walk30Seconds", UUID.randomUUID())
+        }
+
+        joint_photography_hands.setOnClickListener {
+            launchTask("JointPhotographyHands", UUID.randomUUID())
+        }
+
+        joint_photography_feet.setOnClickListener {
+            launchTask("JointPhotographyFeet", UUID.randomUUID())
         }
     }
 

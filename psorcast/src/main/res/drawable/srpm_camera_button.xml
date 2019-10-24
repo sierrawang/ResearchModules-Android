@@ -30,10 +30,8 @@
   ~ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   ~ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
-
-<resources>
-    <color name="srpm_yellow">#F5B33C</color>
-    <color name="srpm_green">#24AB9F</color>
-    <color name="srpm_fern300">#6DB585</color>
-    <color name="srpm_dark_font">#2A2A2A</color>
-</resources>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/srpm_camera_button_pressed" />
+    <item android:state_focused="true" android:drawable="@drawable/srpm_camera_button_focused" />
+    <item android:drawable="@drawable/srpm_camera_button_normal" />
+</selector>

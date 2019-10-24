@@ -64,9 +64,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Walk 30 Seconds"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joint_pain"/>
+        app:layout_constraintTop_toBottomOf="@+id/joint_pain"
+        app:layout_constraintBottom_toTopOf="@id/joint_photography_hands"/>
+
+    <Button
+        android:id="@+id/joint_photography_hands"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hands joint photography"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/walk_30_seconds"
+        app:layout_constraintBottom_toTopOf="@id/joint_photography_feet"/>
+
+    <Button
+        android:id="@+id/joint_photography_feet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feet joint photography"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/joint_photography_hands"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

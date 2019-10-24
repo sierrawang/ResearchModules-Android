@@ -38,13 +38,15 @@ import org.sagebionetworks.research.modules.common.step.completion.CompletionSte
 import org.sagebionetworks.research.modules.common.step.instruction.InstructionStepModule;
 import org.sagebionetworks.research.modules.common.step.overview.OverviewStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.joint_pain.JointPainStepModule;
+import org.sagebionetworks.research.modules.psorcast.step.joint_photography.JointPhotographyStepModule;
+import org.sagebionetworks.research.modules.psorcast.step.photo_display.PhotoDisplayStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.plaque_body_map.PlaqueBodyMapStepModule;
 
 import dagger.Module;
 import dagger.Provides;
 import dagger.multibindings.IntoSet;
 
-@Module(includes = {JointPainStepModule.class, PlaqueBodyMapStepModule.class, OverviewStepModule.class, CompletionStepModule.class,
+@Module(includes = {JointPainStepModule.class, PhotoDisplayStepModule.class, JointPhotographyStepModule.class, PlaqueBodyMapStepModule.class, OverviewStepModule.class, CompletionStepModule.class,
         InstructionStepModule.class})
 public class PsorcastStepModule {
     @Provides

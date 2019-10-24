@@ -30,47 +30,29 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.sagebionetworks.research.modules.psorcast.result;
+package org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.photo_display
 
-import android.graphics.Bitmap;
-import android.graphics.Path;
-import androidx.annotation.NonNull;
+import org.sagebionetworks.research.modules.psorcast.step.photo_display.PhotoDisplayStepView
+import org.sagebionetworks.research.presentation.perform_task.PerformTaskViewModel
+import org.sagebionetworks.research.presentation.show_step.show_step_view_model_factories.ShowStepViewModelFactory
+import org.sagebionetworks.research.presentation.show_step.show_step_view_models.ShowStepViewModel
+import org.sagebionetworks.research.presentation.show_step.show_step_view_models.ShowUIStepViewModel
 
-import com.google.auto.value.AutoValue;
+class ShowPhotoDisplayStepViewModel(performTaskViewModel: PerformTaskViewModel,
+        photoDisplayStepView: PhotoDisplayStepView) :
+        ShowUIStepViewModel<PhotoDisplayStepView>(performTaskViewModel, photoDisplayStepView) {
+}
 
-import org.sagebionetworks.research.domain.result.interfaces.Result;
-import org.threeten.bp.Instant;
+class ShowPhotoDisplayStepViewModelFactory :
+        ShowStepViewModelFactory<ShowPhotoDisplayStepViewModel, PhotoDisplayStepView> {
 
-import java.util.ArrayList;
+    override fun create(performTaskViewModel: PerformTaskViewModel,
+            stepView: PhotoDisplayStepView): ShowPhotoDisplayStepViewModel {
 
-
-@AutoValue
-public abstract class PlaqueDrawingResult implements Result {
-    @AutoValue.Builder
-    public abstract static class Builder {
-        public abstract PlaqueDrawingResult build();
-
-        public abstract Builder setIdentifier(@NonNull String identifier);
-        public abstract Builder setStartTime(@NonNull Instant startTime);
-        public abstract Builder setEndTime(@NonNull Instant endTime);
-
-        public abstract Builder setPaths(@NonNull ArrayList<Path> drawings);
-        public abstract Builder setBitmap(@NonNull Bitmap frontBitmap);
+        return ShowPhotoDisplayStepViewModel(performTaskViewModel, stepView)
     }
 
-    public static Builder builder() {
-        return new AutoValue_PlaqueDrawingResult.Builder();
+    override fun getViewModelClass(): Class<out ShowStepViewModel<*>> {
+        return ShowPhotoDisplayStepViewModel::class.java
     }
-
-    @Override
-    @NonNull
-    public String getType() {
-        return "plaqueDrawing";
-    }
-
-    @NonNull
-    public abstract ArrayList<Path> getPaths();
-
-    @NonNull
-    public abstract Bitmap getBitmap();
 }
