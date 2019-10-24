@@ -38,6 +38,7 @@ import androidx.annotation.NonNull
 import android.view.View
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.rs2_image_view
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.view.rs2_image_view
+import org.sagebionetworks.research.domain.result.interfaces.TaskResult
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding

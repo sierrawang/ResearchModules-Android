@@ -57,6 +57,14 @@ class ShowPlaqueBodyMapStepViewModel(performTaskViewModel: PerformTaskViewModel,
 
     override fun handleAction(actionType: String) {
         // if next clicked, addStepResult()
+//        if (actionType == ActionType.FORWARD) {
+//            this.performTaskViewModel.addStepResult(pdResultBuilder.build())
+//            performTaskViewModel.goForward()
+//        } else if (actionType == ActionType.BACKWARD) {
+//            // Logic for skipping
+//        } else {
+//            super.handleAction(actionType)
+//        }
         if (actionType == ActionType.FORWARD) {
             this.performTaskViewModel.addStepResult(pdResultBuilder.build())
         }

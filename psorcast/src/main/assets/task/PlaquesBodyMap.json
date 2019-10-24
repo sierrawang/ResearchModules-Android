@@ -3,21 +3,65 @@
   "steps": [
     {
       "identifier": "introduction",
-      "type": "overview",
-      "title": "Body plaque coverage",
-      "text": "Select all areas on your body that currently have plaques.",
+      "type": "instruction",
+      "title": "Select areas, then draw",
+      "text": "First select the areas on your body that currently have psoriasis, then 'draw' the approximate size and location in each area.",
       "actions": {
         "goForward": {
           "type": "base",
           "buttonTitle": "Begin"
         }
+      },
+      "image": {
+        "type": "animated",
+        "imageNames": ["srpm_select_areas1", "srpm_select_areas2", "srpm_select_areas3", "srpm_draw_areas1", "srpm_draw_areas2", "srpm_draw_areas3", "srpm_draw_areas4", "srpm_draw_areas5", "srpm_draw_areas6"],
+        "placementType": "topMarginBackground",
+        "animationDuration": 4.5
       }
     },
     {
-      "identifier": "upperFrontPlaqueBodyMap",
+      "identifier": "bodySelection",
+      "type": "bodySelection",
+      "title": "Which areas have plaques?",
+      "inputFields": [
+        {
+          "uiHint": "list",
+          "dataType": "multipleChoice.string",
+          "choices": [
+            {
+              "text": "Above the waist (Front)",
+              "value": "frontUpper"
+            },
+            {
+              "text": "Above the waist (Back)",
+              "value": "backUpper"
+            },
+            {
+              "text": "Below the waist (Front)",
+              "value": "frontLower"
+            },
+            {
+              "text": "Below the waist (Back)",
+              "value": "backLower"
+            },
+            {
+              "text": "No areas are affected",
+              "value": "none"
+            }
+          ]
+        }
+      ],
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Continue"
+        }
+      }
+    },
+    {
+      "identifier": "frontUpper",
       "type": "plaqueBodyMap",
-      "title": "Front of the upper body",
-      "text": "Draw areas that have plaques",
+      "title": "Draw your areas of psoriasis",
       "actions": {
         "goForward": {
           "type": "base",
@@ -31,27 +75,9 @@
       }
     },
     {
-      "identifier": "upperBackPlaqueBodyMap",
+      "identifier": "frontLower",
       "type": "plaqueBodyMap",
-      "title": "Back of the upper body",
-      "text": "Draw areas that have plaques",
-      "actions": {
-        "goForward": {
-          "type": "base",
-          "buttonTitle": "Next"
-        }
-      },
-      "image": {
-        "type": "fetchable",
-        "imageName": "srpm_upper_back_body",
-        "placementType": "fullsizeBackground"
-      }
-    },
-    {
-      "identifier": "lowerFrontPlaqueBodyMap",
-      "type": "plaqueBodyMap",
-      "title": "Front of the lower body",
-      "text": "Draw areas that have plaques",
+      "title": "Draw your areas of psoriasis",
       "actions": {
         "goForward": {
           "type": "base",
@@ -65,10 +91,25 @@
       }
     },
     {
-      "identifier": "lowerBackPlaqueBodyMap",
+      "identifier": "backUpper",
       "type": "plaqueBodyMap",
-      "title": "Back of the lower body",
-      "text": "Draw areas that have plaques",
+      "title": "Draw your areas of psoriasis",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_upper_back_body",
+        "placementType": "fullsizeBackground"
+      }
+    },
+    {
+      "identifier": "backLower",
+      "type": "plaqueBodyMap",
+      "title": "Draw your areas of psoriasis",
       "actions": {
         "goForward": {
           "type": "base",

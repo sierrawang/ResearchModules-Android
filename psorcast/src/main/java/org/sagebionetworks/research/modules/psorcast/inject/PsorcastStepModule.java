@@ -37,6 +37,7 @@ import com.google.gson.TypeAdapterFactory;
 import org.sagebionetworks.research.modules.common.step.completion.CompletionStepModule;
 import org.sagebionetworks.research.modules.common.step.instruction.InstructionStepModule;
 import org.sagebionetworks.research.modules.common.step.overview.OverviewStepModule;
+import org.sagebionetworks.research.modules.psorcast.step.body_selection.BodySelectionStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.joint_pain.JointPainStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.joint_photography.JointPhotographyStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.photo_display.PhotoDisplayStepModule;
@@ -47,7 +48,7 @@ import dagger.Provides;
 import dagger.multibindings.IntoSet;
 
 @Module(includes = {JointPainStepModule.class, PhotoDisplayStepModule.class, JointPhotographyStepModule.class, PlaqueBodyMapStepModule.class, OverviewStepModule.class, CompletionStepModule.class,
-        InstructionStepModule.class})
+        InstructionStepModule.class, BodySelectionStepModule.class})
 public class PsorcastStepModule {
     @Provides
     @IntoSet
