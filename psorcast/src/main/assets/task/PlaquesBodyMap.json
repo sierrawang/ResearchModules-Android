@@ -3,6 +3,23 @@
   "steps": [
     {
       "identifier": "introduction",
+      "type": "overview",
+      "title": "Psoriasis Draw",
+      "text": "In this activity you will be drawing the areas on your body which currently have psoriasis in the approximate size and location of your plaques",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_draw_areas6",
+        "placementType": "topBackground"
+      },
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Get started"
+        }
+      }
+    },
+    {
+      "identifier": "instruction",
       "type": "instruction",
       "title": "Select areas, then draw",
       "text": "First select the areas on your body that currently have psoriasis, then 'draw' the approximate size and location in each area.",
