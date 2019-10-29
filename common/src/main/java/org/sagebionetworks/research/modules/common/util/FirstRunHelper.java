@@ -62,15 +62,18 @@ public class FirstRunHelper {
     }
 
     public static boolean isFirstRun(@Nullable TaskResult result) {
-        if (result != null && result.getResult(ShowOverviewStepFragment.INFO_TAPPED_RESULT_ID) == null) {
-            ZonedDateTime lastRunDate = getLastRunDate(result);
-            if (lastRunDate != null) {
-                Instant taskStartInstant = result.getStartTime();
-                ZonedDateTime taskStartDate = ZonedDateTime.ofInstant(taskStartInstant, lastRunDate.getZone());
-                // This is a first run if it has been at least a month since the last run.
-                return lastRunDate.isBefore(taskStartDate.minusMonths(1));
-            }
-        }
+        // Commented this out so that it always displays as if first run
+        // Can uncomment later
+
+//        if (result != null && result.getResult(ShowOverviewStepFragment.INFO_TAPPED_RESULT_ID) == null) {
+//            ZonedDateTime lastRunDate = getLastRunDate(result);
+//            if (lastRunDate != null) {
+//                Instant taskStartInstant = result.getStartTime();
+//                ZonedDateTime taskStartDate = ZonedDateTime.ofInstant(taskStartInstant, lastRunDate.getZone());
+//                // This is a first run if it has been at least a month since the last run.
+//                return lastRunDate.isBefore(taskStartDate.minusMonths(1));
+//            }
+//        }
 
         // The info button was tapped, or The task result or last run date was null making this a first run.
         return true;
