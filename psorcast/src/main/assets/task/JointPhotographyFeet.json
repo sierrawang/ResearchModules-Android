@@ -4,19 +4,74 @@
     {
       "identifier": "introduction",
       "type": "overview",
-      "title": "Joint photography",
-      "text": "Take picture.",
+      "title": "Foot Photographing",
+      "text": "In this activity you will photograph your bare feet with your toes in focus in order to track any changes that may come about",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_photograph_foot",
+        "placementType": "topBackground"
+      },
+      "icons": [
+        {
+          "icon": "srpm_flat_floor_icon",
+          "title": "A FLAT FLOOR"
+        },
+        {
+          "icon": "srpm_bare_foot_icon",
+          "title": "BARE FEET"
+        }
+      ],
       "actions": {
         "goForward": {
           "type": "base",
-          "buttonTitle": "Begin"
+          "buttonTitle": "Get started"
+        }
+      }
+    },
+    {
+      "identifier": "bareFeetInstructionsLeft",
+      "type": "instruction",
+      "title": "Bare feet",
+      "text": "Let's first begin by photographing the toes on a flat surface. You should not be wearing any socks, sandals or shoes for this activity.",
+      "image": {
+        "type": "animated",
+        "imageNames": ["srpm_left_foot1", "srpm_left_foot2", "srpm_left_foot3"],
+        "placementType": "topBackground",
+        "animationDuration": 1.5
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "I'm not wearing shoes"
+        }
+      }
+    },
+    {
+      "identifier": "captureToesInstructionsLeft",
+      "type": "instruction",
+      "title": "Capture your toes",
+      "text": "Splay out your toes and capture them as closely as you can from directly above. Your toenails should be in focus.",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_photograph_left_foot",
+        "placementType": "topMarginBackground"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Capture left toes"
         }
       }
     },
     {
       "identifier": "leftToes",
       "type": "jointPhotography",
-      "title": "Left Toes"
+      "title": "Left Toes",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_left_foot_outline",
+        "placementType": "topMarginBackground"
+      }
     },
     {
       "identifier": "leftToesVerify",
@@ -34,9 +89,49 @@
       }
     },
     {
+      "identifier": "bareFeetInstructionsRight",
+      "type": "instruction",
+      "title": "Bare feet",
+      "text": "Let's first begin by photographing the toes on a flat surface. You should not be wearing any socks, sandals or shoes for this activity.",
+      "image": {
+        "type": "animated",
+        "imageNames": ["srpm_right_foot1", "srpm_right_foot2", "srpm_right_foot3"],
+        "placementType": "topBackground",
+        "animationDuration": 1.5
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "I'm not wearing shoes"
+        }
+      }
+    },
+    {
+      "identifier": "captureToesInstructionsRight",
+      "type": "instruction",
+      "title": "Capture your toes",
+      "text": "Splay out your toes and capture them as closely as you can from directly above. Your toenails should be in focus.",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_photograph_right_foot",
+        "placementType": "topMarginBackground"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Capture right toes"
+        }
+      }
+    },
+    {
       "identifier": "rightToes",
       "type": "jointPhotography",
-      "title": "Right Toes"
+      "title": "Right Toes",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_right_foot_outline",
+        "placementType": "topMarginBackground"
+      }
     },
     {
       "identifier": "rightToesVerify",
