@@ -56,14 +56,13 @@
 
             <ImageView
                 android:id="@+id/rs2_image_view"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:scaleType="fitXY"
-                app:layout_constraintDimensionRatio="H,3280:3620"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:adjustViewBounds="true"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="centerCrop"
                 android:fadeScrollbars="true"
                 android:requiresFadingEdge="none"
                 android:background="@color/colorPrimary"/>
