@@ -4,12 +4,57 @@
     {
       "identifier": "introduction",
       "type": "overview",
-      "title": "Joint photography",
-      "text": "Take picture.",
+      "title": "Fingers Photo",
+      "text": "In this activity you will photograph your fingers with your nails in focus in order to measure any swelling in your fingers or nail involvement",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_photograph_hand",
+        "placementType": "topBackground"
+      },
+      "icons": [
+        {
+          "icon": "srpm_flat_surface_icon",
+          "title": "A FLAT SURFACE"
+        }
+      ],
       "actions": {
         "goForward": {
           "type": "base",
-          "buttonTitle": "Begin"
+          "buttonTitle": "Get started"
+        }
+      }
+    },
+    {
+      "identifier": "flatSurface",
+      "type": "instruction",
+      "title": "Find a flat, solid surface",
+      "text": "Find a flat surface which you can place your hands on. Capture your image on a solid colored surface which is different from your skin color if possible.",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_left_hand1",
+        "placementType": "topMarginBackground"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "I found a flat surface"
+        }
+      }
+    },
+    {
+      "identifier": "captureLeft",
+      "type": "instruction",
+      "title": "Capture from directly above",
+      "text": "Capture from directly above. Your fingernails should be in focus.",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_photograph_left_hand",
+        "placementType": "topMarginBackground"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Capture left hand"
         }
       }
     },
@@ -30,6 +75,23 @@
         "goBackward": {
           "type": "base",
           "buttonTitle": "Retake"
+        }
+      }
+    },
+    {
+      "identifier": "captureRight",
+      "type": "instruction",
+      "title": "Capture from directly above",
+      "text": "Capture from directly above. Your fingernails should be in focus.",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_photograph_right_hand",
+        "placementType": "topMarginBackground"
+      },
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Capture right hand"
         }
       }
     },
