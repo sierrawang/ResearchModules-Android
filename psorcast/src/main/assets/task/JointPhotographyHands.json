@@ -114,6 +114,12 @@
           "buttonTitle": "Retake"
         }
       }
+    },
+    {
+      "identifier": "completion",
+      "type": "photographyCompletion",
+      "title": "Finger Photos Complete",
+      "text": "You have completed the fingers photo activity. By imaging your fingers, we can notice any changes in swelling or nail involvement."
     }
   ]
 }

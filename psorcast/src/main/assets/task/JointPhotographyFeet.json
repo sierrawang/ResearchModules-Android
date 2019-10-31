@@ -147,6 +147,12 @@
           "buttonTitle": "Retake"
         }
       }
+    },
+    {
+      "identifier": "completion",
+      "type": "photographyCompletion",
+      "title": "Activity Complete",
+      "text": "You have completed the foot imaging activity. By tracking your feet you can notice any changes as they come about."
     }
   ]
 }

@@ -4,11 +4,23 @@
     {
       "identifier": "introduction",
       "type": "overview",
-      "title": "Select joint pain",
-      "text": "Select your joints that are causing you pain and discomfort. You can touch the joints you have selected to undo the selection.",
+      "title": "Painful Joint Count",
+      "text": "In this activity you will first select the areas of your body with painful joints, then you will select the individual joints in those areas.",
       "actions": {
         "goForward": {
           "type": "base",
+          "buttonTitle": "Get started"
+        }
+      }
+    },
+    {
+      "identifier": "selectAreas",
+      "type": "instruction",
+      "title": "Select areas, then joints",
+      "text": "Select areas of your body that have painful joints, then tap on the individual joints in those areas that are painful or tender.",
+      "actions": {
+        "goForward": {
+          "type": "default",
           "buttonTitle": "Begin"
         }
       }

@@ -40,6 +40,7 @@ import org.sagebionetworks.research.modules.psorcast.step.body_selection.ShowBod
 import org.sagebionetworks.research.modules.psorcast.step.joint_pain.ShowJointPainStepFragment;
 import org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.photo_display.ShowPhotoDisplayStepFragment;
 import org.sagebionetworks.research.modules.psorcast.step.joint_photography.ShowJointPhotographyStepFragment;
+import org.sagebionetworks.research.modules.psorcast.step.photography_completion.ShowPhotographyCompletionStepFragment;
 import org.sagebionetworks.research.modules.psorcast.step.plaque_body_map.ShowPlaqueBodyMapStepFragment;
 
 import dagger.Module;
@@ -79,4 +80,8 @@ public abstract class PsorcastShowStepFragmentsModule {
     @ContributesAndroidInjector
     @ShowStepFragmentScope
     abstract ShowBodySelectionStepFragment contributeShowBodySelectionStepFragmentInjector();
+
+    @ContributesAndroidInjector
+    @ShowStepFragmentScope
+    abstract ShowPhotographyCompletionStepFragment contributeShowPhotographyCompletionStepFragmentInjector();
 }
