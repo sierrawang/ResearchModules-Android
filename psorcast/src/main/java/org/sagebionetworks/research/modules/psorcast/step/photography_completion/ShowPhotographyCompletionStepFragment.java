@@ -33,9 +33,14 @@
 package org.sagebionetworks.research.modules.psorcast.step.photography_completion;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase;
@@ -68,5 +73,16 @@ public class ShowPhotographyCompletionStepFragment extends
     @Override
     protected UIStepViewBinding<PhotographyCompletionStepView> instantiateAndBindBinding(final View view) {
         return new UIStepViewBinding<>(view);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View result = super.onCreateView(inflater, container, savedInstanceState);
+
+        ViewPager viewPager = result.findViewById(R.id.view_pager);
+        FragmentPagerAdapter adapter = new TwoImagePagerAdapter(getFragmentManager());
+        viewPager.setAdapter(adapter);
+
+        return result;
     }
 }
