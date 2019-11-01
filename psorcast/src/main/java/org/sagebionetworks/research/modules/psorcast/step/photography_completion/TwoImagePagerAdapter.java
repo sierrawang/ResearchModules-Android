@@ -36,13 +36,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import org.sagebionetworks.research.modules.psorcast.R;
-
 public class TwoImagePagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 2;
+    private static String firstFilePath;
+    private static String secondFilePath;
 
-    public TwoImagePagerAdapter(FragmentManager fragmentManager) {
+    public TwoImagePagerAdapter(FragmentManager fragmentManager, String firstFilePath, String secondFilePath) {
         super(fragmentManager);
+        this.firstFilePath = firstFilePath;
+        this.secondFilePath = secondFilePath;
     }
 
     @Override
@@ -53,9 +55,9 @@ public class TwoImagePagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return ShowOneImageFragment.newInstance(R.drawable.srpm_upper_front_body);
+            return ShowOneImageFragment.newInstance(firstFilePath);
         } else {
-            return ShowOneImageFragment.newInstance(R.drawable.srpm_lower_back_body);
+            return ShowOneImageFragment.newInstance(secondFilePath);
         }
     }
 }

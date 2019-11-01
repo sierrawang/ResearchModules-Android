@@ -38,6 +38,7 @@ import androidx.annotation.NonNull;
 import com.google.auto.value.AutoValue;
 
 import org.sagebionetworks.research.domain.result.interfaces.Result;
+import org.sagebionetworks.research.modules.psorcast.result.AutoValue_PhotoDisplayResult.Builder;
 import org.threeten.bp.Instant;
 
 @AutoValue
@@ -49,6 +50,12 @@ public abstract class PhotoDisplayResult implements Result {
         public abstract Builder setIdentifier(@NonNull String identifier);
         public abstract Builder setStartTime(@NonNull Instant startTime);
         public abstract Builder setEndTime(@NonNull Instant endTime);
+
+        public abstract Builder setPhotoAbsolutePath(@NonNull String photoAbsolutePath);
+    }
+
+    public static Builder builder() {
+        return new AutoValue_PhotoDisplayResult.Builder();
     }
 
     @Override
@@ -56,4 +63,7 @@ public abstract class PhotoDisplayResult implements Result {
     public String getType() {
         return "photoDisplay";
     }
+
+    @NonNull
+    public abstract String getPhotoAbsolutePath();
 }

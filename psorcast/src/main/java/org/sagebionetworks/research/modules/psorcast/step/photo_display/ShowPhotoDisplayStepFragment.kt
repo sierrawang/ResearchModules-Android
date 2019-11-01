@@ -42,13 +42,17 @@ import kotlinx.android.synthetic.main.srpm_show_photo_display_step_fragment.rs2_
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding
+import org.sagebionetworks.research.mobile_ui.widget.ActionButton
 import org.sagebionetworks.research.modules.psorcast.R
 import org.sagebionetworks.research.modules.psorcast.result.JointPhotographyResult
 import org.sagebionetworks.research.modules.psorcast.step.photo_display.PhotoDisplayStepView
+import org.sagebionetworks.research.presentation.model.action.ActionType
 import org.sagebionetworks.research.presentation.model.interfaces.StepView
 
 class ShowPhotoDisplayStepFragment :
         ShowUIStepFragmentBase<PhotoDisplayStepView, ShowPhotoDisplayStepViewModel, UIStepViewBinding<PhotoDisplayStepView>>() {
+
+    private lateinit var photoFilePath : String
 
     companion object {
         @JvmStatic
@@ -72,13 +76,21 @@ class ShowPhotoDisplayStepFragment :
         var identifier = stepView.identifier.replace("Verify", "")
         var photoResult = this.performTaskViewModel.taskResult.getResult(identifier)
         if (photoResult is JointPhotographyResult) {
-            val filePath = photoResult.photoAbsolutePath
-            val bitmap = BitmapFactory.decodeFile(filePath)
+            photoFilePath = photoResult.photoAbsolutePath
+            val bitmap = BitmapFactory.decodeFile(photoFilePath)
             // This seems unnecessary but haven't determined why picture is rotated
             var matrix = Matrix()
             matrix.postRotate(90f)
             val rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
             rs2_image_view.setImageBitmap(rotatedBitmap)
         }
+    }
+
+    override fun handleActionButtonClick(actionButton: ActionButton) {
+        @ActionType val actionType = this.getActionTypeFromActionButton(actionButton)
+        if (ActionType.FORWARD == actionType) {
+            showStepViewModel.pdResultBuilder.setPhotoAbsolutePath(photoFilePath)
+        }
+        super.handleActionButtonClick(actionButton)
     }
 }

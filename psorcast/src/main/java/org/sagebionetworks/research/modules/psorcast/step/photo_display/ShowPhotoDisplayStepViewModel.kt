@@ -32,15 +32,33 @@
 
 package org.sagebionetworks.research.modules.psorcast.org.sagebionetworks.research.modules.psorcast.step.photo_display
 
+import org.sagebionetworks.research.modules.psorcast.result.PhotoDisplayResult
 import org.sagebionetworks.research.modules.psorcast.step.photo_display.PhotoDisplayStepView
+import org.sagebionetworks.research.presentation.model.action.ActionType
 import org.sagebionetworks.research.presentation.perform_task.PerformTaskViewModel
 import org.sagebionetworks.research.presentation.show_step.show_step_view_model_factories.ShowStepViewModelFactory
 import org.sagebionetworks.research.presentation.show_step.show_step_view_models.ShowStepViewModel
 import org.sagebionetworks.research.presentation.show_step.show_step_view_models.ShowUIStepViewModel
+import org.threeten.bp.ZonedDateTime
 
 class ShowPhotoDisplayStepViewModel(performTaskViewModel: PerformTaskViewModel,
         photoDisplayStepView: PhotoDisplayStepView) :
         ShowUIStepViewModel<PhotoDisplayStepView>(performTaskViewModel, photoDisplayStepView) {
+    val pdResultBuilder : PhotoDisplayResult.Builder
+
+    init {
+        val zonedStart = ZonedDateTime.now()
+        pdResultBuilder = PhotoDisplayResult.builder()
+                .setStartTime(zonedStart.toInstant())
+                .setIdentifier(stepView.identifier)
+    }
+
+    override fun handleAction(actionType: String) {
+        if (actionType == ActionType.FORWARD) {
+            this.performTaskViewModel.addStepResult(pdResultBuilder.build())
+        }
+        super.handleAction(actionType)
+    }
 }
 
 class ShowPhotoDisplayStepViewModelFactory :
@@ -55,4 +73,6 @@ class ShowPhotoDisplayStepViewModelFactory :
     override fun getViewModelClass(): Class<out ShowStepViewModel<*>> {
         return ShowPhotoDisplayStepViewModel::class.java
     }
+
+
 }

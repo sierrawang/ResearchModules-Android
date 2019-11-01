@@ -32,6 +32,9 @@
 
 package org.sagebionetworks.research.modules.psorcast.step.photography_completion;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,12 +46,12 @@ import androidx.fragment.app.Fragment;
 import org.sagebionetworks.research.modules.psorcast.R;
 
 public class ShowOneImageFragment extends Fragment {
-    private int image;
+    private String filePath;
 
-    public static ShowOneImageFragment newInstance(int resId) {
+    public static ShowOneImageFragment newInstance(String filePath) {
         ShowOneImageFragment fragment = new ShowOneImageFragment();
         Bundle args = new Bundle();
-        args.putInt("image", resId);
+        args.putString("filePath", filePath);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,7 +59,7 @@ public class ShowOneImageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        image = getArguments().getInt("image",0);
+        filePath = getArguments().getString("filePath");
     }
 
     @Override
@@ -64,7 +67,11 @@ public class ShowOneImageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view  = inflater.inflate(R.layout.srpm_one_image, container, false);
         ImageView imageView = view.findViewById(R.id.display_image);
-        imageView.setImageResource(image);
+        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+        Matrix matrix = new Matrix();
+        matrix.postRotate(90f);
+        Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        imageView.setImageBitmap(rotatedBitmap);
         return view;
     }
 }

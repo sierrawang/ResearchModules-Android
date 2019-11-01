@@ -39,13 +39,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import org.sagebionetworks.research.domain.result.interfaces.TaskResult;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase;
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding;
 import org.sagebionetworks.research.modules.psorcast.R;
+import org.sagebionetworks.research.modules.psorcast.result.PhotoDisplayResult;
 import org.sagebionetworks.research.presentation.model.interfaces.StepView;
 import org.sagebionetworks.research.presentation.show_step.show_step_view_models.ShowUIStepViewModel;
 
@@ -79,8 +80,14 @@ public class ShowPhotographyCompletionStepFragment extends
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View result = super.onCreateView(inflater, container, savedInstanceState);
 
+        TaskResult taskResult = performTaskViewModel.getTaskResult();
+        String leftIndentifier = "leftToesVerify";
+        PhotoDisplayResult leftResult = (PhotoDisplayResult) taskResult.getResult(leftIndentifier);
+        String rightIndentifier = "rightToesVerify";
+        PhotoDisplayResult rightResult = (PhotoDisplayResult) taskResult.getResult(rightIndentifier);
+
         ViewPager viewPager = result.findViewById(R.id.view_pager);
-        FragmentPagerAdapter adapter = new TwoImagePagerAdapter(getFragmentManager());
+        FragmentPagerAdapter adapter = new TwoImagePagerAdapter(getFragmentManager(), leftResult.getPhotoAbsolutePath(), rightResult.getPhotoAbsolutePath());
         viewPager.setAdapter(adapter);
 
         return result;
