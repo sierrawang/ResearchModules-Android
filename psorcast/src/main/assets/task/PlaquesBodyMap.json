@@ -8,13 +8,17 @@
       "text": "In this activity you will be drawing the areas on your body which currently have psoriasis in the approximate size and location of your plaques",
       "image": {
         "type": "fetchable",
-        "imageName": "srpm_draw_areas6",
+        "imageName": "srpm_draw_areas_intro",
         "placementType": "topBackground"
       },
       "actions": {
         "goForward": {
           "type": "base",
           "buttonTitle": "Get started"
+        },
+        "skip": {
+          "type": "reminder",
+          "reminderIdentifier": "PlaquesBodyMap"
         }
       }
     },
@@ -31,7 +35,7 @@
       },
       "image": {
         "type": "animated",
-        "imageNames": ["srpm_select_areas1", "srpm_select_areas2", "srpm_select_areas3", "srpm_draw_areas1", "srpm_draw_areas2", "srpm_draw_areas3", "srpm_draw_areas4", "srpm_draw_areas5", "srpm_draw_areas6"],
+        "imageNames": ["srpm_select_areas_joints1", "srpm_select_areas_joints2", "srpm_select_areas_joints3", "srpm_select_areas1", "srpm_select_areas2", "srpm_select_areas3", "srpm_draw_areas1", "srpm_draw_areas2", "srpm_draw_areas3", "srpm_draw_areas4", "srpm_draw_areas5", "srpm_draw_areas6"],
         "placementType": "topMarginBackground",
         "animationDuration": 4.5
       }

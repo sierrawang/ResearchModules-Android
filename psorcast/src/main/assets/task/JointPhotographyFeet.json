@@ -25,6 +25,10 @@
         "goForward": {
           "type": "base",
           "buttonTitle": "Get started"
+        },
+        "skip": {
+          "type": "reminder",
+          "reminderIdentifier": "JointPhotographyFeet"
         }
       }
     },
