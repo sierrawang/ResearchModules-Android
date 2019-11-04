@@ -59,12 +59,12 @@
       }
     },
     {
-      "identifier": "leftHand",
+      "identifier": "left",
       "type": "jointPhotography",
       "title": "Left Hand"
     },
     {
-      "identifier": "leftHandVerify",
+      "identifier": "leftVerify",
       "type": "photoDisplay",
       "title": "Are your nails in focus?",
       "actions": {
@@ -96,12 +96,12 @@
       }
     },
     {
-      "identifier": "rightHand",
+      "identifier": "right",
       "type": "jointPhotography",
       "title": "Right Hand"
     },
     {
-      "identifier": "rightHandVerify",
+      "identifier": "rightVerify",
       "type": "photoDisplay",
       "title": "Are your nails in focus?",
       "actions": {

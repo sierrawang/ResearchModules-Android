@@ -81,9 +81,9 @@ public class ShowPhotographyCompletionStepFragment extends
         View result = super.onCreateView(inflater, container, savedInstanceState);
 
         TaskResult taskResult = performTaskViewModel.getTaskResult();
-        String leftIndentifier = "leftToesVerify";
+        String leftIndentifier = "leftVerify";
         PhotoDisplayResult leftResult = (PhotoDisplayResult) taskResult.getResult(leftIndentifier);
-        String rightIndentifier = "rightToesVerify";
+        String rightIndentifier = "rightVerify";
         PhotoDisplayResult rightResult = (PhotoDisplayResult) taskResult.getResult(rightIndentifier);
 
         ViewPager viewPager = result.findViewById(R.id.view_pager);

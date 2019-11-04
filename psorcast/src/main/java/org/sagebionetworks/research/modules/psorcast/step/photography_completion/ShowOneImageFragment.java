@@ -68,9 +68,12 @@ public class ShowOneImageFragment extends Fragment {
         View view  = inflater.inflate(R.layout.srpm_one_image, container, false);
         ImageView imageView = view.findViewById(R.id.display_image);
         Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+
+        // Rotate bitmap
         Matrix matrix = new Matrix();
         matrix.postRotate(90f);
         Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+
         imageView.setImageBitmap(rotatedBitmap);
         return view;
     }
