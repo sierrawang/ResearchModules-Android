@@ -11,6 +11,11 @@
           "type": "base",
           "buttonTitle": "Get started"
         }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_joint_counting_intro",
+        "placementType": "topBackground"
       }
     },
     {
@@ -23,6 +28,12 @@
           "type": "default",
           "buttonTitle": "Begin"
         }
+      },
+      "image": {
+        "type": "animated",
+        "imageNames": ["srpm_select_areas_joints1", "srpm_select_areas_joints2", "srpm_select_areas_joints3", "srpm_select_areas_joints4", "srpm_select_areas_joints5", "srpm_select_areas_joints6"],
+        "placementType": "topBackground",
+        "animationDuration": 3.0
       }
     },
     {
