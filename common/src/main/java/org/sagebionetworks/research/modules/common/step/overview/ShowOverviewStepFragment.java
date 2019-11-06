@@ -159,6 +159,11 @@ public class ShowOverviewStepFragment extends
                 }
             }
         }
+
+        if (iconViews.size() == 0) {
+            this.stepViewBinding.getOverallIconDescriptionLabel().setVisibility(View.GONE);
+
+        }
     }
 
     protected void scrollToBottomAndFadeIn() {

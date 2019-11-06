@@ -36,6 +36,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -90,15 +91,18 @@ public class ShowBodySelectionStepFragment extends FormUIStepFragment {
         View result = super.onCreateView(inflater, container, savedInstanceState);
 
         RecyclerView recyclerView = this.stepViewBinding.getRecyclerView();
+
         if (recyclerView != null) {
-            recyclerView.setHasFixedSize(true);
-            LinearLayoutManager manager = new LinearLayoutManager(recyclerView.getContext());
-            recyclerView.setLayoutManager(manager);
-            DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(),
-                    manager.getOrientation());
-            Drawable drawable = this.getContext().getResources().getDrawable(R.drawable.form_step_divider);
-            decoration.setDrawable(drawable);
-            recyclerView.addItemDecoration(decoration);
+//            recyclerView.setHasFixedSize(true);
+//            LinearLayoutManager manager = new LinearLayoutManager(recyclerView.getContext());
+//            recyclerView.setLayoutManager(manager);
+//            DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(),
+//                    manager.getOrientation());
+//            Drawable drawable = this.getContext().getResources().getDrawable(R.drawable.form_step_divider);
+//            decoration.setDrawable(drawable);
+//            recyclerView.addItemDecoration(decoration);
+//
+
 
             List<InputFieldView> inputFields = stepView.getInputFields();
             if (inputFields.isEmpty()) {
@@ -115,9 +119,15 @@ public class ShowBodySelectionStepFragment extends FormUIStepFragment {
             }
 
             ChoiceInputFieldViewBase<?> choiceInputField = (ChoiceInputFieldViewBase<?>) inputField;
-            BodySelectionAdapter<?> adapter = new BodySelectionAdapter<>(this, recyclerView,
+            RecyclerAdapter adapter = new RecyclerAdapter(this, recyclerView,
                     choiceInputField.getChoices(), new HashSet<>());
+            RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+            recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(adapter);
+
+//            BodySelectionAdapter<?> adapter = new BodySelectionAdapter<>(this, recyclerView,
+//                    choiceInputField.getChoices(), new HashSet<>());
+//            recyclerView.setAdapter(adapter);
         }
 
         return result;

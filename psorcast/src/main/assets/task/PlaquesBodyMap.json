@@ -5,7 +5,7 @@
       "identifier": "introduction",
       "type": "overview",
       "title": "Psoriasis Draw",
-      "text": "In this activity you will be drawing the areas on your body which currently have psoriasis in the approximate size and location of your plaques",
+      "text": "In this activity you will be drawing the approximate size and location of your psoriasis. This will help you to track your psoriasis over time.",
       "image": {
         "type": "fetchable",
         "imageName": "srpm_draw_areas_intro",
@@ -43,31 +43,27 @@
     {
       "identifier": "bodySelection",
       "type": "bodySelection",
-      "title": "Which areas have plaques?",
+      "title": "Which areas of your body currently have psoriasis?",
       "inputFields": [
         {
           "uiHint": "list",
           "dataType": "multipleChoice.string",
           "choices": [
             {
-              "text": "Above the waist (Front)",
+              "text": "srpm_below_waist_front_button",
               "value": "frontUpper"
             },
             {
-              "text": "Above the waist (Back)",
+              "text": "srpm_below_waist_front_button",
               "value": "backUpper"
             },
             {
-              "text": "Below the waist (Front)",
+              "text": "srpm_below_waist_front_button",
               "value": "frontLower"
             },
             {
-              "text": "Below the waist (Back)",
+              "text": "srpm_below_waist_front_button",
               "value": "backLower"
-            },
-            {
-              "text": "No areas are affected",
-              "value": "none"
             }
           ]
         }

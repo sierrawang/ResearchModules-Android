@@ -35,22 +35,28 @@ package org.sagebionetworks.research.modules.psorcast.step.body_selection;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.sagebionetworks.research.mobile_ui.widget.ActionButton;
 import org.sagebionetworks.research.modules.psorcast.R;
+import org.w3c.dom.Text;
 
 public class BodySelectionViewHolder extends RecyclerView.ViewHolder {
     private final ActionButton button;
-    private final ShowBodySelectionStepFragment fragment;
-    private final RecyclerView parent;
+//    private final ShowBodySelectionStepFragment fragment;
+//    private final RecyclerView parent;
     private String choice;
+    private ImageView image;
+    private TextView title;
 
     public BodySelectionViewHolder(final ShowBodySelectionStepFragment fragment, final RecyclerView parent,
                                    final ActionButton button) {
         super(button);
         this.button = button;
-        this.parent = parent;
-        this.fragment = fragment;
+
+//        this.parent = parent;
+//        this.fragment = fragment;
         this.button.setOnClickListener(view -> {
             int inactiveColor = parent.getContext().getResources().getColor(R.color.transparent);
             int activeColor = view.getContext().getResources().getColor(R.color.appLightGray);
