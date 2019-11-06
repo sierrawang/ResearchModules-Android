@@ -72,7 +72,7 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Ima
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         ActionButton button = (ActionButton) LayoutInflater.from(parent.getContext()).inflate(layout.srpm_image_selection, parent, false);
-        return new ImageViewHolder(button);
+        return new ImageViewHolder(button, this.recyclerView, this.fragment);
     }
 
     @Override
@@ -81,12 +81,12 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Ima
         String choice = inputField.getAnswerValue();
         holder.setChoice(choice);
         ActionButton button = holder.getButton();
-        DisplayString textDisplayString = inputField.getText();
-        String text = "";
-        if (textDisplayString != null) {
-            text = textDisplayString.getDisplayString();
+        DisplayString imageDisplayString = inputField.getText();
+        String image = "";
+        if (imageDisplayString != null) {
+            image = imageDisplayString.getDisplayString();
         }
-        int id = button.getContext().getResources().getIdentifier(text, "drawable", button.getContext().getPackageName());
+        int id = button.getContext().getResources().getIdentifier(image, "drawable", button.getContext().getPackageName());
         button.setBackground(button.getContext().getResources().getDrawable(id));
     }
 
@@ -113,13 +113,18 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Ima
     public static class ImageViewHolder extends RecyclerView.ViewHolder {
         ActionButton button;
         String choice;
+        RecyclerAdapter adapter;
+        ShowBodySelectionStepFragment fragment;
 
-        public ImageViewHolder(ActionButton button) {
+        public ImageViewHolder(ActionButton button, RecyclerView recyclerView, ShowBodySelectionStepFragment fragment) {
             super(button);
             this.button = button;
+            this.adapter = (RecyclerAdapter) recyclerView.getAdapter();
+            this.fragment = fragment;
 
             this.button.setOnClickListener(view -> {
-//                if ()
+                adapter.updateSelectedChoices(this.choice);
+                fragment.writeBodySelectionResult(adapter.getSelectedChoices());
             });
         }
 

@@ -50,19 +50,19 @@
           "dataType": "multipleChoice.string",
           "choices": [
             {
-              "text": "srpm_below_waist_front_button",
+              "text": "srpm_upper_front_body",
               "value": "frontUpper"
             },
             {
-              "text": "srpm_below_waist_front_button",
+              "text": "srpm_upper_back_body",
               "value": "backUpper"
             },
             {
-              "text": "srpm_below_waist_front_button",
+              "text": "srpm_lower_front_body",
               "value": "frontLower"
             },
             {
-              "text": "srpm_below_waist_front_button",
+              "text": "srpm_lower_back_body",
               "value": "backLower"
             }
           ]
