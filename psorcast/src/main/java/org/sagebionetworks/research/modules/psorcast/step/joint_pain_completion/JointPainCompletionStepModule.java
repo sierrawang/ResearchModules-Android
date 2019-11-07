@@ -30,14 +30,14 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.sagebionetworks.research.modules.psorcast.step.photography_completion;
+package org.sagebionetworks.research.modules.psorcast.step.joint_pain_completion;
 
-import org.sagebionetworks.research.domain.inject.StepModule.StepClassKey;
 import org.sagebionetworks.research.mobile_ui.inject.ShowStepModule;
 import org.sagebionetworks.research.modules.common.CommonStepModule;
 import org.sagebionetworks.research.presentation.inject.ShowStepViewModelModule.StepViewClassKey;
 import org.sagebionetworks.research.presentation.inject.StepViewModule;
 import org.sagebionetworks.research.presentation.inject.StepViewModule.StepTypeKey;
+import org.sagebionetworks.research.domain.inject.StepModule.StepClassKey;
 import org.sagebionetworks.research.presentation.model.interfaces.StepView;
 import org.sagebionetworks.research.presentation.show_step.show_step_view_model_factories.ShowStepViewModelFactory;
 import org.sagebionetworks.research.presentation.show_step.show_step_view_model_factories.ShowUIStepViewModelFactory;
@@ -47,32 +47,32 @@ import dagger.Provides;
 import dagger.multibindings.IntoMap;
 
 @Module(includes = CommonStepModule.class)
-public class PhotographyCompletionStepModule {
+public class JointPainCompletionStepModule {
     @Provides
     @IntoMap
-    @StepClassKey(PhotographyCompletionStep.class)
-    static String providePhotographyCompletionStepClassInfo() {
-        return PhotographyCompletionStep.TYPE_KEY;
+    @StepClassKey(JointPainCompletionStep.class)
+    static String provideJointPainCompletionStepClassInfo() {
+        return JointPainCompletionStep.TYPE_KEY;
     }
 
     @Provides
     @IntoMap
-    @StepViewClassKey(PhotographyCompletionStepView.TYPE)
-    static ShowStepViewModelFactory<?, ? extends StepView> providePhotographyCompletionStepVMF() {
-        return new ShowUIStepViewModelFactory<PhotographyCompletionStepView>();
+    @StepViewClassKey(JointPainCompletionStepView.TYPE)
+    static ShowStepViewModelFactory<?, ? extends StepView> provideJointPainCompletionStepVMF() {
+        return new ShowUIStepViewModelFactory<JointPainCompletionStepView>();
     }
 
     @Provides
     @IntoMap
-    @StepTypeKey("photographyCompletion")
-    static StepViewModule.InternalStepViewFactory providePhotographyCompletionStepViewFactory() {
-        return PhotographyCompletionStepView::fromPhotographyCompletionStep;
+    @StepTypeKey("jointPainCompletion")
+    static StepViewModule.InternalStepViewFactory provideJointPainCompletionStepViewFactory() {
+        return JointPainCompletionStepView::fromJointPainCompletionStep;
     }
 
     @Provides
     @IntoMap
-    @ShowStepModule.StepViewKey(PhotographyCompletionStepView.TYPE)
-    static ShowStepModule.ShowStepFragmentFactory provideShowPhotographyCompletionStepFragmentFactory() {
-        return ShowPhotographyCompletionStepFragment::newInstance;
+    @ShowStepModule.StepViewKey(JointPainCompletionStepView.TYPE)
+    static ShowStepModule.ShowStepFragmentFactory provideShowJointPainCompletionStepFragmentFactory() {
+        return ShowJointPainCompletionStepFragment::newInstance;
     }
 }

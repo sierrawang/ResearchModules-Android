@@ -478,6 +478,17 @@
           }
         }
       }
+    },
+    {
+      "identifier": "completion",
+      "type": "jointPainCompletion",
+      "title": "Joint Counting Complete",
+      "text": "Today you identified",
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_joint_pain_completion",
+        "placementType": "fullsizeBackground"
+      }
     }
   ]
 }
