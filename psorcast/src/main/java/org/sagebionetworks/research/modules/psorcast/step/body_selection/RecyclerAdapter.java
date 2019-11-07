@@ -40,6 +40,7 @@ import android.os.Build.VERSION_CODES;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -47,7 +48,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.sagebionetworks.research.modules.psorcast.R;
-import org.sagebionetworks.research.presentation.DisplayString;
 import org.sagebionetworks.research.presentation.model.form.ChoiceView;
 
 import java.util.HashSet;
@@ -83,11 +83,12 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Sel
         String choice = inputField.getAnswerValue();
         holder.setChoice(choice);
         ConstraintLayout button = holder.getButton();
-        DisplayString imageDisplayString = inputField.getText();
-        String image = "";
-        if (imageDisplayString != null) {
-            image = imageDisplayString.getDisplayString();
-        }
+
+        String label = inputField.getText().getDisplayString();
+        TextView buttonLabel = button.findViewById(id.label);
+        buttonLabel.setText(label);
+
+        String image = inputField.getDetail().getDisplayString();
         int id = button.getContext().getResources().getIdentifier(image, "drawable", button.getContext().getPackageName());
         ImageView buttonImage = button.findViewById(R.id.button_image);
         buttonImage.setImageResource(id);
