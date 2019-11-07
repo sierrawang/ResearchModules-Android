@@ -34,26 +34,27 @@ package org.sagebionetworks.research.modules.psorcast.step.body_selection;
 
 import static org.sagebionetworks.research.modules.psorcast.R.*;
 
-import android.graphics.drawable.Drawable;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.os.Build.VERSION_CODES;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.sagebionetworks.research.mobile_ui.widget.ActionButton;
 import org.sagebionetworks.research.modules.psorcast.R;
 import org.sagebionetworks.research.presentation.DisplayString;
-import org.sagebionetworks.research.presentation.mapper.DrawableMapper;
 import org.sagebionetworks.research.presentation.model.form.ChoiceView;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.ImageViewHolder> {
+public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.SelectionViewHolder> {
 
     private List<ChoiceView<T>> choices;
     private RecyclerView recyclerView;
@@ -68,26 +69,28 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Ima
         this.selectedChoices = defaultChoices;
     }
 
+    @RequiresApi(api = VERSION_CODES.LOLLIPOP)
     @NonNull
     @Override
-    public ImageViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
-        ActionButton button = (ActionButton) LayoutInflater.from(parent.getContext()).inflate(layout.srpm_image_selection, parent, false);
-        return new ImageViewHolder(button, this.recyclerView, this.fragment);
+    public SelectionViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
+        ConstraintLayout button = (ConstraintLayout) LayoutInflater.from(parent.getContext()).inflate(layout.srpm_body_selection_button, parent, false);
+        return new SelectionViewHolder(button, this.recyclerView, this.fragment);
     }
 
     @Override
-    public void onBindViewHolder(ImageViewHolder holder, final int position) {
+    public void onBindViewHolder(SelectionViewHolder holder, final int position) {
         ChoiceView<String> inputField = (ChoiceView<String>)this.choices.get(position);
         String choice = inputField.getAnswerValue();
         holder.setChoice(choice);
-        ActionButton button = holder.getButton();
+        ConstraintLayout button = holder.getButton();
         DisplayString imageDisplayString = inputField.getText();
         String image = "";
         if (imageDisplayString != null) {
             image = imageDisplayString.getDisplayString();
         }
         int id = button.getContext().getResources().getIdentifier(image, "drawable", button.getContext().getPackageName());
-        button.setBackground(button.getContext().getResources().getDrawable(id));
+        ImageView buttonImage = button.findViewById(R.id.button_image);
+        buttonImage.setImageResource(id);
     }
 
     @Override
@@ -110,25 +113,40 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.Ima
     }
 
 
-    public static class ImageViewHolder extends RecyclerView.ViewHolder {
-        ActionButton button;
+    public static class SelectionViewHolder extends RecyclerView.ViewHolder {
+
+        ConstraintLayout button;
         String choice;
         RecyclerAdapter adapter;
         ShowBodySelectionStepFragment fragment;
+        int selectedColor;
+        int unselectedColor;
+        ImageView checkCircle;
 
-        public ImageViewHolder(ActionButton button, RecyclerView recyclerView, ShowBodySelectionStepFragment fragment) {
+        @RequiresApi(api = VERSION_CODES.LOLLIPOP)
+        public SelectionViewHolder(ConstraintLayout button, RecyclerView recyclerView, ShowBodySelectionStepFragment fragment) {
             super(button);
             this.button = button;
             this.adapter = (RecyclerAdapter) recyclerView.getAdapter();
             this.fragment = fragment;
+            Resources resources = recyclerView.getContext().getResources();
+            this.selectedColor = resources.getColor(color.colorPrimary);
+            this.unselectedColor = resources.getColor(color.colorSecondary);
+            this.checkCircle = this.button.findViewById(id.check_circle);
 
             this.button.setOnClickListener(view -> {
-                adapter.updateSelectedChoices(this.choice);
+                if (adapter.updateSelectedChoices(this.choice)) {
+                    this.button.setBackgroundTintList(ColorStateList.valueOf(this.selectedColor));
+                    checkCircle.setImageResource(drawable.srpm_check_circle_checked);
+                } else {
+                    this.button.setBackgroundTintList(ColorStateList.valueOf(this.unselectedColor));
+                    checkCircle.setImageResource(drawable.srpm_check_circle_unchecked);
+                }
                 fragment.writeBodySelectionResult(adapter.getSelectedChoices());
             });
         }
 
-        public ActionButton getButton() {
+        public ConstraintLayout getButton() {
             return this.button;
         }
 
