@@ -51,7 +51,7 @@
           "choices": [
             {
               "text": "Above Waist: Front",
-              "detail": "srpm_above_waist_back_button",
+              "detail": "srpm_above_waist_front_button",
               "value": "frontUpper"
             },
             {

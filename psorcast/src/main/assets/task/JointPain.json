@@ -41,6 +41,45 @@
       }
     },
     {
+      "identifier": "bodySelection",
+      "type": "bodySelection",
+      "title": "Which areas of your body currently have painful joints?",
+      "inputFields": [
+        {
+          "uiHint": "list",
+          "dataType": "multipleChoice.string",
+          "choices": [
+            {
+              "text": "Above Waist",
+              "detail": "srpm_above_waist_front_button",
+              "value": "upperBody"
+            },
+            {
+              "text": "Hands",
+              "detail": "srpm_hand_button",
+              "value": "leftHand"
+            },
+            {
+              "text": "Below Waist",
+              "detail": "srpm_below_waist_front_button",
+              "value": "lowerBody"
+            },
+            {
+              "text": "Feet",
+              "detail": "srpm_foot_button",
+              "value": "leftFoot"
+            }
+          ]
+        }
+      ],
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Continue"
+        }
+      }
+    },
+    {
       "identifier": "upperBody",
       "type": "jointPain",
       "title": "ABOVE the waist joint pain",

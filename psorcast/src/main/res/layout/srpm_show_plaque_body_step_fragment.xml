@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="#6DB585">
+        android:background="@color/appWhite">
 
         <org.sagebionetworks.research.mobile_ui.widget.ActionButton
             android:id="@id/rs2_step_navigation_action_cancel"

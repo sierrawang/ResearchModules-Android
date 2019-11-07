@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato"
         android:textStyle="bold"
-        android:textSize="14dp"
+        android:textSize="14sp"
         android:textColor="@color/colorTextSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -58,7 +58,7 @@ class PlaqueCoverageView : AppCompatImageView {
         setLayerType(View.LAYER_TYPE_SOFTWARE, null)
 
         // Set up brush for drawing plaques
-        highlightPaint.color = ContextCompat.getColor(getContext(), R.color.srpm_fern300)
+        highlightPaint.color = ContextCompat.getColor(getContext(), R.color.colorAccent)
         highlightPaint.isAntiAlias = true
         highlightPaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP)
         highlightPaint.style = Paint.Style.STROKE
