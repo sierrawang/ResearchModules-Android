@@ -488,6 +488,12 @@
         "type": "fetchable",
         "imageName": "srpm_joint_pain_completion",
         "placementType": "fullsizeBackground"
+      },
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Submit"
+        }
       }
     }
   ]
