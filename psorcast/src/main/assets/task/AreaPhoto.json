@@ -1,0 +1,26 @@
+{
+  "identifier": "AreaPhoto",
+  "steps": [
+    {
+      "identifier": "introduction",
+      "type": "overview",
+      "title": "Psoriasis Area Photo",
+      "text": "In this activity, we'd like you to select the area on your body which is currently the most representative of your psoriasis, then take a photo of it to track over time.",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Get started"
+        },
+        "skip": {
+          "type": "reminder",
+          "reminderIdentifier": "JointPain"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_area_photo_intro",
+        "placementType": "topBackground"
+      }
+    }
+  ]
+}

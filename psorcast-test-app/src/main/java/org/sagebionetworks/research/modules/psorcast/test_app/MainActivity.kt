@@ -33,6 +33,7 @@
 package org.sagebionetworks.research.modules.psorcast.test_app
 import android.os.Bundle
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.area_photo
 import kotlinx.android.synthetic.main.activity_main.body_plaque_coverage
 import kotlinx.android.synthetic.main.activity_main.joint_pain
 import kotlinx.android.synthetic.main.activity_main.walk_30_seconds
@@ -70,6 +71,10 @@ class MainActivity : DaggerAppCompatActivity() {
 
         joint_photography_feet.setOnClickListener {
             launchTask("JointPhotographyFeet", UUID.randomUUID())
+        }
+
+        area_photo.setOnClickListener {
+            launchTask("AreaPhoto", UUID.randomUUID())
         }
     }
 
