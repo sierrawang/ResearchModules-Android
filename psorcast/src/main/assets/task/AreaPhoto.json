@@ -21,6 +21,35 @@
         "imageName": "srpm_area_photo_intro",
         "placementType": "topBackground"
       }
+    },
+    {
+      "identifier": "instruction",
+      "type": "instruction",
+      "title": "Most representative area",
+      "text": "Select the area that is the most representative of your psoriasis. This will be an area that you will photograph to track your psoriasis over time.",
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Begin"
+        }
+      },
+      "image": {
+        "type": "animated",
+        "imageNames": [],
+        "placementType": "topBackground",
+        "animationDuration": 1.5
+      }
+    },
+    {
+      "identifier": "selectArea",
+      "type": "bellwether",
+      "title": "Tap an area that best represent your psoriasis",
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Next"
+        }
+      }
     }
   ]
 }
