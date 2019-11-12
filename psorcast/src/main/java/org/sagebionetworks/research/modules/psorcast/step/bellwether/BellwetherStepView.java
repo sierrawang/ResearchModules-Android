@@ -48,16 +48,19 @@ import org.sagebionetworks.research.presentation.model.implementations.UIStepVie
 public class BellwetherStepView extends UIStepViewBase {
     public static final String TYPE = "bellwether";
 
+    private final BellwetherPlacement areas;
+
     public static BellwetherStepView fromBellwetherStep(Step step, DrawableMapper mapper) {
         if (!(step instanceof BellwetherStep)) {
             throw new IllegalArgumentException("Provided step: " + step + "is not a BellwetherStep");
         }
 
+        BellwetherStep bellwetherStep = (BellwetherStep) step;
         UIStepViewBase activeStep = UIStepViewBase.fromUIStep(step, mapper);
         return new BellwetherStepView(activeStep.getIdentifier(),
                 activeStep.getActions(), activeStep.getTitle(), activeStep.getText(),
                 activeStep.getDetail(), activeStep.getFootnote(), activeStep.getColorTheme(),
-                activeStep.getImageTheme());
+                activeStep.getImageTheme(), bellwetherStep.getAreas());
     }
 
     public BellwetherStepView(@NonNull final String identifier,
@@ -67,13 +70,19 @@ public class BellwetherStepView extends UIStepViewBase {
             @Nullable final DisplayString detail,
             @Nullable final DisplayString footnote,
             @Nullable final ColorThemeView colorTheme,
-            @Nullable final ImageThemeView imageTheme) {
+            @Nullable final ImageThemeView imageTheme,
+            final BellwetherPlacement areas) {
         super(identifier, actions, title, text, detail, footnote, colorTheme, imageTheme);
+        this.areas = areas;
     }
 
     @NonNull
     @Override
     public String getType() {
         return TYPE;
+    }
+
+    public BellwetherPlacement getAreas() {
+        return this.areas;
     }
 }

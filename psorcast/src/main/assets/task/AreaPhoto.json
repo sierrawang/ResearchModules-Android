@@ -35,7 +35,7 @@
       },
       "image": {
         "type": "animated",
-        "imageNames": [],
+        "imageNames": ["srpm_representative_area1", "srpm_representative_area2", "srpm_representative_area3"],
         "placementType": "topBackground",
         "animationDuration": 1.5
       }
@@ -43,11 +43,205 @@
     {
       "identifier": "selectArea",
       "type": "bellwether",
-      "title": "Tap an area that best represent your psoriasis",
+      "title": "Tap an area that best represents your psoriasis",
       "actions": {
         "goForward": {
           "type": "default",
           "buttonTitle": "Next"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_bellwether_body_front",
+        "placementType": "topMarginBackground"
+      },
+      "areas": {
+        "srcHeight": 829.83,
+        "leftShift": 70.0,
+        "topShift": 0.0,
+        "targetWidth": 290.0,
+        "targetHeight": 439.0,
+        "coordinates": {
+          "scalp_front": {
+            "x": 89.84,
+            "y": 0.0,
+            "width": 104.0,
+            "height": 44.0
+          },
+          "right_ear_front": {
+            "x": 75.84,
+            "y": 44.0,
+            "width": 40.0,
+            "height": 49.0
+          },
+          "face_front": {
+            "x": 114.84,
+            "y": 44.0,
+            "width": 55.0,
+            "height": 70.0
+          },
+          "left_ear_front": {
+            "x": 168.84,
+            "y": 44.0,
+            "width": 40.0,
+            "height": 49.0
+          },
+          "right_shoulder_front": {
+            "x": 24.84,
+            "y": 131.0,
+            "width": 83.0,
+            "height": 65.0
+          },
+          "neck_upper_chest_front": {
+            "x": 107.84,
+            "y": 114.0,
+            "width": 69.0,
+            "height": 82.0
+          },
+          "left_shoulder_front": {
+            "x": 176.84,
+            "y": 131.0,
+            "width": 83.0,
+            "height": 65.0
+          },
+          "right_upper_arm_armpit_front": {
+            "x": 5.84,
+            "y": 196.0,
+            "width": 70.0,
+            "height": 70.0
+          },
+          "left_upper_arm_armpit_front": {
+            "x": 208.84,
+            "y": 196.0,
+            "width": 70.0,
+            "height": 70.0
+          },
+          "right_chest_front": {
+            "x": 75.84,
+            "y": 196.0,
+            "width": 66.0,
+            "height": 82.0
+          },
+          "left_chest_front": {
+            "x": 141.84,
+            "y": 196.0,
+            "width": 67.0,
+            "height": 82.0
+          },
+          "right_elbow_front": {
+            "x": -6.16,
+            "y": 266.0,
+            "width": 61.0,
+            "height": 73.0
+          },
+          "right_abdomen_front": {
+            "x": 63.84,
+            "y": 278.0,
+            "width": 78.0,
+            "height": 82.0
+          },
+          "left_abdomen_front": {
+            "x": 141.84,
+            "y": 278.0,
+            "width": 78.0,
+            "height": 82.0
+          },
+          "left_elbow_front": {
+            "x": 228.84,
+            "y": 266.0,
+            "width": 61.0,
+            "height": 73.0
+          },
+          "right_forearm_front": {
+            "x": -15.16,
+            "y": 339.0,
+            "width": 61.0,
+            "height": 79.0
+          },
+          "left_forearm_front": {
+            "x": 238.84,
+            "y": 339.0,
+            "width": 61.0,
+            "height": 79.0
+          },
+          "right_hand_front": {
+            "x": -10.16,
+            "y": 418.0,
+            "width": 61.0,
+            "height": 89.0
+          },
+          "left_hand_front": {
+            "x": 233.84,
+            "y": 418.0,
+            "width": 61.0,
+            "height": 89.0
+          },
+          "right_hip_front": {
+            "x": 50.84,
+            "y": 360.0,
+            "width": 59.0,
+            "height": 82.0
+          },
+          "groin_front": {
+            "x": 108.84,
+            "y": 360.0,
+            "width": 66.0,
+            "height": 82.0
+          },
+          "left_hip_front": {
+            "x": 174.84,
+            "y": 360.0,
+            "width": 59.0,
+            "height": 82.0
+          },
+          "right_thigh_front": {
+            "x": 55.84,
+            "y": 442.0,
+            "width": 86.0,
+            "height": 82.0
+          },
+          "left_thigh_front": {
+            "x": 141.84,
+            "y": 442.0,
+            "width": 86.0,
+            "height": 82.0
+          },
+          "right_knee_front": {
+            "x": 55.84,
+            "y": 524.0,
+            "width": 76.0,
+            "height": 82.0
+          },
+          "left_knee_front": {
+            "x": 151.84,
+            "y": 524.0,
+            "width": 76.0,
+            "height": 82.0
+          },
+          "right_shin_front": {
+            "x": 55.84,
+            "y": 606.0,
+            "width": 76.0,
+            "height": 113.0
+          },
+          "left_shin_front": {
+            "x": 151.84,
+            "y": 606.0,
+            "width": 76.0,
+            "height": 113.0
+          },
+          "right_foot_front": {
+            "x": 63.84,
+            "y": 719.0,
+            "width": 68.0,
+            "height": 117.0
+          },
+          "left_foot_front": {
+            "x": 151.84,
+            "y": 719.0,
+            "width": 68.0,
+            "height": 117.0
+          }
         }
       }
     }

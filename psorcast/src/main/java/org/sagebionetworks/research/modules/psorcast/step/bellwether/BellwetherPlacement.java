@@ -30,45 +30,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.sagebionetworks.research.modules.psorcast.step.bellwether
+package org.sagebionetworks.research.modules.psorcast.step.bellwether;
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.annotation.NonNull
-import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase
-import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase
-import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding
-import org.sagebionetworks.research.modules.psorcast.R
-import org.sagebionetworks.research.presentation.model.interfaces.StepView
+import java.util.Map;
 
-class ShowBellwetherStepFragment :
-        ShowUIStepFragmentBase<BellwetherStepView, ShowBellwetherStepViewModel, UIStepViewBinding<BellwetherStepView>>() {
-
-    companion object {
-        @JvmStatic
-        fun newInstance(@NonNull stepView: StepView) : ShowBellwetherStepFragment {
-            val fragment = ShowBellwetherStepFragment()
-            val arguments = ShowStepFragmentBase.createArguments(stepView)
-            fragment.arguments = arguments
-            return fragment
-        }
-    }
-
-    override fun getLayoutId(): Int {
-        return R.layout.srpm_show_bellwether_step_fragment
-    }
-
-    override fun instantiateAndBindBinding(view: View?): UIStepViewBinding<BellwetherStepView> {
-        return UIStepViewBinding(view)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        if (this.stepViewBinding.imageView is BellwetherImageView) {
-            var x = this.stepViewBinding.imageView as BellwetherImageView
-            x.setBellwetherPlacement(this.stepView.areas)
-        }
-    }
+public class BellwetherPlacement {
+    public Float srcHeight;
+    public Float leftShift;
+    public Float topShift;
+    public Float targetWidth;
+    public Float targetHeight;
+    public Map<String, Map<String, Float>> coordinates;
 }

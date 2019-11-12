@@ -88,6 +88,9 @@ public abstract class BellwetherStep implements ThemedUIStep {
 
         @NonNull
         public abstract Builder setImageTheme(@Nullable ImageTheme imageTheme);
+
+        @NonNull
+        public abstract Builder setAreas(@Nullable BellwetherPlacement areas);
     }
 
     public static Builder builder() {
@@ -115,4 +118,7 @@ public abstract class BellwetherStep implements ThemedUIStep {
     public Step copyWithIdentifier(@NonNull final String identifier) {
         return toBuilder().setIdentifier(identifier).build();
     }
+
+    @Nullable
+    public abstract BellwetherPlacement getAreas();
 }
