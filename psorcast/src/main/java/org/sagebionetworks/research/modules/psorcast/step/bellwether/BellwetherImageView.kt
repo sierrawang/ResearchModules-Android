@@ -106,7 +106,10 @@ class BellwetherImageView : AppCompatImageView {
         super.onDraw(canvas)
         if (selectedRegion >= 0) {
             var regions = if (isFront) frontRegions else backRegions
-            canvas.drawPath(regions.get(selectedRegion).boundaryPath, highlightPaint)
+            var regionBounds = regions.get(selectedRegion).bounds
+            val dp = context.resources.displayMetrics.density
+            val size = 21f
+            canvas.drawCircle(regionBounds.exactCenterX(), regionBounds.exactCenterY(), size * dp, highlightPaint)
         }
     }
 
