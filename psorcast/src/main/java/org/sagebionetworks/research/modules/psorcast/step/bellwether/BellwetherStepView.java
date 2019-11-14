@@ -48,7 +48,8 @@ import org.sagebionetworks.research.presentation.model.implementations.UIStepVie
 public class BellwetherStepView extends UIStepViewBase {
     public static final String TYPE = "bellwether";
 
-    private final BellwetherPlacement areas;
+    private final BellwetherPlacement frontBellwetherPlacement;
+    private final BellwetherPlacement backBellwetherPlacement;
 
     public static BellwetherStepView fromBellwetherStep(Step step, DrawableMapper mapper) {
         if (!(step instanceof BellwetherStep)) {
@@ -60,7 +61,8 @@ public class BellwetherStepView extends UIStepViewBase {
         return new BellwetherStepView(activeStep.getIdentifier(),
                 activeStep.getActions(), activeStep.getTitle(), activeStep.getText(),
                 activeStep.getDetail(), activeStep.getFootnote(), activeStep.getColorTheme(),
-                activeStep.getImageTheme(), bellwetherStep.getAreas());
+                activeStep.getImageTheme(), bellwetherStep.getFrontBellwetherPlacement(),
+                bellwetherStep.getBackBellwetherPlacement());
     }
 
     public BellwetherStepView(@NonNull final String identifier,
@@ -71,9 +73,11 @@ public class BellwetherStepView extends UIStepViewBase {
             @Nullable final DisplayString footnote,
             @Nullable final ColorThemeView colorTheme,
             @Nullable final ImageThemeView imageTheme,
-            final BellwetherPlacement areas) {
+            final BellwetherPlacement frontBellwetherPlacement,
+            final BellwetherPlacement backBellwetherPlacement) {
         super(identifier, actions, title, text, detail, footnote, colorTheme, imageTheme);
-        this.areas = areas;
+        this.frontBellwetherPlacement = frontBellwetherPlacement;
+        this.backBellwetherPlacement = backBellwetherPlacement;
     }
 
     @NonNull
@@ -82,7 +86,11 @@ public class BellwetherStepView extends UIStepViewBase {
         return TYPE;
     }
 
-    public BellwetherPlacement getAreas() {
-        return this.areas;
+    public BellwetherPlacement getFrontBellwetherPlacement() {
+        return this.frontBellwetherPlacement;
+    }
+
+    public BellwetherPlacement getBackBellwetherPlacement() {
+        return this.backBellwetherPlacement;
     }
 }

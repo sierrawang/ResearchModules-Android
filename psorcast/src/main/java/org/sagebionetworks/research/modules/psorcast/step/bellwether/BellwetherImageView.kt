@@ -37,6 +37,7 @@ import android.graphics.Canvas
 import android.graphics.Matrix
 import android.graphics.Paint
 import android.graphics.Region
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
@@ -45,46 +46,69 @@ import org.sagebionetworks.research.modules.psorcast.R
 
 class BellwetherImageView : AppCompatImageView {
 
+    private var highlightPaint = Paint()
+    private val dp = context.resources.displayMetrics.density
+    private val RADIUS = 21f
+
+    // User's selection data
     private var isFront = true
     private var selectedRegion = -1
+
+    // Images and areas available for selection
+    private var frontDrawable = R.drawable.srpm_bellwether_body_front
+    private var backDrawable = R.drawable.srpm_bellwether_body_back
     private var frontRegions = ArrayList<Region>()
     private var backRegions = ArrayList<Region>()
-    private var highlightPaint = Paint()
 
     // Use to determine body regions on screen
     private var drawableWidth = 0f
     private var drawableHeight = 0f
-    private lateinit var bellwetherPlacement: BellwetherPlacement
+    private lateinit var frontBellwetherPlacement: BellwetherPlacement
+    private lateinit var backBellwetherPlacement: BellwetherPlacement
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         // Initialize paint
         highlightPaint.color = ContextCompat.getColor(context, R.color.colorAccent)
+        highlightPaint.alpha = 100
         highlightPaint.isAntiAlias = true
     }
 
-    fun setBellwetherPlacement(bellwetherPlacement: BellwetherPlacement) {
-        this.bellwetherPlacement = bellwetherPlacement
+    // Set the bellwether placements - should be defined in the json
+    fun setBellwetherPlacements(frontBellwetherPlacement: BellwetherPlacement, backBellwetherPlacement: BellwetherPlacement) {
+        this.frontBellwetherPlacement = frontBellwetherPlacement
+        this.backBellwetherPlacement = backBellwetherPlacement
     }
 
     override fun setFrame(l: Int, t: Int, r: Int, b: Int): Boolean {
         var changed = super.setFrame(l, t, r, b)
 
-        // Determine the bounds of the screen
-        val matrixValues = FloatArray(9)
-        imageMatrix.getValues(matrixValues)
-        drawableWidth = drawable.bounds.width() * matrixValues[Matrix.MSCALE_X]
-        drawableHeight = drawable.bounds.height() * matrixValues[Matrix.MSCALE_Y]
+        // Set the variables defined by the size of the frame
+        setDrawableBounds()
 
-        // Add all regions given in the json to
-        val scale = bellwetherPlacement.targetHeight/bellwetherPlacement.srcHeight
-        for (region in bellwetherPlacement.coordinates) {
-            addRegion(region.value, scale)
-        }
+        // Initialize the bellwether regions
+        initializeRegions(frontBellwetherPlacement, frontRegions)
+        initializeRegions(backBellwetherPlacement, backRegions)
 
         return changed
     }
 
-    private fun addRegion(dimensions: Map<String, Float>, scale: Float) {
+    // Determine the bounds of the screen
+    private fun setDrawableBounds() {
+        val matrixValues = FloatArray(9)
+        imageMatrix.getValues(matrixValues)
+        drawableWidth = drawable.bounds.width() * matrixValues[Matrix.MSCALE_X]
+        drawableHeight = drawable.bounds.height() * matrixValues[Matrix.MSCALE_Y]
+    }
+
+    private fun initializeRegions(bellwetherPlacement: BellwetherPlacement, regions: MutableList<Region>) {
+        // Add all regions given in the json to
+        val scale = bellwetherPlacement.targetHeight/bellwetherPlacement.srcHeight
+        for (region in bellwetherPlacement.coordinates) {
+            regions.add(getRegion(region.value, scale, bellwetherPlacement))
+        }
+    }
+
+    private fun getRegion(dimensions: Map<String, Float>, scale: Float, bellwetherPlacement: BellwetherPlacement): Region {
         val x = dimensions["x"] as Float
         val y = dimensions["y"] as Float
         val width = dimensions["width"] as Float
@@ -94,12 +118,12 @@ class BellwetherImageView : AppCompatImageView {
         val r = scaleDimen(x + width, scale, bellwetherPlacement.leftShift, bellwetherPlacement.targetWidth, paddingLeft, drawableWidth)
         val t = scaleDimen(y, scale, bellwetherPlacement.topShift, bellwetherPlacement.targetHeight, paddingTop, drawableHeight)
         val b = scaleDimen(y + height, scale, bellwetherPlacement.topShift, bellwetherPlacement.targetHeight, paddingTop, drawableHeight)
-        frontRegions.add(Region(l.toInt(),t.toInt(),r.toInt(),b.toInt()))
+        return Region(l,t,r,b)
     }
 
     private fun scaleDimen(unscaled: Float, scale: Float, shift: Float, denom: Float,
-            padding: Int, size: Float): Float {
-        return padding + (unscaled*scale+shift)/denom * size
+            padding: Int, size: Float): Int {
+        return (padding + (unscaled*scale+shift)/denom * size).toInt()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -107,10 +131,12 @@ class BellwetherImageView : AppCompatImageView {
         if (selectedRegion >= 0) {
             var regions = if (isFront) frontRegions else backRegions
             var regionBounds = regions.get(selectedRegion).bounds
-            val dp = context.resources.displayMetrics.density
-            val size = 21f
-            canvas.drawCircle(regionBounds.exactCenterX(), regionBounds.exactCenterY(), size * dp, highlightPaint)
+            canvas.drawCircle(regionBounds.exactCenterX(), regionBounds.exactCenterY(), RADIUS * dp, highlightPaint)
         }
+//        var regions = if (isFront) frontRegions else backRegions
+//        for (region in backRegions) {
+//            canvas.drawPath(region.boundaryPath, highlightPaint)
+//        }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -127,5 +153,16 @@ class BellwetherImageView : AppCompatImageView {
                 break
             }
         }
+    }
+
+    fun viewOtherSide() {
+        selectedRegion = -1
+        isFront = !isFront
+        if (isFront) {
+            setImageResource(frontDrawable)
+        } else {
+            setImageResource(backDrawable)
+        }
+        invalidate()
     }
 }

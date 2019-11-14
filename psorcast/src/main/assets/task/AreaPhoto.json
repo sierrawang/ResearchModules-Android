@@ -55,7 +55,7 @@
         "imageName": "srpm_bellwether_body_front",
         "placementType": "topMarginBackground"
       },
-      "areas": {
+      "frontBellwetherPlacement": {
         "srcHeight": 829.83,
         "leftShift": 70.0,
         "topShift": 0.0,
@@ -243,6 +243,252 @@
             "height": 117.0
           }
         }
+      },
+      "backBellwetherPlacement": {
+        "srcHeight": 829.83,
+        "leftShift": 39.14,
+        "topShift": 0.0,
+        "targetWidth": 303.0,
+        "targetHeight": 439.0,
+        "coordinates": {
+          "scalp_back": {
+            "x": 91.0,
+            "y": 0.0,
+            "width": 104.0,
+            "height": 44.0
+          },
+          "left_ear_back": {
+            "x": 77.0,
+            "y": 44.0,
+            "width": 40.0,
+            "height": 49.0
+          },
+          "head_back": {
+            "x": 116.0,
+            "y": 44.0,
+            "width": 55.0,
+            "height": 70.0
+          },
+          "right_ear_back": {
+            "x": 170.0,
+            "y": 44.0,
+            "width": 40.0,
+            "height": 49.0
+          },
+          "left_shoulder_back": {
+            "x": 26.0,
+            "y": 131.0,
+            "width": 83.0,
+            "height": 65.0
+          },
+          "neck_back": {
+            "x": 109.0,
+            "y": 114.0,
+            "width": 69.0,
+            "height": 82.0
+          },
+          "right_shoulder_back": {
+            "x": 178.0,
+            "y": 131.0,
+            "width": 83.0,
+            "height": 65.0
+          },
+          "left_upper_arm_armpit_back": {
+            "x": 7.0,
+            "y": 196.0,
+            "width": 70.0,
+            "height": 86.0
+          },
+          "left_lat_back": {
+            "x": 77.0,
+            "y": 196.0,
+            "width": 66.0,
+            "height": 86.0
+          },
+          "right_lat_back": {
+            "x": 143.0,
+            "y": 196.0,
+            "width": 67.0,
+            "height": 86.0
+          },
+          "right_upper_arm_armpit_back": {
+            "x": 210.0,
+            "y": 196.0,
+            "width": 70.0,
+            "height": 86.0
+          },
+          "left_elbow_back": {
+            "x": -2.0,
+            "y": 282.0,
+            "width": 61.0,
+            "height": 80.0
+          },
+          "right_elbow_back": {
+            "x": 221.0,
+            "y": 282.0,
+            "width": 61.0,
+            "height": 80.0
+          },
+          "left_forearm_back": {
+            "x": -14.0,
+            "y": 362.0,
+            "width": 61.0,
+            "height": 81.0
+          },
+          "right_forearm_back": {
+            "x": 235.0,
+            "y": 362.0,
+            "width": 61.0,
+            "height": 81.0
+          },
+          "left_hand_back": {
+            "x": -9.0,
+            "y": 442.0,
+            "width": 61.0,
+            "height": 92.0
+          },
+          "right_hand_back": {
+            "x": 235.0,
+            "y": 443.0,
+            "width": 61.0,
+            "height": 92.0
+          },
+          "left_abdomen_back": {
+            "x": 65.0,
+            "y": 282.0,
+            "width": 78.0,
+            "height": 80.0
+          },
+          "right_abdomen_back": {
+            "x": 143.0,
+            "y": 282.0,
+            "width": 78.0,
+            "height": 80.0
+          },
+          "left_glute_back": {
+            "x": 52.0,
+            "y": 362.0,
+            "width": 59.0,
+            "height": 110.0
+          },
+          "gluteal_cleft_back": {
+            "x": 110.0,
+            "y": 362.0,
+            "width": 66.0,
+            "height": 110.0
+          },
+          "right_glute_back": {
+            "x": 176.0,
+            "y": 362.0,
+            "width": 59.0,
+            "height": 110.0
+          },
+          "left_thigh_back": {
+            "x": 58.0,
+            "y": 472.0,
+            "width": 86.0,
+            "height": 108.0
+          },
+          "right_thigh_back": {
+            "x": 144.0,
+            "y": 472.0,
+            "width": 86.0,
+            "height": 108.0
+          },
+          "left_knee_back": {
+            "x": 58.0,
+            "y": 580.0,
+            "width": 76.0,
+            "height": 82.0
+          },
+          "right_knee_back": {
+            "x": 154.0,
+            "y": 580.0,
+            "width": 76.0,
+            "height": 82.0
+          },
+          "left_calf_back": {
+            "x": 57.0,
+            "y": 662.0,
+            "width": 76.0,
+            "height": 88.0
+          },
+          "right_calf_back": {
+            "x": 153.0,
+            "y": 662.0,
+            "width": 76.0,
+            "height": 88.0
+          },
+          "left_foot_back": {
+            "x": 40.0,
+            "y": 750.0,
+            "width": 91.0,
+            "height": 86.0
+          },
+          "right_foot_back": {
+            "x": 158.0,
+            "y": 750.0,
+            "width": 91.0,
+            "height": 86.0
+          }
+        }
+      }
+    },
+    {
+      "identifier": "pictureInstruction",
+      "type": "instruction",
+      "title": "Affected and normal skin",
+      "text": "Try to capture the whole area and some surrounding healthy skin as closely as you can while still being in focus. Try not to take the picture at an angle so you avoid any distortion.",
+      "actions": {
+        "goForward": {
+          "type": "default",
+          "buttonTitle": "Take picture"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_picture_instruction",
+        "placementType": "topBackground"
+      }
+    },
+    {
+      "identifier": "captureImage",
+      "type": "jointPhotography"
+    },
+    {
+      "identifier": "captureImageVerify",
+      "type": "photoDisplay",
+      "title": "Is the area in focus?",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Yes"
+        },
+        "goBackward": {
+          "type": "base",
+          "buttonTitle": "Retake"
+        }
+      }
+    },
+    {
+      "identifier": "noPsoriasis",
+      "type": "completion",
+      "title": "We're glad to hear you are currently free of psoriasis!",
+      "text": "Thank you for reporting that you are currently free of psoriasis. By letting us know that you are clear we can understand more about people's remissions and their duration.",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Submit"
+        },
+        "goBackward": {
+          "type": "base",
+          "buttonTitle": "Back"
+        }
+      },
+      "image": {
+        "type": "fetchable",
+        "imageName": "srpm_celebration",
+        "placementType": "topBackground"
       }
     }
   ]

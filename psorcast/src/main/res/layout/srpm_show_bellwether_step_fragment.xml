@@ -37,66 +37,78 @@
     android:layout_height="match_parent"
     android:background="@color/appWhite">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/upper_bar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <org.sagebionetworks.research.mobile_ui.widget.ActionButton
-            android:id="@id/rs2_step_navigation_action_cancel"
-            style="@style/Widget.ResearchStack.StepHeader.CancelButton"
-            android:layout_width="32dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/rs2_cancel_icon"
-            android:backgroundTint="@color/appTextDark"
-            app:layout_constraintDimensionRatio="H,1:1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@id/rs2_title"
-            android:fontFamily="@font/lato"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/appTextDark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="22dp"
-            android:layout_marginEnd="29dp"
-            android:layout_marginStart="29dp"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/rs2_step_navigation_action_cancel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/upper_bar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <org.sagebionetworks.research.modules.psorcast.step.bellwether.BellwetherImageView
-            android:id="@+id/rs2_image_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/upper_bar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:adjustViewBounds="true"
-            android:paddingLeft="42dp"
-            android:paddingRight="42dp"
-            android:paddingBottom="22dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/upper_bar" />
+            app:layout_constraintTop_toTopOf="parent">
 
+            <org.sagebionetworks.research.mobile_ui.widget.ActionButton
+                android:id="@id/rs2_step_navigation_action_cancel"
+                style="@style/Widget.ResearchStack.StepHeader.CancelButton"
+                android:layout_width="32dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/rs2_cancel_icon"
+                android:backgroundTint="@color/appTextDark"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/toggle_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="View my back"
+                android:fontFamily="@font/lato"
+                android:textSize="18sp"
+                android:background="@color/transparent"
+                android:textAllCaps="false"/>
+
+            <TextView
+                android:id="@id/rs2_title"
+                android:fontFamily="@font/lato"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/appTextDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="29dp"
+                android:layout_marginStart="29dp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/rs2_step_navigation_action_cancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <org.sagebionetworks.research.modules.psorcast.step.bellwether.BellwetherImageView
+                android:id="@+id/rs2_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:paddingLeft="42dp"
+                android:paddingRight="42dp"
+                android:paddingBottom="22dp"
+                android:paddingTop="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rs2_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar

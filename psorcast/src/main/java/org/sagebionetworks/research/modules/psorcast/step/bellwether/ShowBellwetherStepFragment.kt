@@ -32,10 +32,12 @@
 
 package org.sagebionetworks.research.modules.psorcast.step.bellwether
 
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.annotation.NonNull
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase
@@ -66,9 +68,15 @@ class ShowBellwetherStepFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (this.stepViewBinding.imageView is BellwetherImageView) {
-            var x = this.stepViewBinding.imageView as BellwetherImageView
-            x.setBellwetherPlacement(this.stepView.areas)
+
+        var bellwetherImageView = this.stepViewBinding.imageView as BellwetherImageView
+        bellwetherImageView.setBellwetherPlacements(this.stepView.frontBellwetherPlacement, this.stepView.backBellwetherPlacement)
+
+        var button = view.findViewById<Button>(R.id.toggle_button)
+        button.paintFlags = button.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        // Set listener to flip the side displayed
+        button.setOnClickListener {
+            bellwetherImageView.viewOtherSide()
         }
     }
 }

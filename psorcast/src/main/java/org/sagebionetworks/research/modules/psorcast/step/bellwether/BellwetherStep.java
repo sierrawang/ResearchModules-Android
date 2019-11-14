@@ -90,7 +90,10 @@ public abstract class BellwetherStep implements ThemedUIStep {
         public abstract Builder setImageTheme(@Nullable ImageTheme imageTheme);
 
         @NonNull
-        public abstract Builder setAreas(@Nullable BellwetherPlacement areas);
+        public abstract Builder setFrontBellwetherPlacement(@Nullable BellwetherPlacement frontBellwetherPlacement);
+
+        @NonNull
+        public abstract Builder setBackBellwetherPlacement(@Nullable BellwetherPlacement backBellwetherPlacement);
     }
 
     public static Builder builder() {
@@ -120,5 +123,8 @@ public abstract class BellwetherStep implements ThemedUIStep {
     }
 
     @Nullable
-    public abstract BellwetherPlacement getAreas();
+    public abstract BellwetherPlacement getFrontBellwetherPlacement();
+
+    @Nullable
+    public abstract BellwetherPlacement getBackBellwetherPlacement();
 }
