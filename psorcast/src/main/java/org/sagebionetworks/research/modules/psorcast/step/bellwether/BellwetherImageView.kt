@@ -131,8 +131,8 @@ class BellwetherImageView : AppCompatImageView {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (selectedRegion >= 0) {
-            var regions = if (isFront) frontRegions else backRegions
-            var regionBounds = regions.get(selectedRegion).bounds
+            val regions = if (isFront) frontRegions else backRegions
+            val regionBounds = regions.get(selectedRegion).bounds
             canvas.drawCircle(regionBounds.exactCenterX(), regionBounds.exactCenterY(), RADIUS * dp, highlightPaint)
         }
     }
