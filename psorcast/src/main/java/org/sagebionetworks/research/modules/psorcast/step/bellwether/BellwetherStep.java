@@ -47,6 +47,7 @@ import org.sagebionetworks.research.domain.step.interfaces.ThemedUIStep;
 import org.sagebionetworks.research.domain.step.ui.action.Action;
 import org.sagebionetworks.research.domain.step.ui.theme.ColorTheme;
 import org.sagebionetworks.research.domain.step.ui.theme.ImageTheme;
+import org.sagebionetworks.research.presentation.model.ImageThemeView;
 
 import java.util.Set;
 
@@ -94,6 +95,12 @@ public abstract class BellwetherStep implements ThemedUIStep {
 
         @NonNull
         public abstract Builder setBackBellwetherPlacement(@Nullable BellwetherPlacement backBellwetherPlacement);
+
+        @NonNull
+        public abstract Builder setFrontImage(@Nullable ImageTheme frontImage);
+
+        @NonNull
+        public abstract Builder setBackImage(@Nullable ImageTheme backImage);
     }
 
     public static Builder builder() {
@@ -127,4 +134,10 @@ public abstract class BellwetherStep implements ThemedUIStep {
 
     @Nullable
     public abstract BellwetherPlacement getBackBellwetherPlacement();
+
+    @Nullable
+    public abstract ImageTheme getFrontImage();
+
+    @Nullable
+    public abstract ImageTheme getBackImage();
 }

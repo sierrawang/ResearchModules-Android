@@ -69,8 +69,9 @@ class ShowBellwetherStepFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var bellwetherImageView = this.stepViewBinding.imageView as BellwetherImageView
+        var bellwetherImageView = view.findViewById(R.id.rs2_image_view) as BellwetherImageView
         bellwetherImageView.setBellwetherPlacements(this.stepView.frontBellwetherPlacement, this.stepView.backBellwetherPlacement)
+        bellwetherImageView.setImages(this.stepView.frontImage, this.stepView.backImage)
 
         var button = view.findViewById<Button>(R.id.toggle_button)
         button.paintFlags = button.paintFlags or Paint.UNDERLINE_TEXT_FLAG

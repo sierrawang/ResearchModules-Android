@@ -43,6 +43,8 @@ import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import org.sagebionetworks.research.modules.psorcast.R
+import org.sagebionetworks.research.presentation.model.FetchableImageThemeView
+import org.sagebionetworks.research.presentation.model.ImageThemeView
 
 class BellwetherImageView : AppCompatImageView {
 
@@ -55,53 +57,51 @@ class BellwetherImageView : AppCompatImageView {
     private var selectedRegion = -1
 
     // Images and areas available for selection
-    private var frontDrawable = R.drawable.srpm_bellwether_body_front
-    private var backDrawable = R.drawable.srpm_bellwether_body_back
+    private var frontDrawable = 0
+    private var backDrawable = 0
     private var frontRegions = ArrayList<Region>()
     private var backRegions = ArrayList<Region>()
 
     // Use to determine body regions on screen
-    private var drawableWidth = 0f
-    private var drawableHeight = 0f
+    private var matrixScaleX = 0f
+    private var matrixScaleY = 0f
     private lateinit var frontBellwetherPlacement: BellwetherPlacement
     private lateinit var backBellwetherPlacement: BellwetherPlacement
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         // Initialize paint
         highlightPaint.color = ContextCompat.getColor(context, R.color.colorAccent)
-        highlightPaint.alpha = 100
         highlightPaint.isAntiAlias = true
     }
 
-    // Set the bellwether placements - should be defined in the json
+    // Set the bellwether placements - must be defined in the json
     fun setBellwetherPlacements(frontBellwetherPlacement: BellwetherPlacement, backBellwetherPlacement: BellwetherPlacement) {
         this.frontBellwetherPlacement = frontBellwetherPlacement
         this.backBellwetherPlacement = backBellwetherPlacement
     }
 
+    // Set the drawable resources - must be defined in the json
+    fun setImages(frontImage: ImageThemeView, backImage: ImageThemeView) {
+        this.frontDrawable = (frontImage as FetchableImageThemeView).imageResource!!.drawable!!
+        this.backDrawable = (backImage as FetchableImageThemeView).imageResource!!.drawable!!
+    }
+
     override fun setFrame(l: Int, t: Int, r: Int, b: Int): Boolean {
         var changed = super.setFrame(l, t, r, b)
 
-        // Set the variables defined by the size of the frame
-        setDrawableBounds()
+        val matrixValues = FloatArray(9)
+        imageMatrix.getValues(matrixValues)
+        matrixScaleX = matrixValues[Matrix.MSCALE_X]
+        matrixScaleY = matrixValues[Matrix.MSCALE_Y]
 
-        // Initialize the bellwether regions
         initializeRegions(frontBellwetherPlacement, frontRegions)
         initializeRegions(backBellwetherPlacement, backRegions)
 
         return changed
     }
 
-    // Determine the bounds of the screen
-    private fun setDrawableBounds() {
-        val matrixValues = FloatArray(9)
-        imageMatrix.getValues(matrixValues)
-        drawableWidth = drawable.bounds.width() * matrixValues[Matrix.MSCALE_X]
-        drawableHeight = drawable.bounds.height() * matrixValues[Matrix.MSCALE_Y]
-    }
-
+    // Set the regions for each side
     private fun initializeRegions(bellwetherPlacement: BellwetherPlacement, regions: MutableList<Region>) {
-        // Add all regions given in the json to
         val scale = bellwetherPlacement.targetHeight/bellwetherPlacement.srcHeight
         for (region in bellwetherPlacement.coordinates) {
             regions.add(getRegion(region.value, scale, bellwetherPlacement))
@@ -113,6 +113,8 @@ class BellwetherImageView : AppCompatImageView {
         val y = dimensions["y"] as Float
         val width = dimensions["width"] as Float
         val height = dimensions["height"] as Float
+        val drawableWidth = drawable.bounds.width() * matrixScaleX
+        val drawableHeight = drawable.bounds.height() * matrixScaleY
 
         val l = scaleDimen(x, scale, bellwetherPlacement.leftShift, bellwetherPlacement.targetWidth, paddingLeft, drawableWidth)
         val r = scaleDimen(x + width, scale, bellwetherPlacement.leftShift, bellwetherPlacement.targetWidth, paddingLeft, drawableWidth)
@@ -133,10 +135,6 @@ class BellwetherImageView : AppCompatImageView {
             var regionBounds = regions.get(selectedRegion).bounds
             canvas.drawCircle(regionBounds.exactCenterX(), regionBounds.exactCenterY(), RADIUS * dp, highlightPaint)
         }
-//        var regions = if (isFront) frontRegions else backRegions
-//        for (region in backRegions) {
-//            canvas.drawPath(region.boundaryPath, highlightPaint)
-//        }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {

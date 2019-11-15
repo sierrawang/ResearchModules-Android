@@ -50,6 +50,8 @@ public class BellwetherStepView extends UIStepViewBase {
 
     private final BellwetherPlacement frontBellwetherPlacement;
     private final BellwetherPlacement backBellwetherPlacement;
+    private final ImageThemeView frontImage;
+    private final ImageThemeView backImage;
 
     public static BellwetherStepView fromBellwetherStep(Step step, DrawableMapper mapper) {
         if (!(step instanceof BellwetherStep)) {
@@ -62,7 +64,9 @@ public class BellwetherStepView extends UIStepViewBase {
                 activeStep.getActions(), activeStep.getTitle(), activeStep.getText(),
                 activeStep.getDetail(), activeStep.getFootnote(), activeStep.getColorTheme(),
                 activeStep.getImageTheme(), bellwetherStep.getFrontBellwetherPlacement(),
-                bellwetherStep.getBackBellwetherPlacement());
+                bellwetherStep.getBackBellwetherPlacement(),
+                ImageThemeView.fromImageTheme(bellwetherStep.getFrontImage(), mapper),
+                ImageThemeView.fromImageTheme(bellwetherStep.getBackImage(), mapper));
     }
 
     public BellwetherStepView(@NonNull final String identifier,
@@ -74,10 +78,14 @@ public class BellwetherStepView extends UIStepViewBase {
             @Nullable final ColorThemeView colorTheme,
             @Nullable final ImageThemeView imageTheme,
             final BellwetherPlacement frontBellwetherPlacement,
-            final BellwetherPlacement backBellwetherPlacement) {
+            final BellwetherPlacement backBellwetherPlacement,
+            final ImageThemeView frontImage,
+            final ImageThemeView backImage) {
         super(identifier, actions, title, text, detail, footnote, colorTheme, imageTheme);
         this.frontBellwetherPlacement = frontBellwetherPlacement;
         this.backBellwetherPlacement = backBellwetherPlacement;
+        this.frontImage = frontImage;
+        this.backImage = backImage;
     }
 
     @NonNull
@@ -92,5 +100,13 @@ public class BellwetherStepView extends UIStepViewBase {
 
     public BellwetherPlacement getBackBellwetherPlacement() {
         return this.backBellwetherPlacement;
+    }
+
+    public ImageThemeView getFrontImage() {
+        return this.frontImage;
+    }
+
+    public ImageThemeView getBackImage() {
+        return this.backImage;
     }
 }

@@ -55,6 +55,16 @@
         "imageName": "srpm_bellwether_body_front",
         "placementType": "topMarginBackground"
       },
+      "frontImage": {
+        "type": "fetchable",
+        "imageName": "srpm_bellwether_body_front",
+        "placementType": "topMarginBackground"
+      },
+      "backImage": {
+        "type": "fetchable",
+        "imageName": "srpm_bellwether_body_back",
+        "placementType": "topMarginBackground"
+      },
       "frontBellwetherPlacement": {
         "srcHeight": 829.83,
         "leftShift": 70.0,
