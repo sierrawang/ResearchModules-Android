@@ -93,17 +93,6 @@ public class ShowBodySelectionStepFragment extends FormUIStepFragment {
         RecyclerView recyclerView = this.stepViewBinding.getRecyclerView();
 
         if (recyclerView != null) {
-//            recyclerView.setHasFixedSize(true);
-//            LinearLayoutManager manager = new LinearLayoutManager(recyclerView.getContext());
-//            recyclerView.setLayoutManager(manager);
-//            DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(),
-//                    manager.getOrientation());
-//            Drawable drawable = this.getContext().getResources().getDrawable(R.drawable.form_step_divider);
-//            decoration.setDrawable(drawable);
-//            recyclerView.addItemDecoration(decoration);
-//
-
-
             List<InputFieldView> inputFields = stepView.getInputFields();
             if (inputFields.isEmpty()) {
                 LOGGER.warn("Form step with no input fields created.");
@@ -124,10 +113,6 @@ public class ShowBodySelectionStepFragment extends FormUIStepFragment {
             RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(adapter);
-
-//            BodySelectionAdapter<?> adapter = new BodySelectionAdapter<>(this, recyclerView,
-//                    choiceInputField.getChoices(), new HashSet<>());
-//            recyclerView.setAdapter(adapter);
         }
 
         return result;
