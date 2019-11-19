@@ -49,16 +49,20 @@ public class PlaqueBodyMapStepView extends UIStepViewBase {
 
     public static final String TYPE = "plaqueBodyMap";
 
+    private final ImageThemeView backgroundImage;
+
     public static PlaqueBodyMapStepView fromPlaqueBodyMapStep(Step step, DrawableMapper mapper) {
         if (!(step instanceof PlaqueBodyMapStep)) {
             throw new IllegalArgumentException("Provided step: " + step + " is not a PlaqueBodyMapStep");
         }
 
+        PlaqueBodyMapStep plaqueBodyMapStep = (PlaqueBodyMapStep) step;
         UIStepViewBase activeStep = UIStepViewBase.fromUIStep(step, mapper);
         return new PlaqueBodyMapStepView(activeStep.getIdentifier(),
                 activeStep.getActions(), activeStep.getTitle(), activeStep.getText(),
                 activeStep.getDetail(), activeStep.getFootnote(), activeStep.getColorTheme(),
-                activeStep.getImageTheme() /** or read from plaqueBodyMapStep **/);
+                activeStep.getImageTheme(),
+                ImageThemeView.fromImageTheme(plaqueBodyMapStep.getBackgroundImage(), mapper) /** or read from plaqueBodyMapStep **/);
     }
 
     public PlaqueBodyMapStepView(@NonNull final String identifier,
@@ -68,13 +72,19 @@ public class PlaqueBodyMapStepView extends UIStepViewBase {
             @Nullable final DisplayString detail,
             @Nullable final DisplayString footnote,
             @Nullable final ColorThemeView colorTheme,
-            @Nullable final ImageThemeView imageTheme) {
+            @Nullable final ImageThemeView imageTheme,
+            final ImageThemeView backgroundImage) {
         super(identifier, actions, title, text, detail, footnote, colorTheme, imageTheme);
+        this.backgroundImage = backgroundImage;
     }
 
     @NonNull
     @Override
     public String getType() {
         return TYPE;
+    }
+
+    public ImageThemeView getBackgroundImage() {
+        return this.backgroundImage;
     }
 }

@@ -39,6 +39,7 @@ import android.view.LayoutInflater
 import androidx.annotation.NonNull
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.rs2_image_view
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.view.rs2_image_view
 import org.sagebionetworks.research.domain.result.interfaces.TaskResult
@@ -46,7 +47,9 @@ import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBas
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding
 import org.sagebionetworks.research.mobile_ui.widget.ActionButton
+import org.sagebionetworks.research.modules.psorcast.PlaqueCoverageView
 import org.sagebionetworks.research.modules.psorcast.R
+import org.sagebionetworks.research.presentation.model.FetchableImageThemeView
 import org.sagebionetworks.research.presentation.model.action.ActionType
 import org.sagebionetworks.research.presentation.model.interfaces.StepView
 import org.slf4j.Logger
@@ -98,10 +101,13 @@ class ShowPlaqueBodyMapStepFragment :
         return b
     }
 
-//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        var result = super.onCreateView(inflater, container, savedInstanceState)
-//        result!!.background = context!!.resources.getDrawable(R.drawable.srpm_left_foot)
-//        return result
-//    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var result = super.onCreateView(inflater, container, savedInstanceState)
+        val backgroundImage = this.stepView.backgroundImage as FetchableImageThemeView
+        if (result != null) {
+            result.findViewById<ImageView>(R.id.background_image).setBackgroundResource(backgroundImage.imageResource?.drawable!!)
+        }
+        return result
+    }
 
 }

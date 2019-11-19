@@ -91,7 +91,12 @@
       },
       "image": {
         "type": "fetchable",
-        "imageName": "srpm_upper_front_body",
+        "imageName": "srpm_psoriasis_draw_above_waist_front",
+        "placementType": "fullsizeBackground"
+      },
+      "backgroundImage": {
+        "type": "fetchable",
+        "imageName": "srpm_psoriasis_draw_above_waist_front_background",
         "placementType": "fullsizeBackground"
       }
     },
@@ -107,7 +112,12 @@
       },
       "image": {
         "type": "fetchable",
-        "imageName": "srpm_lower_front_body",
+        "imageName": "srpm_psoriasis_draw_below_waist_front",
+        "placementType": "fullsizeBackground"
+      },
+      "backgroundImage": {
+        "type": "fetchable",
+        "imageName": "srpm_psoriasis_draw_below_waist_front_background",
         "placementType": "fullsizeBackground"
       }
     },
@@ -123,7 +133,12 @@
       },
       "image": {
         "type": "fetchable",
-        "imageName": "srpm_upper_back_body",
+        "imageName": "srpm_psoriasis_draw_above_waist_back",
+        "placementType": "fullsizeBackground"
+      },
+      "backgroundImage": {
+        "type": "fetchable",
+        "imageName": "srpm_psoriasis_draw_above_waist_back_background",
         "placementType": "fullsizeBackground"
       }
     },
@@ -139,7 +154,12 @@
       },
       "image": {
         "type": "fetchable",
-        "imageName": "srpm_lower_back_body",
+        "imageName": "srpm_psoriasis_draw_below_waist_back",
+        "placementType": "fullsizeBackground"
+      },
+      "backgroundImage": {
+        "type": "fetchable",
+        "imageName": "srpm_psoriasis_draw_below_waist_back_background",
         "placementType": "fullsizeBackground"
       }
     }

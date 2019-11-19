@@ -75,6 +75,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toBottomOf="@+id/upper_bar"
+        app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar"/>
+
     <org.sagebionetworks.research.modules.psorcast.PlaqueCoverageView
         android:id="@id/rs2_image_view"
         android:layout_width="match_parent"

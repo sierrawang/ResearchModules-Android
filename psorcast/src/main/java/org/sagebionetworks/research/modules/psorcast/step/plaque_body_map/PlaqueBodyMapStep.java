@@ -93,6 +93,9 @@ public abstract class PlaqueBodyMapStep implements ThemedUIStep, StepNavigationS
 
         @NonNull
         public abstract Builder setImageTheme(@Nullable ImageTheme imageTheme);
+
+        @NonNull
+        public abstract Builder setBackgroundImage(@Nullable ImageTheme backgroundImage);
     }
 
     public static Builder builder() {
@@ -131,4 +134,8 @@ public abstract class PlaqueBodyMapStep implements ThemedUIStep, StepNavigationS
         }
         return true;
     }
+
+
+    @Nullable
+    public abstract ImageTheme getBackgroundImage();
 }
