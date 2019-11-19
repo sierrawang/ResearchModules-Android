@@ -33,19 +33,31 @@
 package org.sagebionetworks.research.modules.psorcast.step.joint_pain_completion;
 
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import org.sagebionetworks.research.domain.result.interfaces.Result;
+import org.sagebionetworks.research.domain.result.interfaces.TaskResult;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase;
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding;
 import org.sagebionetworks.research.modules.psorcast.R;
+import org.sagebionetworks.research.modules.psorcast.result.JointPainResult;
+import org.sagebionetworks.research.modules.psorcast.step.joint_pain.JointPlacement;
 import org.sagebionetworks.research.presentation.model.interfaces.StepView;
 import org.sagebionetworks.research.presentation.show_step.show_step_view_models.ShowUIStepViewModel;
 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class ShowJointPainCompletionStepFragment extends
         ShowUIStepFragmentBase<JointPainCompletionStepView, ShowUIStepViewModel<JointPainCompletionStepView>, UIStepViewBinding<JointPainCompletionStepView>> {
+
+    private String[] bodyRegions = {"upperBody","lowerBody","leftHand","rightHand","leftFoot","rightFoot"};
 
     @NonNull
     public static ShowJointPainCompletionStepFragment newInstance(@NonNull StepView stepView) {
@@ -69,4 +81,63 @@ public class ShowJointPainCompletionStepFragment extends
     protected UIStepViewBinding<JointPainCompletionStepView> instantiateAndBindBinding(final View view) {
         return new UIStepViewBinding<>(view);
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setResults(view, this.stepView.getJoints(), this.performTaskViewModel.getTaskResult());
+    }
+
+    private void setResults(View view, JointPlacement joints, TaskResult taskResult) {
+        Set<Pair<Float,Float>> result = new HashSet<>();
+        int count = 0;
+        String horizontalBias = "horizontalBias";
+        String verticalBias = "verticalBias";
+
+        for (String region : bodyRegions) {
+            Result regionResult = taskResult.getResult(region);
+            if (regionResult instanceof JointPainResult) {
+                Map<String, Boolean> selectedJoints = ((JointPainResult) regionResult).getSelectedJoints();
+                for (String joint : selectedJoints.keySet()) {
+                    if (selectedJoints.get(joint)) {
+                        // Increment selected joints count
+                        count++;
+
+                        // Determine which joint to highlight
+                        String key = joint;
+                        if (!joints.coordinates.containsKey(key)) {
+                            // Either finger or toe
+                            if (region.equals("leftHand")) {
+                                key = "left_wrist";
+                            } else if (region.equals("rightHand")) {
+                                key = "right_wrist";
+                            } else if (region.equals("leftFoot")) {
+                                key = "left_toes";
+                            } else {
+                                key = "right_toes";
+                            }
+                        }
+
+                        Map<String,Float> coords = joints.coordinates.get(key);
+                        Float x = coords.get(horizontalBias)/joints.widthScale;
+                        Float y = coords.get(verticalBias)/joints.heightScale;
+                        result.add(new Pair<>(x,y));
+                    }
+                }
+            }
+        }
+
+        setJoints(view.findViewById(R.id.rs2_image_view), result, joints.buttonSize);
+        setLabel(view.findViewById(R.id.joint_count), count);
+    }
+
+    private void setJoints(JointPainCompletionImageView image, Set<Pair<Float,Float>> joints, Float buttonSize) {
+        image.setJoints(joints);
+        image.setRadius(buttonSize/2);
+    }
+
+    private void setLabel(TextView label, int count) {
+        label.setText("" + count);
+    }
+
 }

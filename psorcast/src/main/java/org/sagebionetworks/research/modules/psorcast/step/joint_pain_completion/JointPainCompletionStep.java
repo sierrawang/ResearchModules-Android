@@ -40,12 +40,15 @@ import org.sagebionetworks.research.domain.step.implementations.UIStepBase;
 import org.sagebionetworks.research.domain.step.ui.action.Action;
 import org.sagebionetworks.research.domain.step.ui.theme.ColorTheme;
 import org.sagebionetworks.research.domain.step.ui.theme.ImageTheme;
+import org.sagebionetworks.research.modules.psorcast.step.joint_pain.JointPlacement;
 
 import java.util.Map;
 import java.util.Set;
 
 public class JointPainCompletionStep extends UIStepBase {
     public static final String TYPE_KEY = "jointPainCompletion";
+
+    private final JointPlacement joints;
 
     public JointPainCompletionStep(@NonNull final String identifier,
             @NonNull final Set<AsyncActionConfiguration> asyncActions,
@@ -56,20 +59,26 @@ public class JointPainCompletionStep extends UIStepBase {
             @Nullable final String detail,
             @Nullable final String footnote,
             @Nullable final ColorTheme colorTheme,
-            @Nullable final ImageTheme imageTheme) {
+            @Nullable final ImageTheme imageTheme,
+            @Nullable final JointPlacement joints) {
         super(identifier, asyncActions, actions, hiddenActions, title, text, detail, footnote, colorTheme, imageTheme);
+        this.joints = joints;
     }
 
     @Override
     @NonNull
     public JointPainCompletionStep copyWithIdentifierOperation(@NonNull String identifier) {
         return new JointPainCompletionStep(identifier, getAsyncActions(), getActions(), getHiddenActions(), getTitle(),
-                getText(), getDetail(), getFootnote(), getColorTheme(), getImageTheme());
+                getText(), getDetail(), getFootnote(), getColorTheme(), getImageTheme(), getJoints());
     }
 
     @Override
     @NonNull
     public String getType() {
         return TYPE_KEY;
+    }
+
+    public JointPlacement getJoints() {
+        return this.joints;
     }
 }

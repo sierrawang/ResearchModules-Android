@@ -34,8 +34,11 @@ package org.sagebionetworks.research.modules.psorcast.step.plaque_body_map
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.annotation.NonNull
 import android.view.View
+import android.view.ViewGroup
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.rs2_image_view
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.view.rs2_image_view
 import org.sagebionetworks.research.domain.result.interfaces.TaskResult
@@ -94,5 +97,11 @@ class ShowPlaqueBodyMapStepFragment :
         v.draw(c)
         return b
     }
+
+//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+//        var result = super.onCreateView(inflater, container, savedInstanceState)
+//        result!!.background = context!!.resources.getDrawable(R.drawable.srpm_left_foot)
+//        return result
+//    }
 
 }

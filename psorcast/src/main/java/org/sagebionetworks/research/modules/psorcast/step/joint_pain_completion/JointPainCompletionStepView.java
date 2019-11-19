@@ -38,6 +38,7 @@ import androidx.annotation.Nullable;
 import com.google.common.collect.ImmutableMap;
 
 import org.sagebionetworks.research.domain.step.interfaces.Step;
+import org.sagebionetworks.research.modules.psorcast.step.joint_pain.JointPlacement;
 import org.sagebionetworks.research.presentation.DisplayString;
 import org.sagebionetworks.research.presentation.mapper.DrawableMapper;
 import org.sagebionetworks.research.presentation.model.ColorThemeView;
@@ -48,15 +49,18 @@ import org.sagebionetworks.research.presentation.model.implementations.UIStepVie
 public class JointPainCompletionStepView extends UIStepViewBase {
     public static final String TYPE = "jointPainCompletion";
 
+    private JointPlacement joints;
+
     public static JointPainCompletionStepView fromJointPainCompletionStep(Step step, DrawableMapper mapper) {
         if (!(step instanceof JointPainCompletionStep)) {
             throw new IllegalArgumentException("Provided step: " + step + " is not a JointPainCompletionStep");
         }
 
         UIStepViewBase uiStep = UIStepViewBase.fromUIStep(step, mapper);
+        JointPainCompletionStep jointPainCompletionStep = (JointPainCompletionStep) step;
         return new JointPainCompletionStepView(uiStep.getIdentifier(), uiStep.getActions(),
                 uiStep.getTitle(), uiStep.getText(), uiStep.getDetail(), uiStep.getFootnote(), uiStep.getColorTheme(),
-                uiStep.getImageTheme());
+                uiStep.getImageTheme(), jointPainCompletionStep.getJoints());
     }
 
     public JointPainCompletionStepView(@NonNull final String identifier,
@@ -66,13 +70,19 @@ public class JointPainCompletionStepView extends UIStepViewBase {
             @Nullable final DisplayString detail,
             @Nullable final DisplayString footnote,
             @Nullable final ColorThemeView colorTheme,
-            @Nullable final ImageThemeView imageTheme) {
+            @Nullable final ImageThemeView imageTheme,
+            @Nullable final JointPlacement joints) {
         super(identifier, actions, title, text, detail, footnote, colorTheme, imageTheme);
+        this.joints = joints;
     }
 
     @Override
     @NonNull
     public String getType() {
         return TYPE;
+    }
+
+    public JointPlacement getJoints() {
+        return this.joints;
     }
 }
