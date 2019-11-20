@@ -94,7 +94,10 @@ public class ShowPhotographyCompletionStepFragment extends
 
         TabLayout tabLayout = result.findViewById(R.id.tab_dots);
         tabLayout.setupWithViewPager(viewPager, true);
-
+        View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(0);
+        ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+        p.setMargins(0, 0, (int) (8 * getContext().getResources().getDisplayMetrics().density), 0);
+        tab.requestLayout();
 
         return result;
     }
