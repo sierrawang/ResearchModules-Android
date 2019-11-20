@@ -41,6 +41,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
+
 import org.sagebionetworks.research.domain.result.interfaces.TaskResult;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowStepFragmentBase;
 import org.sagebionetworks.research.mobile_ui.show_step.view.ShowUIStepFragmentBase;
@@ -89,6 +91,10 @@ public class ShowPhotographyCompletionStepFragment extends
         ViewPager viewPager = result.findViewById(R.id.view_pager);
         FragmentPagerAdapter adapter = new TwoImagePagerAdapter(getFragmentManager(), leftResult.getPhotoAbsolutePath(), rightResult.getPhotoAbsolutePath());
         viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = result.findViewById(R.id.tab_dots);
+        tabLayout.setupWithViewPager(viewPager, true);
+
 
         return result;
     }
