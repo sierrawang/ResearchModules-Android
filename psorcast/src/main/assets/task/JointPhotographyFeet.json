@@ -4,8 +4,8 @@
     {
       "identifier": "introduction",
       "type": "overview",
-      "title": "Foot Photographing",
-      "text": "In this activity you will photograph your bare feet with your toes in focus in order to track any changes that may come about",
+      "title": "Toes Photo",
+      "text": "In this activity you will photograph your bare feet with your toes in focus in order to track any changes which may come about",
       "image": {
         "type": "fetchable",
         "imageName": "srpm_photograph_foot",
