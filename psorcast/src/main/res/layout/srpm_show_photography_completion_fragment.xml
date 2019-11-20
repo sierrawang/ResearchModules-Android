@@ -27,22 +27,47 @@
         android:layout_height="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintBottom_toTopOf="@+id/stepBody"
         app:layout_constraintTop_toBottomOf="@id/view_pager"
         android:layout_marginTop="12dp"/>
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/rs2_step_body"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/stepBody"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@id/tab_dots"
         app:layout_constraintBottom_toTopOf="@id/rs2_step_navigation_action_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tab_dots" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@id/rs2_title"
+            style="@style/Widget.ResearchStack.StepBody.TitleLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:layout_marginStart="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@id/rs2_text"
+            style="@style/Widget.ResearchStack.StepBody.TextLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="41dp"
+            android:layout_marginStart="41dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rs2_title"
+            android:gravity="center"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar
         android:id="@id/rs2_step_navigation_action_bar"
@@ -50,7 +75,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:isScrollContainer="false"
-        app:isShadowHidden="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
