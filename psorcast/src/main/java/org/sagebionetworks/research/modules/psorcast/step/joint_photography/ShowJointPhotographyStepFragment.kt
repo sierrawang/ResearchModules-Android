@@ -168,15 +168,6 @@ class ShowJointPhotographyStepFragment :
                 val photoFile = createFile(outputDirectory, FILENAME, PHOTO_EXTENSION)
 
                 imageCapture.takePicture(photoFile, imageSavedListener)
-
-                // Flash the screen to demonstrate picture taking
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                    container.postDelayed({
-//                        container.foreground = ColorDrawable(Color.WHITE)
-//                        container.postDelayed(
-//                                { container.foreground = null }, ANIMATION_FAST_MILLIS)
-//                    }, ANIMATION_SLOW_MILLIS)
-//                }
             }
         }
     }
@@ -187,8 +178,7 @@ class ShowJointPhotographyStepFragment :
         CameraX.unbindAll()
 
 //        val metrics = DisplayMetrics().also { viewFinder.display.getRealMetrics(it) }
-//        val screenAspectRatio = Rational(metrics.widthPixels, metrics.heightPixels)
-        val screenAspectRatio = Rational(1,1)
+        val screenAspectRatio = Rational(viewFinder.width, viewFinder.height)
         val viewFinderConfig = PreviewConfig.Builder().apply {
             setTargetAspectRatio(screenAspectRatio)
             setTargetRotation(viewFinder.display.rotation)
