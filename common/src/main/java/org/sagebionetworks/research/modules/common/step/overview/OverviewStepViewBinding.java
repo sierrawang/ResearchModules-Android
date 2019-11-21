@@ -35,10 +35,12 @@ package org.sagebionetworks.research.modules.common.step.overview;
 import android.graphics.Paint;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.sagebionetworks.research.mobile_ui.R2;
+import org.sagebionetworks.research.mobile_ui.R2.id;
 import org.sagebionetworks.research.mobile_ui.show_step.view.view_binding.UIStepViewBinding;
 import org.sagebionetworks.research.mobile_ui.widget.ActionButton;
 import org.sagebionetworks.research.mobile_ui.widget.NavigationActionBar.ActionButtonClickListener;
@@ -73,6 +75,9 @@ public class OverviewStepViewBinding<S extends OverviewStepView> extends UIStepV
 
         @BindView(R2.id.scrollView)
         public DisableableScrollView scrollView;
+
+        @BindViews({id.center, id.left, id.right})
+        public List<ViewGroup> iconLayouts;
     }
 
     private final OverviewStepViewHolder overviewStepViewHolder;
@@ -83,6 +88,10 @@ public class OverviewStepViewBinding<S extends OverviewStepView> extends UIStepV
         super(view);
         this.overviewStepViewHolder = new OverviewStepViewHolder();
         this.overviewStepViewHolderUnbinder = ButterKnife.bind(this.overviewStepViewHolder, view);
+    }
+
+    public List<ViewGroup> getIconLayouts() {
+        return this.overviewStepViewHolder.iconLayouts;
     }
 
     public List<ImageView> getIconImageViews() {

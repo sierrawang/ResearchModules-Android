@@ -130,39 +130,36 @@ public class ShowOverviewStepFragment extends
     @Override
     public void update(OverviewStepView stepView) {
         super.update(stepView);
-        List<ImageView> iconImageViews = this.stepViewBinding.getIconImageViews();
-        List<TextView> iconLabels = this.stepViewBinding.getIconLabels();
 
         List<OverviewStepView.IconView> iconViews = stepView.getIconViews();
-        for (int i = 0; i < iconImageViews.size(); i++) {
-            OverviewStepView.IconView iconView = null;
-            if (i < iconViews.size()) {
-                iconView = iconViews.get(i);
-            }
-
-            if (iconView == null) {
-                iconImageViews.get(i).setVisibility(View.GONE);
-                iconLabels.get(i).setVisibility(View.GONE);
-            } else {
-                DisplayString titleDisplayString = iconView.getTitle();
-                if (titleDisplayString != null) {
-                    String titleString = titleDisplayString.getString(getContext().getResources());
-                    iconLabels.get(i).setText(titleString);
-                }
-
-                DisplayDrawable drawable = iconView.getIcon();
-                if (drawable != null) {
-                    Integer resId = drawable.getDrawable();
-                    if (resId != null) {
-                        iconImageViews.get(i).setImageResource(resId);
-                    }
-                }
-            }
-        }
-
         if (iconViews.size() == 0) {
             this.stepViewBinding.getOverallIconDescriptionLabel().setVisibility(View.GONE);
+            this.getView().findViewById(R.id.iconView).setVisibility(View.GONE);
+        } else {
+            List<ImageView> iconImageViews = this.stepViewBinding.getIconImageViews();
+            List<TextView> iconLabels = this.stepViewBinding.getIconLabels();
+            List<ViewGroup> iconLayouts = this.stepViewBinding.getIconLayouts();
 
+            for (int i = 0; i < iconImageViews.size(); i++) {
+                if (i < iconViews.size()) {
+                    OverviewStepView.IconView iconView = iconViews.get(i);
+                    DisplayString titleDisplayString = iconView.getTitle();
+                    if (titleDisplayString != null) {
+                        String titleString = titleDisplayString.getString(getContext().getResources());
+                        iconLabels.get(i).setText(titleString);
+                    }
+
+                    DisplayDrawable drawable = iconView.getIcon();
+                    if (drawable != null) {
+                        Integer resId = drawable.getDrawable();
+                        if (resId != null) {
+                            iconImageViews.get(i).setImageResource(resId);
+                        }
+                    }
+                } else {
+                    iconLayouts.get(i).setVisibility(View.GONE);
+                }
+            }
         }
     }
 

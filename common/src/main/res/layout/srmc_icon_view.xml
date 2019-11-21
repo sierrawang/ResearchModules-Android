@@ -42,7 +42,7 @@
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toStartOf="@+id/center"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_max="110dp"
