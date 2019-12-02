@@ -162,6 +162,18 @@
         "imageName": "srpm_psoriasis_draw_below_waist_back_background",
         "placementType": "fullsizeBackground"
       }
+    },
+    {
+      "identifier": "completion",
+      "type": "plaqueBodyMapCompletion",
+      "title": "0% Psoriasis Coverage",
+      "text": "You have noted 0% of your skin is affected by psoriasis.",
+      "actions": {
+        "goForward": {
+          "type": "base",
+          "buttonTitle": "Done"
+        }
+      }
     }
   ]
 }

@@ -45,6 +45,7 @@ import org.sagebionetworks.research.modules.psorcast.step.joint_photography.Join
 import org.sagebionetworks.research.modules.psorcast.step.photo_display.PhotoDisplayStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.photography_completion.PhotographyCompletionStepModule;
 import org.sagebionetworks.research.modules.psorcast.step.plaque_body_map.PlaqueBodyMapStepModule;
+import org.sagebionetworks.research.modules.psorcast.step.plaque_body_map_completion.PlaqueBodyMapCompletionStepModule;
 
 import dagger.Module;
 import dagger.Provides;
@@ -52,7 +53,7 @@ import dagger.multibindings.IntoSet;
 
 @Module(includes = {JointPainStepModule.class, PhotoDisplayStepModule.class, JointPhotographyStepModule.class, PlaqueBodyMapStepModule.class, OverviewStepModule.class, CompletionStepModule.class,
         InstructionStepModule.class, BodySelectionStepModule.class, PhotographyCompletionStepModule.class, JointPainCompletionStepModule.class,
-        BellwetherStepModule.class})
+        BellwetherStepModule.class, PlaqueBodyMapCompletionStepModule.class})
 public class PsorcastStepModule {
     @Provides
     @IntoSet

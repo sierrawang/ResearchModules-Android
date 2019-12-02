@@ -89,16 +89,35 @@ class ShowPlaqueBodyMapStepFragment :
 
     private fun setBitmap() {
         val v = view as View
-        val bitmap = loadBitmapFromView(v, v.rs2_image_view.width, v.rs2_image_view.height)
+        val imageView = v.rs2_image_view
+        val bitmap = loadBitmapFromView(imageView, imageView.width, imageView.height)
+
         this.showStepViewModel.pdResultBuilder.setBitmap(bitmap)
     }
 
-    private fun loadBitmapFromView(v: View, width: Int, height: Int): Bitmap {
+    private fun loadBitmapFromView(v: PlaqueCoverageView, width: Int, height: Int): Bitmap {
+        // Make copy of the view
         var b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         var c = Canvas(b)
-        v.layout(0, 0, width, height)
         v.draw(c)
-        return b
+
+        // Trim the bitmap to just the dimensions of the drawable
+        var drawableHeight : Int
+        var drawableWidth : Int
+        if (v.drawable.intrinsicHeight.toFloat()/v.drawable.intrinsicWidth > height.toFloat()/width) {
+            // Scaled to height
+            drawableHeight = height
+            drawableWidth = (v.drawable.intrinsicWidth * (height.toFloat() / v.drawable.intrinsicHeight)).toInt()
+        } else {
+            drawableWidth = width
+            drawableHeight = (v.drawable.intrinsicHeight * (width.toFloat() / v.drawable.intrinsicWidth)).toInt()
+        }
+
+        val padLeft = (width - drawableWidth)/2
+        val padTop = (height - drawableHeight)/2
+        val result = Bitmap.createBitmap(b, padLeft, padTop, drawableWidth, drawableHeight)
+
+        return result
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -109,5 +128,4 @@ class ShowPlaqueBodyMapStepFragment :
         }
         return result
     }
-
 }
