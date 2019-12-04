@@ -56,6 +56,8 @@ public abstract class PlaqueDrawingResult implements Result {
 
         public abstract Builder setPaths(@NonNull ArrayList<Path> drawings);
         public abstract Builder setBitmap(@NonNull Bitmap frontBitmap);
+        public abstract Builder setTotalPixels(@NonNull int totalPixels);
+        public abstract Builder setCoveredPixels(@NonNull int coveredPixels);
     }
 
     public static Builder builder() {
@@ -73,4 +75,10 @@ public abstract class PlaqueDrawingResult implements Result {
 
     @NonNull
     public abstract Bitmap getBitmap();
+
+    @NonNull
+    public abstract int getTotalPixels();
+
+    @NonNull
+    public abstract int getCoveredPixels();
 }

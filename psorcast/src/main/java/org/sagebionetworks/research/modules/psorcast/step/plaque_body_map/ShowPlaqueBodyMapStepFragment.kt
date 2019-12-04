@@ -34,12 +34,14 @@ package org.sagebionetworks.research.modules.psorcast.step.plaque_body_map
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.annotation.NonNull
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.rs2_image_view
 import kotlinx.android.synthetic.main.srpm_show_plaque_body_step_fragment.view.rs2_image_view
 import org.sagebionetworks.research.domain.result.interfaces.TaskResult
@@ -54,6 +56,7 @@ import org.sagebionetworks.research.presentation.model.action.ActionType
 import org.sagebionetworks.research.presentation.model.interfaces.StepView
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.util.TreeMap
 
 class ShowPlaqueBodyMapStepFragment :
         ShowUIStepFragmentBase<PlaqueBodyMapStepView, ShowPlaqueBodyMapStepViewModel, UIStepViewBinding<PlaqueBodyMapStepView>>() {
@@ -82,26 +85,26 @@ class ShowPlaqueBodyMapStepFragment :
         @ActionType val actionType = this.getActionTypeFromActionButton(actionButton)
         if (ActionType.FORWARD == actionType) {
             this.showStepViewModel.pdResultBuilder.setPaths(this.rs2_image_view.getPaths())
-            setBitmap()
+            val bitmap = loadBitmapFromView()
+            this.showStepViewModel.pdResultBuilder.setBitmap(bitmap)
+            val pixelCounts = getPixelCounts(bitmap)
+            this.showStepViewModel.pdResultBuilder.setCoveredPixels(pixelCounts.first)
+            this.showStepViewModel.pdResultBuilder.setTotalPixels(pixelCounts.second)
         }
         super.handleActionButtonClick(actionButton)
     }
 
-    private fun setBitmap() {
-        val v = view as View
-        val imageView = v.rs2_image_view
-        val bitmap = loadBitmapFromView(imageView, imageView.width, imageView.height)
+    private fun loadBitmapFromView(): Bitmap {
+        val v = (view as View).rs2_image_view
+        val width = v.width
+        val height = v.height
 
-        this.showStepViewModel.pdResultBuilder.setBitmap(bitmap)
-    }
-
-    private fun loadBitmapFromView(v: PlaqueCoverageView, width: Int, height: Int): Bitmap {
         // Make copy of the view
         var b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         var c = Canvas(b)
         v.draw(c)
 
-        // Trim the bitmap to just the dimensions of the drawable
+        // Trim the bitmap to the dimensions of the drawable
         var drawableHeight : Int
         var drawableWidth : Int
         if (v.drawable.intrinsicHeight.toFloat()/v.drawable.intrinsicWidth > height.toFloat()/width) {
@@ -118,6 +121,30 @@ class ShowPlaqueBodyMapStepFragment :
         val result = Bitmap.createBitmap(b, padLeft, padTop, drawableWidth, drawableHeight)
 
         return result
+    }
+
+    private fun getPixelCounts(bitmap: Bitmap): Pair<Int,Int> {
+        var coveredPixels = 0
+        var totalPixels = 0
+        val highlightColor = ContextCompat.getColor(context!!, R.color.colorAccent)
+
+        for (row in 0 until bitmap.width) {
+            for (col in 0 until bitmap.height) {
+                val color = bitmap.getPixel(row,col)
+
+                val r = Color.red(color)
+                val g = Color.green(color)
+                val b = Color.blue(color)
+                if (color != Color.TRANSPARENT) {
+                    totalPixels++
+                    if (Color.rgb(r,g,b) == highlightColor) {
+                        coveredPixels++
+                    }
+                }
+            }
+        }
+
+        return Pair(coveredPixels, totalPixels)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

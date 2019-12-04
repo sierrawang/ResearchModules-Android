@@ -72,8 +72,9 @@
                 android:paddingTop="40dp"/>
 
             <TextView
-                android:id="@id/rs2_title"
+                android:id="@id/title"
                 style="@style/Widget.ResearchStack.StepBody.TitleLabel"
+                android:text="0% Plaque Coverage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
@@ -85,8 +86,9 @@
                 app:layout_constraintTop_toBottomOf="@id/rs2_image_view"/>
 
             <TextView
-                android:id="@id/rs2_text"
+                android:id="@id/text"
                 style="@style/Widget.ResearchStack.StepBody.TextLabel"
+                android:text="You have noted 0% of your skin is affected by psoriasis."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
@@ -95,13 +97,13 @@
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rs2_title"/>
+                app:layout_constraintTop_toBottomOf="@id/title"/>
 
             <Button
                 android:id="@+id/info_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/rs2_text"
+                app:layout_constraintTop_toBottomOf="@id/text"
                 android:layout_marginTop="28dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

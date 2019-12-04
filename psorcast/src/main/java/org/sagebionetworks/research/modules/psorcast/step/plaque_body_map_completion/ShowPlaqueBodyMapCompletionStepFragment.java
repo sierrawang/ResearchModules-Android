@@ -35,8 +35,11 @@ package org.sagebionetworks.research.modules.psorcast.step.plaque_body_map_compl
 import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -53,7 +56,10 @@ import org.sagebionetworks.research.presentation.show_step.show_step_view_models
 public class ShowPlaqueBodyMapCompletionStepFragment extends
         ShowUIStepFragmentBase<PlaqueBodyMapCompletionStepView, ShowUIStepViewModel<PlaqueBodyMapCompletionStepView>, UIStepViewBinding<PlaqueBodyMapCompletionStepView>> {
 
-    private String[] bodyRegions = {"frontUpper", "frontLower", "backUpper", "backLower"};
+    private BodyRegionImage[] bodyRegions = {new BodyRegionImage("frontUpper", 11933, 236468),
+        new BodyRegionImage("frontLower", 7492, 237672),
+        new BodyRegionImage("backUpper", 11396, 237699),
+        new BodyRegionImage("backLower", 8753, 268900)};
 
     @NonNull
     public static ShowPlaqueBodyMapCompletionStepFragment newInstance(@NonNull StepView stepView) {
@@ -79,6 +85,14 @@ public class ShowPlaqueBodyMapCompletionStepFragment extends
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        setPercentages(view);
+        return view;
+    }
+
+    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setUpInfoButton(view);
@@ -97,13 +111,47 @@ public class ShowPlaqueBodyMapCompletionStepFragment extends
         TaskResult taskResult = this.performTaskViewModel.getTaskResult();
         PlaqueBodyMapCompletionImageView imageView = view.findViewById(R.id.rs2_image_view);
         int i = 0;
-        for (String region : bodyRegions) {
-            Result result = taskResult.getResult(region);
+        for (BodyRegionImage region : bodyRegions) {
+            Result result = taskResult.getResult(region.name);
             if (result instanceof PlaqueDrawingResult) {
                 Bitmap bitmap = ((PlaqueDrawingResult) result).getBitmap();
                 imageView.addResult(bitmap, i);
             }
             i++;
         }
+    }
+
+    private void setPercentages(View view) {
+        float coveredPixels = 0;
+        float totalPixels = 0;
+        TaskResult taskResult = this.performTaskViewModel.getTaskResult();
+
+        for (BodyRegionImage region : bodyRegions) {
+            Result result = taskResult.getResult(region.name);
+            if (result instanceof PlaqueDrawingResult) {
+                // Scale the pixel counts to eliminate screen differences
+                float scale = (float)region.totalPixels/((PlaqueDrawingResult) result).getTotalPixels();
+                coveredPixels += ((PlaqueDrawingResult) result).getCoveredPixels() * scale;
+            }
+            totalPixels += region.totalPixels;
+            totalPixels -= region.discardPixels;
+        }
+
+        double coverage = Math.round((coveredPixels/totalPixels * 100) * 100.0) / 100.0;
+        TextView title = view.findViewById(R.id.title);
+        title.setText(coverage + "% Plaque Coverage");
+        TextView text = view.findViewById(R.id.text);
+        text.setText("You have noted " + coverage +  "% of your skin is affected by psoriasis.");
+    }
+}
+
+class BodyRegionImage {
+    public String name;
+    public int discardPixels;
+    public int totalPixels;
+    public BodyRegionImage(String name, int discardPixels, int totalPixels) {
+        this.name = name;
+        this.discardPixels = discardPixels;
+        this.totalPixels = totalPixels;
     }
 }
