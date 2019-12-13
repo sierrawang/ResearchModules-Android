@@ -86,8 +86,8 @@ class PlaqueBodyMapCompletionImageView : AppCompatImageView {
         val leftBackShift = wOld - (leftFrontShift + bodyWidth)
 
         val topUpperShift = 42.37f
-        val topLowerShiftFront = 146f
-        val topLowerShiftBack = 156f
+        val topLowerShiftFront = 137f
+        val topLowerShiftBack = 145f
 
         coordinates.add(Pair(leftFrontShift/wOld * w, topUpperShift/hOld * h))
         val frontWidth = (bodyWidth/wOld) * w
@@ -103,7 +103,7 @@ class PlaqueBodyMapCompletionImageView : AppCompatImageView {
         val backHeight = backWidth/bitmaps[2].width * bitmaps[2].height
         bitmaps[2] = Bitmap.createScaledBitmap(bitmaps[2], backWidth.toInt(), backHeight.toInt(), false)
 
-        coordinates.add(Pair(leftBackShift/wOld * w, topLowerShiftBack/hOld * h))
+        coordinates.add(Pair((leftBackShift-0.5f)/wOld * w, topLowerShiftBack/hOld * h))
         val backHeight2 = backWidth/bitmaps[3].width * bitmaps[3].height
         bitmaps[3] = Bitmap.createScaledBitmap(bitmaps[3], backWidth.toInt(), backHeight2.toInt(), false)
     }

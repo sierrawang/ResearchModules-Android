@@ -61,7 +61,8 @@
             <org.sagebionetworks.research.modules.psorcast.step.plaque_body_map_completion.PlaqueBodyMapCompletionImageView
                 android:id="@id/rs2_image_view"
                 android:layout_width="match_parent"
-                android:layout_height="375dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="375:376"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
